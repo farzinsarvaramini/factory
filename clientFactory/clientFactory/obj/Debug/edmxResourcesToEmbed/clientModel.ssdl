@@ -1,0 +1,115 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="clientModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="clientModelStoreContainer">
+    <EntitySet Name="Users" EntityType="clientModel.Store.Users" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Reports" EntityType="clientModel.Store.Reports" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Attachments" EntityType="clientModel.Store.Attachments" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ReportCategories" EntityType="clientModel.Store.ReportCategories" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ReportReportCategory" EntityType="clientModel.Store.ReportReportCategory" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK_ReportReportCategory_Report" Association="clientModel.Store.FK_ReportReportCategory_Report">
+      <End Role="Report" EntitySet="Reports" />
+      <End Role="ReportReportCategory" EntitySet="ReportReportCategory" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ReportReportCategory_ReportCategory" Association="clientModel.Store.FK_ReportReportCategory_ReportCategory">
+      <End Role="ReportCategory" EntitySet="ReportCategories" />
+      <End Role="ReportReportCategory" EntitySet="ReportReportCategory" />
+    </AssociationSet>
+    <AssociationSet Name="ReportAttachments" Association="clientModel.Store.ReportAttachments">
+      <End Role="Report" EntitySet="Reports" />
+      <End Role="Attachments" EntitySet="Attachments" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FirstName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="LastName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Email" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="RoleId" Type="int" Nullable="false" />
+    <Property Name="RoleName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Age" Type="smallint" Nullable="false" />
+    <Property Name="EmploymentDate" Type="datetime" Nullable="false" />
+    <Property Name="Resume" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Password" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="AvatarLocation" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="NationalId" Type="int" Nullable="false" />
+    <Property Name="PhoneNumber" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Address" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Gender" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Reports">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Sender_ID" Type="int" Nullable="false" />
+    <Property Name="Sender" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Recipient_ID" Type="int" Nullable="false" />
+    <Property Name="Recipient" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="SendDate" Type="datetime" Nullable="false" />
+    <Property Name="isRead" Type="bit" Nullable="false" />
+    <Property Name="isMark" Type="bit" Nullable="false" />
+    <Property Name="Attachment_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Attachments">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FileLocation" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="uploadTime" Type="time" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ReportCategories">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Title" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ReportReportCategory">
+    <Key>
+      <PropertyRef Name="Reports_Id" />
+      <PropertyRef Name="ReportCategories_Id" />
+    </Key>
+    <Property Name="Reports_Id" Type="int" Nullable="false" />
+    <Property Name="ReportCategories_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="ReportAttachments">
+    <End Role="Report" Type="clientModel.Store.Reports" Multiplicity="*" />
+    <End Role="Attachments" Type="clientModel.Store.Attachments" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Attachments">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Report">
+        <PropertyRef Name="Attachment_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ReportReportCategory_Report">
+    <End Role="Report" Type="clientModel.Store.Reports" Multiplicity="1" />
+    <End Role="ReportReportCategory" Type="clientModel.Store.ReportReportCategory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Report">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ReportReportCategory">
+        <PropertyRef Name="Reports_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ReportReportCategory_ReportCategory">
+    <End Role="ReportReportCategory" Type="clientModel.Store.ReportReportCategory" Multiplicity="*" />
+    <End Role="ReportCategory" Type="clientModel.Store.ReportCategories" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="ReportCategory">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ReportReportCategory">
+        <PropertyRef Name="ReportCategories_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

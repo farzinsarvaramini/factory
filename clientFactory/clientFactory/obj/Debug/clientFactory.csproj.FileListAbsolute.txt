@@ -1,0 +1,12 @@
+D:\dars\c# projects\clientFactory\clientFactory\bin\Debug\clientFactory.exe.config
+D:\dars\c# projects\clientFactory\clientFactory\obj\Debug\clientFactory.csprojResolveAssemblyReference.cache
+D:\dars\c# projects\clientFactory\clientFactory\obj\Debug\clientFactory.Properties.Resources.resources
+D:\dars\c# projects\clientFactory\clientFactory\obj\Debug\clientFactory.csproj.GenerateResource.Cache
+D:\dars\c# projects\clientFactory\clientFactory\bin\Debug\clientFactory.exe
+D:\dars\c# projects\clientFactory\clientFactory\bin\Debug\clientFactory.pdb
+D:\dars\c# projects\clientFactory\clientFactory\bin\Debug\EntityFramework.dll
+D:\dars\c# projects\clientFactory\clientFactory\bin\Debug\EntityFramework.SqlServer.dll
+D:\dars\c# projects\clientFactory\clientFactory\bin\Debug\EntityFramework.xml
+D:\dars\c# projects\clientFactory\clientFactory\bin\Debug\EntityFramework.SqlServer.xml
+D:\dars\c# projects\clientFactory\clientFactory\obj\Debug\clientFactory.exe
+D:\dars\c# projects\clientFactory\clientFactory\obj\Debug\clientFactory.pdb
