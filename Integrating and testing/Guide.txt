@@ -1,0 +1,2 @@
+when all of components of a subsystem create, they will integrate and prepare for testing
+if subsystem work correctly and efficient on all of the test cases then prepare for final product
