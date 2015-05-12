@@ -1,4 +1,5 @@
 // this class handle request actions and work with database
+// this class must design for both of server DbCenter and client DbCenter
 
 using System;
 

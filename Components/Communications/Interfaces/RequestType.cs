@@ -4,9 +4,10 @@ namespace Communication
 {
 
 	enum RequestType {
-		new_report,
-		delete_report,
-		mark_report,
-		read_report
+		get_new, // for get new report and stuffs from server.
+		new_report, // for sending new report
+		delete_report, // for deleting a report
+		mark_report, // for marking a report
+		read_report // for changing report read flag 
 	}
 }
