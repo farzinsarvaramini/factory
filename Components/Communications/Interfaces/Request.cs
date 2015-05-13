@@ -10,10 +10,10 @@ namespace Communication
 		
 		public Request(RequestType type, object content) {
 			_type = type;
-			_content = _content;
+			_content = content;
 		}
 		
-		// this function return json searilize string;
+		// this function return json searilize string
 		public void toString();
 	}
 }
