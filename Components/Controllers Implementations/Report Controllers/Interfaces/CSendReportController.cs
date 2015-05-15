@@ -6,7 +6,6 @@ namespace Controller
 	public class CSendReportController
 	{
         private VSendReportForm _view;
-        private ReportModel _report;
         private List<String> _categories;
         private List<Recipients> _allowedRecipients;
 
@@ -17,10 +16,9 @@ namespace Controller
          * constructor set db, controller and model
          * client must connect to server
          */
-		public CSendReportController (VSendReportForm view, ReportModel model, DbCenter db)
+		public CSendReportController (VSendReportForm view, DbCenter db)
         {
             _view = view;
-            _report = model;
             _db = db;
 			// connecting to server ...
         }
