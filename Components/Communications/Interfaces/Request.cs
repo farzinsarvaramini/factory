@@ -13,17 +13,18 @@ namespace Communication
 	}
 	public class Request
 	{
-		private RequestType _type;
-		private object _content;
+		public RequestType Type {get; set;}
+        public object Content {get; set;}
 		
-		public Request(RequestType type, object content) 
-		{
-			_type = type;
-			_content = content;
-		}
+		public Request(RequestType type, object content)
 		
 		// this function return JSON serialize string
 		public string ToJson();
+		
+		/* this function get JSON of Request
+		   and Deserialize it and return Request object
+		*/
+		public Request ToRequest(string str);
 	}
 }
 

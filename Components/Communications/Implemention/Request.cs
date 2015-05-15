@@ -18,15 +18,15 @@ namespace factory_communication
 
     class Request
     {
-        private RequestType _type;
-        private object _content;
+        public RequestType Type {get; set;}
+        public object Content {get; set;}
+
 
         public Request(RequestType type, object content)
         {
-            _type = type;
-            _content = content;
-        }
-        
+            this.Type = type;
+            this.Content = content;
+        }     
 
         public string ToJson()
         {
@@ -34,5 +34,10 @@ namespace factory_communication
             return json;
         }
 
+        public Request ToRequest(string str)
+        {
+            Request req = new JavaScriptSerializer().Deserialize<Request>(str);
+            return req;
+        }
     }
 }

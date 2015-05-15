@@ -20,7 +20,7 @@ namespace Communication
 		 * this function receive request and do appropriate action and communicate with DB
 		 * return value is a Response
 		 */
-		public Response ExeRequest(Request r);
+		public Response ExeRequest(string req);
 
 		/*
 		 * this function add new report to database
