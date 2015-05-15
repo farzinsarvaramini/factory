@@ -5,47 +5,43 @@ using System;
 
 namespace Communication
 {
-	struct Message 
-	{
-		int success; // 0 for success and 1 for fail
-		string message;
-	}
 
 	public class RequestManager 
 	{
 		private DbCenter _dbcenter;
+		private Response _response;
 
 		/*
-		 * constructor set Db and connect to db
+		 * constructor set DB and connect to DB
 		 */
 		public RequestManager (DbCenter db);
 
 		/*
-		 * this function receive request and do appropriate action and communicate with db
-		 * return value is a Message struct
+		 * this function receive request and do appropriate action and communicate with DB
+		 * return value is a Response
 		 */
-		public Message ExeRequest(Request r);
+		public Response ExeRequest(Request r);
 
 		/*
 		 * this function add new report to database
 		 * notify to recipient that has new report
 		 * and change flag table
-		 * return value is a Message struct
+		 * return value is a Response
 		 */
-		private Message newReport(Report r);
+		private Response newReport(Report r);
 
 		/*
 		 * this function delete one report and relations from db
 		 * delete attachment file from server repository
-		 * return value is a Message struct
+		 * return value is a Response
 		 */
-		private Message deleteReport(int reportId);
+		private Response deleteReport(int reportId);
 
 		/*
 		 * these functions change mark and read flag report in db
 		 */
-		private Message markReport(int reportId);
-		private Message readReport(int reportId);
+		private Response markReport(int reportId);
+		private Response readReport(int reportId);
 
 	}
 }

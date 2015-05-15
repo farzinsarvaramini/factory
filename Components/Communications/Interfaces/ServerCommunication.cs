@@ -1,70 +1,38 @@
 using System;
 using System.Net.Sockets;
 
-namespace Communication
+namespace factory_communication
 {
 	enum Response
-	{
-		SUCCESS = 0,
-		FAIL = 1,
-		WAITING = 2,
-		NOT_RESPONSE = 3
-	}
-
-	class ClientCommunication
-	{
-		// necessary attributes
-		private Socket _clientSocket;
-		private string _ip;
-		private string _receivedPath;
-		private int _port; 
+        {
+            SUCCESS = 0,
+            FAIL = 1,
+            WAITING = 2,
+            No_Response = 3
+        }
+		
+    class ServerCommunication
+    {
+        public string _receivedPath;
+        private int _port;
 		private Response _response;
-		private DbCenter _dbClient;
+        private Socket serverSocket
+        private DbCenter _dbCenter;
 
-		/* 
-		 * in constructor set DbCenter
-		 */
-		public ClientCommunication (DbCenter db);
+        public ServerCommunication ()
 
-		/*
-		 * this function connect client to server.
-		 * return false if connected to server
-		 * 				else return true
-		 * new thread must create that in infinity loop check response events.
-		 */
-		public bool Connect();
+		public void AcceptClientCallBack()
+	    
+        private void RecieveRequestCallBack(IAsyncResult AR)
 
-		/*
-		 * this function disconnect from server and close current socket
-		 * return true if disconnecting is successfully else return false
-		 */
-		public bool Disconnect();
+		private void SendResponse(string response, Socket socket)
 
-		/*
-		 * this function is base of our communications.
-		 * request parameter is a Request object which include our request details
-		 * Request object has toString() method that return JSON searilize string what we must send it to server
-		 * for sending we must construct new thread and send message among it.
-		 * if we wait more than TimeOut and server doesn't response anything, FAIL response occurred.
-		 * this function return response of our request
-		 * lastRequest should be update
-		 * this function communicate with client DbCenter
-		 */
-		public void SendRequest(Request request);
+        private void ReceiveFile(Socket clientSocket)
 
-		/*
-		 * this function upload file to server.
-		 * also for sending file, we need to new thread
-		 * if we wait more than TimeOut and server doesn't response anything, FAIL response occurred.
-		 * during sending file to server, server response is WAITING. (in future we must grab send file process percent)
-		 */
-		public void SendFile(string fileLocation);
+        public void SendFile(string fileName, Socket clientSocket)
 
-		/*
-		 * this function download a file from server and give it to DbCenter.
-		 * when client receive a new request which has files, this function called and receive files.
-		 */
-		private void ReceiveFile();
+        public void Shutdown()
 
 	}
+
 }

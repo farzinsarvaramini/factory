@@ -14,7 +14,7 @@ namespace factory_communication
 
     class ClientCommunication
     {
-        enum Response
+		enum Response
         {
             SUCCESS = 0,
             FAIL = 1,

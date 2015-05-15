@@ -3,16 +3,18 @@ using System.Net.Sockets;
 
 namespace Communication
 {
-	enum Response
-	{
-		SUCCESS = 0,
-		FAIL = 1,
-		WAITING = 2,
-		NOT_RESPONSE = 3
-	}
+
 
 	class ClientCommunication
 	{
+		enum Response
+		{
+			SUCCESS = 0,
+			FAIL = 1,
+			WAITING = 2,
+			NOT_RESPONSE = 3
+		}
+		
 		// necessary attributes
 		private Socket _clientSocket;
 		private string _ip;

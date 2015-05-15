@@ -11,17 +11,16 @@ using System.IO;
 
 namespace factory_communication
 {
-
-    class ServerCommunication
-    {
-        enum Response
+	enum Response
         {
             SUCCESS = 0,
             FAIL = 1,
             WAITING = 2,
             No_Response = 3
         }
-
+		
+    class ServerCommunication
+    {
         public string _receivedPath;
         private int _port;
         private Socket serverSocket = new Socket
