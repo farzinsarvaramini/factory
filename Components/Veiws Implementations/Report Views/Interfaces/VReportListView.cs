@@ -6,7 +6,7 @@ namespace View
 	public class VReporListView
 	{
 		private CViewReportController _controller;
-		private List<Report> _reports;
+		private List<Tuple<Report, ReportCategory, Attachment>> _reports;
 		private int _selectedReportId;
 		private string _searchTitle;
 		private string _searchCategory;
@@ -14,7 +14,7 @@ namespace View
 		private Date _searchDateStart;
 		private Date _searchDateEnd;
 		
-		public VReporListView (CSendReportController c)
+		public VReporListView (CViewReportController c)
 		{
 			this._controller = c;
 		}
@@ -26,52 +26,41 @@ namespace View
 		public void close();
 
 		/*
-		 * this function return id of selected report
 		 * this function update _selectedReportId
+		 * this function return id of selected report
 		 */
 		public int getSelectedReportId();
-		
-		// this function return new report title
-		public string getTitle();
-		
-		// this function return new report description
-		public string getTDescription();
-		
-		// this function return id of selected recipienter
-		public int getRecipientID();
-		
-		// this function return title if selected category
-		public string getCategoryTitle();
-		
-		/* 
-		 * this function set list of categories which show in form
-		 * this list provided by controller
-		 * controller ask this list from DbCenter and pass it to this form
+
+		/*
+		 * this function add new report to list
+		 * gui must updated
 		 */
-		public void setCategoriesList(List<Category> cl);
+		public void addNewReport(Tuple<addNewReport, ReportCategory, Attachment> report);
+
+		// this function delete a report from list in gui
+		public void deleteFromList(int id);
 		
-		/* 
-		 * this function set list of recipienters which this user can send report to them
-		 * this list provided by controller
-		 * controller ask this list from DbCenter and pass it to this form
+		// this function return search title in text box
+		public string getSearchTitle();
+
+		// this function return id of selected user in search comboBox
+		public int getSearchUser();
+		
+		// this function return title if selected category in search group
+		public string getSearchCategory();
+
+		// these functions return start and end report date in search section
+		public DateTime getSearchStartDate();
+		public DateTime getSearchEndDate();
+		
+		/*
+		 * these functions called when events occur.
+		 * every function corresponding function in controller
 		 */
-		public void setRecipientsList(List<Recipient> r);
-		
-		// this function return attachments location in client system
-		public string getAttachment();
-		
-		/* 
-		 * when user click on send button this function called.
-		 * if everything entered by user this function call correspondig function in controller
-		 * else show error message to user and ask him(her) to fill all of fields
-		 */
-		public void send();
-		
-		/* 
-		 * when user click on cancel button this function called.
-		 * all of the text boxes should be empty
-		 */
-		public void cancel();
+		private void deleteEvent();
+		private void markEvent();
+		private void showEvent();
+		private void searchEvent();
 	}
 }
 
