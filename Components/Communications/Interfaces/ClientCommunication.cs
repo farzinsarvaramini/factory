@@ -52,7 +52,7 @@ namespace Communication
 		 * lastRequest should be update
 		 * this function communicate with client DbCenter
 		 */
-		public void SendRequest(Request request);
+		public string SendRequest(Request request);
 
 		/*
 		 * this function upload file to server.
@@ -66,7 +66,9 @@ namespace Communication
 		 * this function download a file from server and give it to DbCenter.
 		 * when client receive a new request which has files, this function called and receive files.
 		 */
-		private void ReceiveFile();
+		public void ReceiveFile();
+		
+
 
 	}
 }

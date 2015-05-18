@@ -21,7 +21,12 @@ namespace Communication
 		 * return value is a Response
 		 */
 		public Response ExeRequest(string req);
-
+		
+		/*
+			this function determine that request has file or not.
+		*/
+		public bool HasFile(request req);
+		
 		/*
 		 * this function add new report to database
 		 * notify to recipient that has new report

@@ -11,21 +11,23 @@ using System.IO;
 
 namespace factory_communication
 {
-	enum Response
-        {
-            SUCCESS = 0,
-            FAIL = 1,
-            WAITING = 2,
-            No_Response = 3
-        }
-		
+    enum Response
+    {
+        SUCCESS = 0,
+        FAIL = 1,
+        WAITING = 2,
+        NO_RESPONSE = 3
+    }
+
     class ServerCommunication
     {
+
         public string _receivedPath;
         private int _port;
         private Socket serverSocket = new Socket
             (AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
         // private DbCenter _dbCenter;
+
 
         public ServerCommunication ()
 		{
@@ -37,25 +39,41 @@ namespace factory_communication
         {
             serverSocket.Bind(new IPEndPoint(IPAddress.Any, _port));
             serverSocket.Listen(100);
-            serverSocket.BeginAccept(new AsyncCallback(RecieveRequestCallBack), null);
-
-           
+            serverSocket.BeginAccept(new AsyncCallback(RecieveRequestCallBack), null);  
         }
 	    
         private void RecieveRequestCallBack(IAsyncResult AR)
         {
+            Response response;
             Socket sck = serverSocket.EndAccept(AR);
-
-            //byte[] request = new byte[1024];
-            // request manager would be here
-            ReceiveFile(sck);
-
+            try
+            {
+                // Recieve request in Byte
+                byte[] requestByte = new byte[1024 * 8];
+                sck.Receive(requestByte, 0, requestByte.Length, 0);
+                // Convert request to Request object
+                string recievedJson = Encoding.ASCII.GetString(requestByte);
+                Request request = Request.ToRequest(recievedJson);
+                // Execute request
+                RequestManager reqMan = RequestManager.Instance;
+                response = reqMan.ExeRequest(request);
+                // Handle file if they exist
+                if(reqMan.HasFile(request))
+                {
+                    ReceiveFile(sck);
+                }
+            }
+            catch(Exception ex)
+            {
+                response = Response.FAIL;
+            }
+            SendResponse(response.ToString(), sck);
             serverSocket.BeginAccept(new AsyncCallback(RecieveRequestCallBack), 0);
         }
 
 		private void SendResponse(string response, Socket socket)
         {
-            // send response : Json or string?
+            
         }
 		
         private void ReceiveFile(Socket clientSocket)
@@ -132,16 +150,14 @@ namespace factory_communication
             catch (Exception ex)
             {
                 if (ex.Message == "No connection could be made because the target machine actively refused it") // No connection.
-                    response = Response.No_Response;
+                    response = Response.NO_RESPONSE;
                 else  // File Sending fail.
                     response = Response.FAIL;
             }
         }
 
-        public void Shutdown()
+        private void Shutdown()
         {
-            
-            serverSocket.Shutdown(SocketShutdown.Both);
             serverSocket.Close();            
         }
 	}

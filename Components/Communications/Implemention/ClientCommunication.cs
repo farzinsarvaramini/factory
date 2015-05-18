@@ -14,12 +14,12 @@ namespace factory_communication
 
     class ClientCommunication
     {
-		enum Response
+        enum Response
         {
             SUCCESS = 0,
             FAIL = 1,
             WAITING = 2,
-            No_Response = 3
+            NO_RESPONSE = 3
         }
 
         private Socket _clientSocket = new Socket
@@ -44,6 +44,7 @@ namespace factory_communication
             int attempt = 0;
             try
             {
+                _response = Response.WAITING;
                 do
                 {               
                         attempt++;
@@ -51,12 +52,14 @@ namespace factory_communication
                         if (attempt > maxAttempt) throw new Exception("too many attempts for connecting client to server !!!");
                         if (_clientSocket.Connected)
                         {
+                            _response = Response.SUCCESS;
                             return true;
                         }
                 } while (!_clientSocket.Connected);
             }
             catch
            {
+               _response = Response.NO_RESPONSE;
                return false;
            }
             return false;
@@ -64,13 +67,20 @@ namespace factory_communication
 
         public string SendRequest(Request request) 
         {
-            byte[] sendData = Encoding.ASCII.GetBytes(request.ToString());
-            _clientSocket.Send(sendData);
-
-            byte[] response = new byte[1024];
-            _clientSocket.Receive(response, 0, response.Length, 0);
-
-            return Encoding.ASCII.GetString(response);
+            try
+            {
+                string json = request.ToJson();
+                byte[] sendData = Encoding.ASCII.GetBytes(json);
+                _clientSocket.Send(sendData);
+                byte[] response = new byte[1024];
+                _clientSocket.Receive(response, 0, response.Length, 0);
+                return Encoding.ASCII.GetString(response);
+            }
+            catch(Exception ex)
+            {
+                _response = Response.FAIL;
+                return ex.ToString();
+            }
         } 
 
         public void SendFile(string fileName)
@@ -112,7 +122,7 @@ namespace factory_communication
             {
                 if (ex.Message == "No connection could be made because the target machine actively refused it")
                     // No connection.
-                   _response = Response.No_Response;
+                   _response = Response.NO_RESPONSE;
                 else 
                     // File Sending fail.
                     _response = Response.FAIL;
@@ -154,9 +164,8 @@ namespace factory_communication
             }
         }
 
-        public void Disconnect()
+        private void Disconnect()
         {
-            //clientSocket.Shutdown(SocketShutdown.Both);
             _clientSocket.Close();
         }
     } 
