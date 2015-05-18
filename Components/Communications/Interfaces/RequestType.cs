@@ -6,7 +6,7 @@ namespace Communication
 	enum RequestType {
 		get, // for get new report and stuffs from server.
 		/*
-		 * { // report
+		 * { // Report
 		 * 	{
 		 * 		sender_id,
 		 * 		sender,
@@ -17,11 +17,11 @@ namespace Communication
 		 * 		isMark,
 		 * 		description,
 		 * 	},
-		 * 	// category
+		 * 	// ReportCategory
 		 * 	{
 		 * 		title
 		 * 	},
-		 * 	// attachment
+		 * 	// Attachments
 		 * 	{
 		 * 		file_name
 		 * 	}

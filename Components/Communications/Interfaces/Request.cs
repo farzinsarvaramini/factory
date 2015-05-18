@@ -1,4 +1,4 @@
-using System;
+wusing System;
 using Communication.RequestType;
 
 namespace Communication
@@ -14,14 +14,20 @@ namespace Communication
 	public class Request
 	{
 		public RequestType Type {get; set;}
-        public object Content {get; set;}
+        public object[] Content {get; set;}
+		public string[] jsonContent {get; set;}
 		
 		public Request(RequestType type, object content)
 		
-		// this function return JSON serialize string
+		/* 
+		   this function return JSON serialize string
+		   and convert objects of content into JSON and save
+		   them in jsonContetnt.
+		*/
 		public string ToJson();
 		
-		/* this function get JSON of Request
+		/*
+		   this function get JSON of Request
 		   and Deserialize it and return Request object
 		*/
 		public Request ToRequest(string str);

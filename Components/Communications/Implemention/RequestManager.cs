@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using clientFactory;
+using System.Windows.Forms;
+using System.Web.Script.Serialization;
 
 namespace factory_communication
 {
@@ -18,13 +21,25 @@ namespace factory_communication
 
         public Response ExeRequest(Request req)
         {
-            
+            switch (req.Type)
+            {
+                case RequestType.New_Report:
+                    Report report = req.ToModel<Report>(0);
+                    ReportCategory category = req.ToModel<ReportCategory>(1);
+                    Attachments att = req.ToModel<Attachments>(2);
+
+                    break;
+                case RequestType.Get:
+
+                    break;
+            }
+
             return _response;
         }
 
         private Response NewReport()
         {
-            
+
             return _response;
         }
 
