@@ -14,11 +14,19 @@ namespace clientFactory
     
     public partial class Report
     {
-        public Report()
+        public Report(int senderId, string sender, int recipientId, string recipient, string description, string title,
+     Attachments attach = null, ReportCategory repCat = null)
         {
-            this.ReportCategories = new HashSet<ReportCategory>();
+            Sender_ID = senderId;
+            Sender = sender;
+            Recipient_ID = recipientId;
+            Recipient = recipient;
+            Description = description;
+            //add title here
+            Attachment = attach;
+            ReportCategory = repCat;
         }
-    
+
         public int Id { get; set; }
         public int Sender_ID { get; set; }
         public string Sender { get; set; }
@@ -28,8 +36,9 @@ namespace clientFactory
         public bool isRead { get; set; }
         public bool isMark { get; set; }
         public string Description { get; set; }
+        public string Title { get; set; }
     
-        public virtual ICollection<ReportCategory> ReportCategories { get; set; }
         public virtual Attachments Attachment { get; set; }
+        public virtual ReportCategory ReportCategory { get; set; }
     }
 }

@@ -48,6 +48,9 @@ namespace clientFactory
 		public string getCategoryTitle(){
             return ReportView.category_combobox.Text.ToString();
         }
+        public Int32 getCategoryId(){
+            return (Int32) ReportView.category_combobox.SelectedValue;
+        }
 
 		/* this function set list of categories which show in form
 		 * this list provided by controller
@@ -90,5 +93,7 @@ namespace clientFactory
 		 * all of the text boxes should be empty
 		 */
 		public void cancel();
+
+ 
 	}
 }

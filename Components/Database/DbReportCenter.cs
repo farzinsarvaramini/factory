@@ -31,9 +31,10 @@ namespace clientFactory
             newReport.SendDate = r.SendDate;
             newReport.isRead = r.isRead;
             newReport.isMark = r.isMark;
+            newReport.Title = r.Title;
             if(atach!=null)
                 newReport.Attachment = atach;
-            newReport.ReportCategories.Add(rc);
+            newReport.ReportCategory = rc;
             clientDb.Reports.Add(newReport);
             try{
                 clientDb.SaveChanges();
@@ -43,6 +44,32 @@ namespace clientFactory
             catch{
                 return false;
             }
+        }
+
+        public ReportCategory getReportCategory(Int32 Id)
+        {
+            var RepCat = clientDb.ReportCategories.Where(s => s.Id == Id).First();
+            return RepCat;
+        }
+
+        public bool newAttachment(Report r,string fileLoc){
+            
+            Attachments newAtach = clientDb.Attachments.Create();
+            newAtach.FileLocation = fileLoc;
+            newAtach.Report = r;
+            newAtach.uploadTime = DateTime.Now;
+            clientDb.Attachments.Add(newAtach);
+            try
+            {
+                clientDb.SaveChanges();
+               // Console.WriteLine(r.Id.ToString() + "is Added");
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+
         }
 
 
@@ -74,6 +101,7 @@ namespace clientFactory
             Report r = clientDb.Reports.Where(iid => iid.Id == id).First();
             return r;
         }
+
 
 
 
