@@ -40,6 +40,17 @@ namespace Database
 		 * return value is result
 		 */
 		public bool ReadReport(int id);
+
+		/*
+		 * this function return server report id in database
+		 * only in client side
+		 */
+		public int GetServerReportId(int reportId);
+
+		/*
+		 * this function return details of a report
+		 */
+		public Tuple<Report, ReportCategory, Attachments> GetReportDetails (int reportId);
 	}
 }
 
