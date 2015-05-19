@@ -51,6 +51,12 @@ namespace Database
 		 * this function return details of a report
 		 */
 		public Tuple<Report, ReportCategory, Attachments> GetReportDetails (int reportId);
+
+		/*
+		 * this function return list of new report for any user
+		 * symbol of new report in server is isRead flag
+		 */
+		public List<Tuple<Report, ReportCategory, Attachments>> GetNewReports (int user_id);
 	}
 }
 
