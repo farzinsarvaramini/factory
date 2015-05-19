@@ -45,7 +45,7 @@ namespace Communication
 		/*
 		 * this function is base of our communications.
 		 * request parameter is a Request object which include our request details
-		 * Request object has toString() method that return JSON searilize string what we must send it to server
+		 * Request object has toString() method that return JSON serialize string what we must send it to server
 		 * for sending we must construct new thread and send message among it.
 		 * if we wait more than TimeOut and server doesn't response anything, FAIL response occurred.
 		 * this function return response of our request
@@ -67,6 +67,11 @@ namespace Communication
 		 * when client receive a new request which has files, this function called and receive files.
 		 */
 		public void ReceiveFile();
+		
+		/*
+			this function return Client Socket.
+		*/
+		public socket GetSocket();
 		
 
 

@@ -35,18 +35,6 @@ namespace Communication
 		 */
 		private Response newReport(Report r);
 
-		/*
-		 * this function delete one report and relations from db
-		 * delete attachment file from server repository
-		 * return value is a Response
-		 */
-		private Response deleteReport(int reportId);
-
-		/*
-		 * these functions change mark and read flag report in db
-		 */
-		private Response markReport(int reportId);
-		private Response readReport(int reportId);
 
 	}
 }

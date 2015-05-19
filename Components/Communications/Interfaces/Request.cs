@@ -9,7 +9,8 @@ namespace Communication
 		New_Report, // for sending new report
 		Delete_Report, // for deleting a report
 		Mark_Report, // for marking a report
-		Read_Report // for changing report read flag 
+		Read_Report, // for changing report read flag 
+		Download     // for download attachment client send this type.
 	}
 	public class Request
 	{

@@ -28,8 +28,18 @@ namespace factory_communication
         private int _port;
         private string _receivedPath;
 		private Response _response;
+        public static ClientCommunication _instance;
 		//private DbCenter _dbClient;
 
+        public static ClientCommunication Instance
+        {
+            get
+            {
+                if (_instance == null)
+                    _instance = new ClientCommunication();
+                return _instance;
+            }
+        }
 
         public ClientCommunication()
         {
@@ -70,6 +80,7 @@ namespace factory_communication
             try
             {
                 string json = request.ToJson();
+                Request re = Request.ToRequest(json);
                 byte[] sendData = Encoding.ASCII.GetBytes(json);
                 _clientSocket.Send(sendData);
                 byte[] response = new byte[1024];
@@ -113,7 +124,6 @@ namespace factory_communication
                     {
                         clientStream.Write(buffer, 0, count);
                     }
-                    clientStream.Close();
                     // File transferred.
                 }
                 _response = Response.SUCCESS;
@@ -130,7 +140,7 @@ namespace factory_communication
 
         }
 
-        private void ReceiveFile(Socket serverSocket)
+        public void ReceiveFile(Socket serverSocket)
         {
             try
             {
@@ -156,7 +166,6 @@ namespace factory_communication
                         fileData.Write(buffer, 0, count);
                         bytesReceived += count;
                     }
-                serverSocket.Close();
             }
             catch (Exception ex)
             {
@@ -167,6 +176,11 @@ namespace factory_communication
         private void Disconnect()
         {
             _clientSocket.Close();
+        }
+
+        public Socket GetSocket()
+        {
+            return _clientSocket;
         }
     } 
 }

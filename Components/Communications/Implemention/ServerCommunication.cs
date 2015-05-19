@@ -27,12 +27,23 @@ namespace factory_communication
         private Socket serverSocket = new Socket
             (AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
         // private DbCenter _dbCenter;
+        public static ServerCommunication _instance;
 
+
+        public static ServerCommunication Instance
+        {
+            get
+            {
+                if (_instance == null)
+                    _instance = new ServerCommunication();
+                return _instance;
+            }
+        }
 
         public ServerCommunication ()
 		{
             _port = 101;
-            _receivedPath = ""; // defualt path must be added
+            _receivedPath = "E:\\"; // defualt path must be added
         }		
 
 		public void AcceptClientCallBack()
@@ -48,19 +59,24 @@ namespace factory_communication
             Socket sck = serverSocket.EndAccept(AR);
             try
             {
-                // Recieve request in Byte
-                byte[] requestByte = new byte[1024 * 8];
+                // Recieve request in Byte.
+                byte[] requestByte = new byte[1024 * 2];
                 sck.Receive(requestByte, 0, requestByte.Length, 0);
-                // Convert request to Request object
-                string recievedJson = Encoding.ASCII.GetString(requestByte);
+                // Convert request to Request object.
+                string recievedJson = Encoding.ASCII.GetString(requestByte).Replace("\0", "");;
                 Request request = Request.ToRequest(recievedJson);
-                // Execute request
+                // Execute request.
                 RequestManager reqMan = RequestManager.Instance;
                 response = reqMan.ExeRequest(request);
-                // Handle file if they exist
+                // Recieve file if they exist.
                 if(reqMan.HasFile(request))
                 {
                     ReceiveFile(sck);
+                }
+                // Send file for client if request id download.
+                if(reqMan.HasDownload(request) != null)
+                {
+                    SendFile(reqMan.HasDownload(request), sck);
                 }
             }
             catch(Exception ex)
@@ -73,7 +89,8 @@ namespace factory_communication
 
 		private void SendResponse(string response, Socket socket)
         {
-            
+            byte[] res = Encoding.ASCII.GetBytes(response);
+            socket.Send(res);
         }
 		
         private void ReceiveFile(Socket clientSocket)
@@ -102,7 +119,6 @@ namespace factory_communication
                         fileData.Write(buffer, 0, count);
                         bytesReceived += count;
                     }
-                clientSocket.Close();
             }
             catch (Exception ex)
             {
@@ -142,7 +158,6 @@ namespace factory_communication
                     {
                         clientStream.Write(buffer, 0, count);
                     }
-                    clientSocket.Close();
                     // File transferred.
                 }
                 response = Response.SUCCESS;
