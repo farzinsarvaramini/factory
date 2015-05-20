@@ -25,24 +25,69 @@ namespace clientFactory
             InitializeComponent();
         }
 
-        private void Delete_Click(object sender, RoutedEventArgs e)
-        {
 
-        }
+        //private CViewReportController _controller;
+        //private DateTime _date;
+        //private bool _isSendingReport;
+        //private string _senderOrRecepient;
+        //private string _description;
+        //private string _attachmentFileName;
+        //private string[] _categories;
 
-        private void Mark_Click(object sender, RoutedEventArgs e)
-        {
+        //public ReportView (CViewReportController c)
+        //{
+        //    this._controller = c;
+        //}
 
-        }
+        //public void show(){
+        //    this.show();
+        //}
+        //public void close(){
+        //    this.close();
+        //}
 
-        private void Print_Click(object sender, RoutedEventArgs e)
-        {
+        ///*
+        // * setter functions for private attributes
+        // */
 
-        }
+        //// these function called when events occur and call corresponding function in controller
+        //private void printEvent(){
 
-        private void Back_Click(object sender, RoutedEventArgs e)
-        {
+        //}
+        //private void markEvent(){
+        //    _controller.MarkReport();
+        //}
+        //private void deleteEvent(){
+        //    _controller.DeleteReport();
+        //}
+        //private void downloadEvent(){
+            
+        //}
 
-        }
+
+        ///// <summary>
+        ///// /////////////////////////////////////////////////////////////////////////
+        ///// </summary>
+        ///// <param name="sender"></param>
+        ///// <param name="e"></param>
+        //private void Delete_Click(object sender, RoutedEventArgs e)
+        //{
+
+        //}
+
+        //private void Mark_Click(object sender, RoutedEventArgs e)
+        //{
+
+        //}
+
+        //private void Print_Click(object sender, RoutedEventArgs e)
+        //{
+
+        //}
+
+        //private void Back_Click(object sender, RoutedEventArgs e)
+        //{
+
+        //}
     }
 }

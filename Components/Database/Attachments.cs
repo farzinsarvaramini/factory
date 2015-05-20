@@ -14,6 +14,7 @@ namespace clientFactory
     
     public partial class Attachments
     {
+
         public int Id { get; set; }
         public string FileLocation { get; set; }
         public System.DateTime uploadTime { get; set; }
