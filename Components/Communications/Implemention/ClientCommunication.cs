@@ -75,7 +75,15 @@ namespace factory_communication
             return false;
         }
 
-        public string SendRequest(Request request) 
+        public void RecieveResponse(Socket socket)
+        {
+            byte[] recived = new byte[1024];
+            socket.Receive(recived, 0, recived.Length, 0);
+            int res = BitConverter.ToInt32(recived, 0);
+            _response = (Response)res;
+        }
+
+        public Response SendRequest(Request request) 
         {
             try
             {
@@ -83,18 +91,17 @@ namespace factory_communication
                 Request re = Request.ToRequest(json);
                 byte[] sendData = Encoding.ASCII.GetBytes(json);
                 _clientSocket.Send(sendData);
-                byte[] response = new byte[1024];
-                _clientSocket.Receive(response, 0, response.Length, 0);
-                return Encoding.ASCII.GetString(response);
+                _response = RecieveResponse(_clientSocket);
+                return _response;
             }
             catch(Exception ex)
             {
                 _response = Response.FAIL;
-                return ex.ToString();
+                return _response;
             }
         } 
 
-        public void SendFile(string fileName)
+        public Response SendFile(string fileName)
         {
             try
             {
@@ -126,7 +133,7 @@ namespace factory_communication
                     }
                     // File transferred.
                 }
-                _response = Response.SUCCESS;
+                RecieveResponse(_clientSocket);
             }
             catch (Exception ex)
             {
@@ -137,10 +144,10 @@ namespace factory_communication
                     // File Sending fail.
                     _response = Response.FAIL;
             }
-
+            return _response;
         }
 
-        public void ReceiveFile(Socket serverSocket)
+        public Response RecieveFile(Socket serverSocket)
         {
             try
             {
@@ -166,11 +173,13 @@ namespace factory_communication
                         fileData.Write(buffer, 0, count);
                         bytesReceived += count;
                     }
+                RecieveResponse(_clientSocket);
             }
             catch (Exception ex)
             {
-                // Exception
+                _response = Response.FAIL;
             }
+            return _response;
         }
 
         private void Disconnect()
