@@ -44,10 +44,22 @@ namespace factory_communication
                     // save report in Db of server.
                     break;
 
-                case RequestType.Get:
+                //case RequestType.Get:
+                //    int id = req.ToModel<int>(0);
+                //    Event[] events = _dbCenter.GetNew(id);
+                //    for (int i = 0; i < events.Length; ++i)
+                //    {
+                //        switch(events[i])
+                //        {
+                //            case Event.NEW_REPORT:
+                //                List<Tuple<Report, ReportCategory, Attachments>> news;
+                //                news = _dbcenter.GetNewReports(id);
 
+                //                break;
+                //        }
+                            
+                //    }
                     break;
-
 
             }
 
@@ -73,9 +85,9 @@ namespace factory_communication
             return location;
         }
 
-        private Response NewReport()
+        private Response NewReport(Report report, ReportCategory category, Attachments attachment)
         {
-
+            //_dbCenter.NewReport(report, category, attachment);
             return _response;
         }
 

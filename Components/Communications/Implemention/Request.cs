@@ -14,7 +14,7 @@ namespace factory_communication
         Delete_Report,
         Mark_Report,
         Read_Report,
-		Download
+        Download
     }
 
     class Request

@@ -40,7 +40,7 @@ namespace factory_communication
             }
         }
 
-        public ServerCommunication ()
+        public ServerCommunication()
 		{
             _port = 101;
             _receivedPath = "E:\\"; // defualt path must be added
@@ -56,6 +56,7 @@ namespace factory_communication
         private void RecieveRequestCallBack(IAsyncResult AR)
         {
             Response response;
+            Response fileResponse;
             Socket sck = serverSocket.EndAccept(AR);
             try
             {
@@ -69,32 +70,35 @@ namespace factory_communication
                 RequestManager reqMan = RequestManager.Instance;
                 response = reqMan.ExeRequest(request);
                 // Recieve file if they exist.
+                SendResponse(response, sck);
                 if(reqMan.HasFile(request))
                 {
-                    ReceiveFile(sck);
+                    fileResponse = RecieveFile(sck);
+                    SendResponse(fileResponse, sck);
                 }
                 // Send file for client if request id download.
                 if(reqMan.HasDownload(request) != null)
                 {
-                    SendFile(reqMan.HasDownload(request), sck);
+                    fileResponse = SendFile(reqMan.HasDownload(request), sck);
+                    SendResponse(fileResponse, sck);
                 }
             }
             catch(Exception ex)
             {
                 response = Response.FAIL;
             }
-            SendResponse(response.ToString(), sck);
             serverSocket.BeginAccept(new AsyncCallback(RecieveRequestCallBack), 0);
         }
 
-		private void SendResponse(string response, Socket socket)
+		private void SendResponse(Response response, Socket socket)
         {
-            byte[] res = Encoding.ASCII.GetBytes(response);
+            byte[] res = Encoding.ASCII.GetBytes(response.ToString());
             socket.Send(res);
         }
 		
-        private void ReceiveFile(Socket clientSocket)
+        private Response RecieveFile(Socket clientSocket)
         {
+            Response response = Response.WAITING;
             try
             {
                 Stream clientStream = new NetworkStream(clientSocket);
@@ -119,17 +123,18 @@ namespace factory_communication
                         fileData.Write(buffer, 0, count);
                         bytesReceived += count;
                     }
+                response = Response.SUCCESS;
             }
             catch (Exception ex)
             {
-                // Exception
-                // change and send response
+                response = Response.FAIL;
             }
+            return response;
         }
 
-        public void SendFile(string fileName, Socket clientSocket)
+        private Response SendFile(string fileName, Socket clientSocket)
         {
-            Response response;
+            Response response = Response.WAITING;
             try
             {
                 string filePath = "";
@@ -169,10 +174,12 @@ namespace factory_communication
                 else  // File Sending fail.
                     response = Response.FAIL;
             }
+            return response;
         }
 
         private void Shutdown()
         {
+            serverSocket.Shutdown(SocketShutdown.Both);
             serverSocket.Close();            
         }
 	}
