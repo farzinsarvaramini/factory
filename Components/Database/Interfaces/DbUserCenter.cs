@@ -1,16 +1,8 @@
 using System;
+using System.Collections.Generic;
 
 namespace Database
 {
-	enum Event {
-		NEW_REPORT
-	}
-
-	struct Message {
-		int success; // 0 for success and 1 for fail
-		string message;
-	}
-
 	public class DbUserCenter
 	{
 
@@ -22,21 +14,35 @@ namespace Database
 		}
 
 		/*
-		 * this function return a user new events
-		 * if user hasn't new event return empty array
-		 * checked flag table in database
+		 * this function add a user to database
+		 * this funtion implements in both of client and server
 		 */
-		public Event[] GetNew (int user_id);
+		public bool AddUser(User usr);
 
 		/*
-		 * this function check username and password for login and return a message struct
-		 * error massage: Dont exist username
-		 * error message: Dont match password
-		 * success message: ok
+		 * this function returns details of one user
+		 * this funtion implements in both of client and server
 		 */
-		public Message LoginCheck (string user_name, string password);
+		public User GetUserDetails(int user_id);
 
+		/*
+		 * this function return list of new users which create by Admin that related to user_id 
+		 * this function implement only for server
+		 */
+		public List<User> GetNewUsers (int user_id);
 
+		/*
+		 * this fuction set a user as default user
+		 * this function must change IsDefault field in database to true
+		 * this function implement only for client
+		 */
+		public void SetDefaultUser(int user_id);
+
+		/*
+		 * this function return Default user
+		 * this function implement only for client
+		 */
+		public User GetDefaultUser();
 	}
 }
 

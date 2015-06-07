@@ -45,5 +45,11 @@ namespace Communication
 		 * }
 		 */
 		read_report // for changing report read flag 
+		/*
+		 * {
+		 * 		user_name
+		 * }
+		 */
+		get_user;
 	}
 }

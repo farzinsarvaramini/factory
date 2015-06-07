@@ -8,7 +8,7 @@ namespace Database
 
 		public DbReportCenter ()
 		{
-			instance = this; // skeleton patern
+			instance = this; // singleton patern
 		}
 
 		/*
