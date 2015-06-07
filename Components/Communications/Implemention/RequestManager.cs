@@ -37,14 +37,14 @@ namespace factory_communication
             switch(req.Type)
             {
 
-                case RequestType.New_Report:
+                case RequestType.NEW_REPORT:
                     Report report = req.ToModel<Report>(0);
                     ReportCategory category = req.ToModel<ReportCategory>(1);
                     Attachments att = req.ToModel<Attachments>(2);
                     // save report in Db of server.
                     break;
 
-                //case RequestType.Get:
+                //case RequestType.GET:
                 //    int id = req.ToModel<int>(0);
                 //    Event[] events = _dbCenter.GetNew(id);
                 //    for (int i = 0; i < events.Length; ++i)
