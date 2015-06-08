@@ -6,10 +6,9 @@ using System.Threading.Tasks;
 using System.Net.Sockets;
 using System.Threading;
 using System.Net;
-using System.Windows.Forms;
 using System.IO;
 
-namespace factory_communication
+namespace clientFactory
 {
     enum Response
     {

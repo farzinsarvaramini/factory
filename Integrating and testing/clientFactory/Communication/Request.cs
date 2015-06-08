@@ -13,7 +13,8 @@ namespace clientFactory
         New_Report,
         Delete_Report,
         Mark_Report,
-        Read_Report
+        Read_Report,
+        Download
     }
 
     class Request

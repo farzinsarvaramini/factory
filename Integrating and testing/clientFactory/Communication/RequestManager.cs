@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using clientFactory;
-using System.Windows.Forms;
 using System.Web.Script.Serialization;
+using clientFactory.Models;
 
-namespace factory_communication
+namespace clientFactory
 {
 
     class RequestManager
@@ -37,7 +37,7 @@ namespace factory_communication
             switch(req.Type)
             {
 
-                case RequestType.NEW_REPORT:
+                case RequestType.New_Report:
                     Report report = req.ToModel<Report>(0);
                     ReportCategory category = req.ToModel<ReportCategory>(1);
                     Attachments att = req.ToModel<Attachments>(2);
