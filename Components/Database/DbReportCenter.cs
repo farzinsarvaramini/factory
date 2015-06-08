@@ -115,8 +115,14 @@ namespace clientFactory
         
         
         public bool readReport(int id){
-            clientDb.Reports.Where(iid => iid.Id == id).First().isRead=true;
+            clientDb.Reports.Where(iid => iid.Id == id).First().isRead = true;            
+
             return true;
+        }
+
+        public int GetServerReportId(int reportId)
+        {
+            
         }
 
 

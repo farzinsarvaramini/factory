@@ -1,0 +1,12 @@
+﻿<Window x:Class="clientFactory.VLoginForm"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="ورود" Height="161.687" Width="269.838" ResizeMode="NoResize">
+    <Grid x:Name="login">
+        <TextBox x:Name="username" HorizontalAlignment="Left" Height="23" Margin="43,28,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontWeight="Bold" TextAlignment="Center"  Background="{x:Null}" IsEnabled="False"/>
+        <PasswordBox x:Name="pass" HorizontalAlignment="Left" Margin="43,57,0,0" VerticalAlignment="Top" Width="120" Height="23"/>
+        <Label Content="نام کاربری" HorizontalAlignment="Left" Margin="168,28,0,0" VerticalAlignment="Top" IsEnabled="False"/>
+        <Label Content="رمز عبور" HorizontalAlignment="Left" Margin="168,54,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="login_button" Content="ورود" HorizontalAlignment="Left" Margin="43,87,0,0" VerticalAlignment="Top" Width="72" Click="LoginClicked"/>
+    </Grid>
+</Window>

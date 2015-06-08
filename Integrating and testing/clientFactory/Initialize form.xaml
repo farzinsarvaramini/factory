@@ -1,0 +1,24 @@
+﻿<Window x:Class="clientFactory.VInitializeForm"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="GO Factory" Height="394.208" Width="553.303" ResizeMode="NoResize">
+    <Grid Margin="0,3,0,-3">
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="246" Margin="142,22,0,0" VerticalAlignment="Top" Width="395">
+            <TextBlock HorizontalAlignment="Left" Height="234" Margin="8,9,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="378" TextAlignment="Justify" RenderTransformOrigin="0.5,0.5" FontWeight="Bold" FrameworkElement.FlowDirection="RightToLeft">
+                <TextBlock.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="-0.16"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </TextBlock.RenderTransform><Run FlowDirection="RightToLeft" Language="fa-ir" Text="سلام، به نرم افزار "/><Span><Run Text="Go Factory"/></Span><Span><Run FlowDirection="RightToLeft" Language="fa-ir" Text=" "/></Span><Run FlowDirection="RightToLeft" Language="fa-ir" Text="خوش آمدید."/><LineBreak/><Run FlowDirection="RightToLeft" Language="fa-ir" Text="این نرم افزار به شما کمک می کند تا بدون اتلاف وقت و هزینه با تمام کارفرمایان و مافوقان خود ارتباط برقرار کنید."/><LineBreak/><Run FlowDirection="RightToLeft" Language="fa-ir"/><LineBreak/><Run FlowDirection="RightToLeft" Language="fa-ir" Text="ویژگی های اصلی "/><Span><Run Text="GO Factory"/></Span><Span><Run FlowDirection="RightToLeft" Language="fa-ir" Text=":"/></Span><LineBreak/><Run Text="■ ارسال گزارشات خود به مافوقان و پیمانکاران، قابلیت دسته بندی گزارشات&#xD;&#xA;■ارسال تقاضاهای خود به مافوقان و پیگیری تقاضا ها&#xD;&#xA;■تنظیم جلسه با افراد دیگر و اعلام جلسه به آنان&#xD;&#xA;■مشاهده وضعیت هر بخش بر روی نمودار"/><LineBreak/><Run FlowDirection="RightToLeft" Language="fa-ir" Text="در این قسمت شما باید نام کاربری خود را که از مسئول "/><Span><Run Text="IT"/></Span><Run FlowDirection="RightToLeft" Language="fa-ir" Text=" کارخانه دریافت کرده اید وارد کنید."/><LineBreak/><Run FlowDirection="RightToLeft" Language="fa-ir"/><LineBreak/><Run FlowDirection="RightToLeft" Language="fa-ir" Text="توجه: پس از وارد کردن نام کاربری خود نرم افزار بر روی این رایانه برای شما شخصی سازی می شود. "/></TextBlock>
+        </Border>
+        <CheckBox x:Name="isAgree" Content="موافقم که نرم افزار برای این کاربر بر روی این رایانه شخصی سازی شود&#xD;&#xA;" HorizontalAlignment="Left" Margin="123,332,0,0" VerticalAlignment="Top"  FlowDirection="RightToLeft" Width="409" Height="21"/>
+        <Label Content="نام کاربری:" HorizontalAlignment="Left" Height="32" Margin="452,295,0,0" VerticalAlignment="Top" Width="80" FlowDirection="RightToLeft"/>
+        <Button x:Name="Start" Content="شروع شخصی سازی" HorizontalAlignment="Left" Height="47" Margin="15,301,0,0" VerticalAlignment="Top" Width="108" Click="Button_Click" Background="#FFDDDDDD" FlowDirection="RightToLeft" FontWeight="Bold"/>
+        <TextBox x:Name="user_name" HorizontalAlignment="Left" Height="32" Margin="312,295,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="156" FontSize="20"/>
+        <Image HorizontalAlignment="Left" Height="171" Margin="10,22,0,0" VerticalAlignment="Top" Width="127" Source="go-factory-logo-stacked.png"/>
+
+    </Grid>
+</Window>
