@@ -26,16 +26,12 @@ namespace clientFactory
         
         public CSendReportController(DbReportCenter db)
         {
-
             _db = db;
             _communication = new ClientCommunication();
-            MessageBox.Show("ok");
-
         }
 
         public bool uploadFile()
         {
-            MessageBox.Show("upload file");
      
             _communication.SendFile(_view.getAttachments());//C:\\Users\\farzin\\Desktop\\downloads.txt;
             
@@ -46,7 +42,7 @@ namespace clientFactory
 
         public bool sendReport()
         {
-            MessageBox.Show("send request");
+            //MessageBox.Show("send request");
             _communication.Connect();
            
             

@@ -4,7 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" 
-             d:DesignHeight="350" d:DesignWidth="525">
+             d:DesignHeight="350" d:DesignWidth="525" ResizeMode="NoResize" Title="ارسال گزارش" Width="525" Height="350">
     <Grid>
         <Button x:Name="SendReport_button" Content="ارسال" HorizontalAlignment="Left" Margin="151,278,0,0" VerticalAlignment="Top" Width="93" Click="SendReport_Click"/>
         <TextBox x:Name="title_textbox" HorizontalAlignment="Left" Height="23" Margin="57,40,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="356" RenderTransformOrigin="0.5,0.5">
@@ -25,7 +25,7 @@
         <Label Content="دسته گزارش" HorizontalAlignment="Left" Margin="210,195,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.97,0.432" Width="74"/>
         <ComboBox x:Name="category_combobox" HorizontalAlignment="Left" Margin="60,195,0,0" VerticalAlignment="Top" Width="139"/>
         <Button Content="افزودن فایل" HorizontalAlignment="Left" Margin="289,242,0,0" VerticalAlignment="Top" Width="123" Click="AddFile_button"/>
-        <Button Content="لغو" HorizontalAlignment="Left" Margin="60,278,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button Content="لغو" HorizontalAlignment="Left" Margin="60,278,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
         <TextBox x:Name="FilePath_tb" HorizontalAlignment="Left" Height="23" Margin="60,239,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="215"/>
 
     </Grid>
