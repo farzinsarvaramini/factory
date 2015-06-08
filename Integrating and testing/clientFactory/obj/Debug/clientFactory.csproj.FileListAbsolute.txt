@@ -1,7 +1,12 @@
 E:\SAproject\factory\Integrating and testing\clientFactory\bin\Debug\clientFactory.exe.config
 C:\Users\Armin\Downloads\Programs\factory\Integrating and testing\clientFactory\bin\Debug\clientFactory.exe.config
-C:\Users\ehsan\Documents\GitHub\factory\Integrating and testing\clientFactory\obj\Debug\clientFactory.csprojResolveAssemblyReference.cache
-C:\Users\ehsan\Documents\GitHub\factory\Integrating and testing\clientFactory\obj\Debug\Views\Home.baml
+C:\Users\ehsan\Documents\GitHub\factory\Integrating and testing\clientFactory\bin\Debug\clientFactory.exe.config
+C:\Users\ehsan\Documents\GitHub\factory\Integrating and testing\clientFactory\bin\Debug\clientFactory.exe
+C:\Users\ehsan\Documents\GitHub\factory\Integrating and testing\clientFactory\bin\Debug\clientFactory.pdb
+C:\Users\ehsan\Documents\GitHub\factory\Integrating and testing\clientFactory\bin\Debug\EntityFramework.dll
+C:\Users\ehsan\Documents\GitHub\factory\Integrating and testing\clientFactory\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\ehsan\Documents\GitHub\factory\Integrating and testing\clientFactory\bin\Debug\EntityFramework.xml
+C:\Users\ehsan\Documents\GitHub\factory\Integrating and testing\clientFactory\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\ehsan\Documents\GitHub\factory\Integrating and testing\clientFactory\obj\Debug\Views\Initialize form.baml
 C:\Users\ehsan\Documents\GitHub\factory\Integrating and testing\clientFactory\obj\Debug\Views\LoginForm.baml
 C:\Users\ehsan\Documents\GitHub\factory\Integrating and testing\clientFactory\obj\Debug\Views\MainWindow.baml
@@ -15,7 +20,6 @@ C:\Users\ehsan\Documents\GitHub\factory\Integrating and testing\clientFactory\ob
 C:\Users\ehsan\Documents\GitHub\factory\Integrating and testing\clientFactory\obj\Debug\Views\VSendRequest.baml
 C:\Users\ehsan\Documents\GitHub\factory\Integrating and testing\clientFactory\obj\Debug\Views\SentRequest.baml
 C:\Users\ehsan\Documents\GitHub\factory\Integrating and testing\clientFactory\obj\Debug\Views\VSentRequest.baml
-C:\Users\ehsan\Documents\GitHub\factory\Integrating and testing\clientFactory\obj\Debug\Views\Home.g.cs
 C:\Users\ehsan\Documents\GitHub\factory\Integrating and testing\clientFactory\obj\Debug\Views\Initialize form.g.cs
 C:\Users\ehsan\Documents\GitHub\factory\Integrating and testing\clientFactory\obj\Debug\Views\LoginForm.g.cs
 C:\Users\ehsan\Documents\GitHub\factory\Integrating and testing\clientFactory\obj\Debug\Views\MainWindow.g.cs
@@ -35,3 +39,5 @@ C:\Users\ehsan\Documents\GitHub\factory\Integrating and testing\clientFactory\ob
 C:\Users\ehsan\Documents\GitHub\factory\Integrating and testing\clientFactory\obj\Debug\clientFactory.g.resources
 C:\Users\ehsan\Documents\GitHub\factory\Integrating and testing\clientFactory\obj\Debug\clientFactory.Properties.Resources.resources
 C:\Users\ehsan\Documents\GitHub\factory\Integrating and testing\clientFactory\obj\Debug\clientFactory.csproj.GenerateResource.Cache
+C:\Users\ehsan\Documents\GitHub\factory\Integrating and testing\clientFactory\obj\Debug\clientFactory.exe
+C:\Users\ehsan\Documents\GitHub\factory\Integrating and testing\clientFactory\obj\Debug\clientFactory.pdb

@@ -74,9 +74,6 @@
     <Compile Include="Models\DbRequestCenter.cs" />
     <Compile Include="Models\DbUserCenter.cs" />
     <Compile Include="Models\RequestModel.cs" />
-    <Compile Include="Views\Home.xaml.cs">
-      <DependentUpon>Home.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Views\Initialize form.xaml.cs" />
     <Compile Include="Views\LoginForm.xaml.cs" />
     <Compile Include="Views\MainWindow.xaml.cs">
@@ -113,10 +110,6 @@
     <Compile Include="Views\VSentRequest.xaml.cs">
       <DependentUpon>VSentRequest.xaml</DependentUpon>
     </Compile>
-    <Page Include="Views\Home.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Page Include="Views\Initialize form.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

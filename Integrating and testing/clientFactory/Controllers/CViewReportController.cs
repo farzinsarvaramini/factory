@@ -88,7 +88,7 @@ namespace clientFactory
             _listView = new ReportListView();
             _listView._controller = this;
             //we have delay here
-            allReportsList = _db.getAllReportList();
+            //allReportsList = _db.getAllReportList();
             _listView.setAllReportList(allReportsList);
             
 

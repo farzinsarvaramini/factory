@@ -5,7 +5,6 @@ using System.Text;
 using System.Threading.Tasks;
 using clientFactory;
 using System.Web.Script.Serialization;
-using clientFactory.Models;
 
 
 namespace clientFactory
@@ -14,7 +13,7 @@ namespace clientFactory
     class RequestManager
     {
 
-        private DbCenter _dbCenter;
+        static DbCenter _dbCenter;
         string _response;
         public static RequestManager _instance;
 
@@ -52,29 +51,29 @@ namespace clientFactory
                     // save Request in db of server
                     break;
 
-                case RequestType.FOLLOW:
-                    int RequestModelId = req.ToModel<int>(0);
+                //case RequestType.FOLLOW:
+                    //int RequestModelId = req.ToModel<int>(0);
                 // search db for id of RequestModel
                 // change column of this RequestModel
                 // and save.
 
                 case RequestType.GET:
-                    int userId = req.ToModel<int>(0);
-                    List<Tuple<Report, ReportCategory, Attachments>> reports = _dbCenter.dbReportCenter.GetNewReports(userId);
-                    List<RequestModel> requestModels = _dbRequestCenter.GetNewRequestModels(userId);
-                    List<Request> requests;
-                    for (int i = 0; i < reports.Count; ++i)
-                    {
-                        object[] obj = { reports[i].Item1, reports[i].Item2, reports[i].Item3 };
-                        Request r = new Request(RequestType.NEW_REPORT, obj);
-                        requests.Add(r);
-                    }
-                    for (int i = 0; i < requests.Count; ++i)
-                    {
-                        object[] obj = { requests[i] };
-                        Request r = new Request(RequestType.NEW_REQUESTMODEL, obj);
-                        requests.Add(r);
-                    }
+                    //int userId = req.ToModel<int>(0);
+                    //List<Tuple<Report, ReportCategory, Attachments>> reports = _dbCenter.dbReportCenter.GetNewReports(userId);
+                    //List<RequestModel> requestModels = _dbRequestCenter.GetNewRequestModels(userId);
+                    //List<Request> requests;
+                    //for (int i = 0; i < reports.Count; ++i)
+                    //{
+                    //    object[] obj = { reports[i].Item1, reports[i].Item2, reports[i].Item3 };
+                    //    Request r = new Request(RequestType.NEW_REPORT, obj);
+                    //    requests.Add(r);
+                    //}
+                    //for (int i = 0; i < requests.Count; ++i)
+                    //{
+                    //    object[] obj = { requests[i] };
+                    //    Request r = new Request(RequestType.NEW_REQUESTMODEL, obj);
+                    //    requests.Add(r);
+                    //}
 
 
                     break;
