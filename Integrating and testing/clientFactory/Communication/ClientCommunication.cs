@@ -14,22 +14,15 @@ namespace clientFactory
 
     class ClientCommunication
     {
-        enum Response
-        {
-            SUCCESS = 0,
-            FAIL = 1,
-            WAITING = 2,
-            NO_RESPONSE = 3
-        }
 
         private Socket _clientSocket = new Socket
             (AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
         private string _ip;
         private int _port;
         private string _receivedPath;
-        private Response _response;
+        private string _response;
         public static ClientCommunication _instance;
-        //private DbCenter _dbClient;
+        private DbCenter _dbClient;
 
         public static ClientCommunication Instance
         {
@@ -54,7 +47,7 @@ namespace clientFactory
             int attempt = 0;
             try
             {
-                _response = Response.WAITING;
+                _response = "WAITING";
                 do
                 {
                     attempt++;
@@ -62,14 +55,14 @@ namespace clientFactory
                     if (attempt > maxAttempt) throw new Exception("too many attempts for connecting client to server !!!");
                     if (_clientSocket.Connected)
                     {
-                        _response = Response.SUCCESS;
+                        _response = "SUCCESS";
                         return true;
                     }
                 } while (!_clientSocket.Connected);
             }
             catch
             {
-                _response = Response.NO_RESPONSE;
+                _response = "NO_RESPONSE";
                 return false;
             }
             return false;
@@ -77,10 +70,10 @@ namespace clientFactory
 
         public void RecieveResponse(Socket socket)
         {
-            byte[] recived = new byte[1024];
-            socket.Receive(recived, 0, recived.Length, 0);
-            int res = BitConverter.ToInt32(recived, 0);
-            _response = (Response)res;
+            byte[] recieved = new byte[1024];
+            socket.Receive(recieved, 0, recieved.Length, 0);
+            string res = System.Text.Encoding.Default.GetString(recieved);
+            _response = res;
         }
 
         public void SendRequest(Request request)
@@ -88,14 +81,13 @@ namespace clientFactory
             try
             {
                 string json = request.ToJson();
-                Request re = Request.ToRequest(json);
                 byte[] sendData = Encoding.ASCII.GetBytes(json);
                 _clientSocket.Send(sendData);
                 RecieveResponse(_clientSocket);
             }
             catch (Exception ex)
             {
-                _response = Response.FAIL;
+                _response = ex.Message;
             }
         }
 
@@ -135,12 +127,8 @@ namespace clientFactory
             }
             catch (Exception ex)
             {
-                if (ex.Message == "No connection could be made because the target machine actively refused it")
-                    // No connection.
-                    _response = Response.NO_RESPONSE;
-                else
-                    // File Sending fail.
-                    _response = Response.FAIL;
+                _response = ex.Message;
+
             }
         }
 
@@ -174,7 +162,7 @@ namespace clientFactory
             }
             catch (Exception ex)
             {
-                _response = Response.FAIL;
+                _response = ex.Message;
             }
         }
 

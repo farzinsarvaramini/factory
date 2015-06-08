@@ -9,20 +9,22 @@ using clientFactory.Models;
 
 namespace clientFactory
 {
-    public class CSendReportController
+   public class CSendReportController
     {
+     
+        
         private SendReportView _view;
         private Report _report;
         private List<ReportCategory> _categories;
-
+      
         private List<User> _allowedRecipients;
 
         private Attachments _attach;
         private ReportCategory _reportCat;
 
         public DbReportCenter _db;
-        private ClientCommunication _communication;
-
+		private ClientCommunication _communication;
+        
         public CSendReportController(DbReportCenter db)
         {
             _db = db;
@@ -31,11 +33,11 @@ namespace clientFactory
 
         public bool uploadFile()
         {
-
+     
             _communication.SendFile(_view.getAttachments());//C:\\Users\\farzin\\Desktop\\downloads.txt;
-
-
-
+            
+        
+             
             return true;
         }
 
@@ -43,31 +45,27 @@ namespace clientFactory
         {
             //MessageBox.Show("send request");
             _communication.Connect();
-
-
-            //_report = new Report(_view.getRecipientID(),_view.getRecipient(),_view.getTDescription(),_view.getTitle());
+           
+            
+             //_report = new Report(_view.getRecipientID(),_view.getRecipient(),_view.getTDescription(),_view.getTitle());
             Attachments attach;
-            if (!String.IsNullOrEmpty(_view.getAttachments()))
-            {
+            if(!String.IsNullOrEmpty(_view.getAttachments())){
                 attach = new Attachments();
                 attach.FileLocation = _view.getAttachments();
                 attach.uploadTime = DateTime.Now;
-
-            }
-            else
-            {
-                attach = null;
+            
+            }else{
+                attach=null;
             }
 
             ReportCategory repCat = new ReportCategory();
             repCat.Title = _view.getCategoryTitle();
 
-            saveNewReport(_report, repCat, attach);
-
-            Request reportRequest = new Request(RequestType.New_Report, new object[] { _report, repCat, attach });
+            saveNewReport(_report,repCat,attach);
+            
+            Request reportRequest = new Request(RequestType.New_Report,new object[]{_report,repCat,attach});
             _communication.SendRequest(reportRequest);
-            if (attach != null)
-            {
+            if(attach!=null){
                 this.uploadFile();
             }
 
@@ -76,25 +74,25 @@ namespace clientFactory
             return true;
         }
 
-        public bool saveNewReport(Report r, ReportCategory rC, Attachments a)
+        public bool saveNewReport(Report r,ReportCategory rC , Attachments a)
         {
             return _db.newReport(r, rC, a);
 
-
+            
         }
 
-        public void showView()
+		public void showView()
         {
 
             _view = new SendReportView();
             _view._controller = this;
 
 
-           // _categories = _db.getCategoryList();
-            //_view.setCategoriesList(_categories);
+            _categories = _db.getCategoryList();
+            _view.setCategoriesList(_categories);
 
-            //_allowedRecipients = _db.getAllowedRecipientsList();
-           // _view.setRecipientList(_allowedRecipients);
+            _allowedRecipients = _db.getAllowedRecipientsList();
+            _view.setRecipientList(_allowedRecipients);
 
             _view.show();
         }

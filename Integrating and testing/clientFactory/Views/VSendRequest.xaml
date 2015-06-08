@@ -1,19 +1,16 @@
 ﻿<Window x:Class="clientFactory.VSendRequest"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="ارسال درخواست" Height="299.236" Width="439.555" ResizeMode="NoResize">
+        Title="ارسال درخواست" Height="350" Width="525">
     <Grid>
-        <ComboBox x:Name="Recipients" HorizontalAlignment="Left" Margin="178,57,0,0" VerticalAlignment="Top" Width="174"/>
-        <Button x:Name="CloseBtn" Content="بازگشت" HorizontalAlignment="Left" Margin="20,233,0,0" VerticalAlignment="Top" Width="75" />
-        <Button x:Name="Send_Btn" Content="ارسال" HorizontalAlignment="Left" Margin="108,233,0,0" VerticalAlignment="Top" Width="75" Click="Send_Click"/>
-        <TextBox x:Name="Description" HorizontalAlignment="Left" Height="126" Margin="19,98,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="333" ScrollViewer.CanContentScroll="True" FlowDirection="RightToLeft"/>
-        <TextBox x:Name="Subject" HorizontalAlignment="Left" Height="23" Margin="178,19,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="174"/>
-        <Label Content="موضوع" HorizontalAlignment="Left" Margin="360,16,0,0" VerticalAlignment="Top"/>
-        <Label Content="گیرنده" HorizontalAlignment="Left" Margin="368,53,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.692"/>
-        <Label Content="توضیحات" HorizontalAlignment="Left" Margin="351,98,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.122,1.346"/>
-        <Rectangle Fill="#FF0A0A35" HorizontalAlignment="Left" Height="250" Margin="420,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="4" RadiusX="2" RadiusY="5"/>
-        <Label Content="تاریخ" HorizontalAlignment="Left" Height="26" Margin="131,16,0,0" VerticalAlignment="Top" Width="33"/>
-        <Label x:Name="Date" Content="21/03/1394" HorizontalAlignment="Left" Height="26" Margin="51,16,0,0" VerticalAlignment="Top" Width="75"/>
+        <ComboBox HorizontalAlignment="Left" Margin="308,94,0,0" VerticalAlignment="Top" Width="120"/>
+        <Button Content="بازگشت" HorizontalAlignment="Left" Margin="10,268,0,0" VerticalAlignment="Top" Width="75" />
+        <Button Content="ارسال" HorizontalAlignment="Left" Margin="10,183,0,0" VerticalAlignment="Top" Width="75" Click="Send_Click"/>
+        <TextBox HorizontalAlignment="Left" Height="126" Margin="158,151,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="270"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="308,34,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Label Content="موضوع" HorizontalAlignment="Left" Margin="456,31,0,0" VerticalAlignment="Top"/>
+        <Label Content="گیرنده" HorizontalAlignment="Left" Margin="464,90,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.692"/>
+        <Label Content="توضیحات" HorizontalAlignment="Left" Margin="449,151,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.122,1.346"/>
 
     </Grid>
 </Window>

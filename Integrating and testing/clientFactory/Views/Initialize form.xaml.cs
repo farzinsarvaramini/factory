@@ -48,9 +48,10 @@ namespace clientFactory
         {
             if (!isAgree.IsChecked.Value)
                 ErrorMessage("شما باید موافق شخصی سازی این رایانه باشید");
-            else
+            else 
                 controller.Personalize();
         }
 
+     
     }
 }

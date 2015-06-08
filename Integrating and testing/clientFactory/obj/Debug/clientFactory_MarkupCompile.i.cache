@@ -1,0 +1,20 @@
+﻿clientFactory
+
+
+winexe
+C#
+.cs
+C:\Users\Armin\Downloads\Programs\factory\Integrating and testing\clientFactory\obj\Debug\
+clientFactory
+none
+false
+DEBUG;TRACE
+C:\Users\Armin\Downloads\Programs\factory\Integrating and testing\clientFactory\App.xaml
+7-1941527226
+11981813301
+32874861784
+181724471753
+Views\Initialize form.xaml;Views\LoginForm.xaml;Views\RecievedRequest.xaml;Views\RequestList.xaml;Views\SendReportView.xaml;Views\VSendRequest.xaml;Views\SentRequest.xaml;
+
+False
+

@@ -1,0 +1,2 @@
+E:\SAproject\factory\Integrating and testing\clientFactory\bin\Debug\clientFactory.exe.config
+C:\Users\Armin\Downloads\Programs\factory\Integrating and testing\clientFactory\bin\Debug\clientFactory.exe.config

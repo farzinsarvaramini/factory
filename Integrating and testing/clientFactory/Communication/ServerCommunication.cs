@@ -10,13 +10,6 @@ using System.IO;
 
 namespace clientFactory
 {
-    enum Response
-    {
-        SUCCESS = 0,
-        FAIL = 1,
-        WAITING = 2,
-        NO_RESPONSE = 3
-    }
 
     class ServerCommunication
     {
@@ -25,7 +18,7 @@ namespace clientFactory
         private int _port;
         private Socket serverSocket = new Socket
             (AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
-        // private DbCenter _dbCenter;
+        private DbCenter _dbCenter;
         public static ServerCommunication _instance;
 
 
@@ -54,8 +47,8 @@ namespace clientFactory
 	    
         private void RecieveRequestCallBack(IAsyncResult AR)
         {
-            Response response;
-            Response fileResponse;
+            string response;
+            string fileResponse;
             Socket sck = serverSocket.EndAccept(AR);
             try
             {
@@ -84,20 +77,20 @@ namespace clientFactory
             }
             catch(Exception ex)
             {
-                response = Response.FAIL;
+                response = ex.Message;
             }
             serverSocket.BeginAccept(new AsyncCallback(RecieveRequestCallBack), 0);
         }
 
-		private void SendResponse(Response response, Socket socket)
+		private void SendResponse(string response, Socket socket)
         {
             byte[] res = Encoding.ASCII.GetBytes(response.ToString());
             socket.Send(res);
         }
 		
-        private Response RecieveFile(Socket clientSocket)
+        private string RecieveFile(Socket clientSocket)
         {
-            Response response = Response.WAITING;
+            string response = "WAITING";
             try
             {
                 Stream clientStream = new NetworkStream(clientSocket);
@@ -122,18 +115,18 @@ namespace clientFactory
                         fileData.Write(buffer, 0, count);
                         bytesReceived += count;
                     }
-                response = Response.SUCCESS;
+                response = "SUCCSESS";
             }
             catch (Exception ex)
             {
-                response = Response.FAIL;
+                response = ex.Message;
             }
             return response;
         }
 
-        private Response SendFile(string fileName, Socket clientSocket)
+        private string SendFile(string fileName, Socket clientSocket)
         {
-            Response response = Response.WAITING;
+            string response = "WAITING";
             try
             {
                 string filePath = "";
@@ -164,14 +157,11 @@ namespace clientFactory
                     }
                     // File transferred.
                 }
-                response = Response.SUCCESS;
+                response = "SUCCESS";
             }
             catch (Exception ex)
             {
-                if (ex.Message == "No connection could be made because the target machine actively refused it") // No connection.
-                    response = Response.NO_RESPONSE;
-                else  // File Sending fail.
-                    response = Response.FAIL;
+                response = ex.Message;
             }
             return response;
         }

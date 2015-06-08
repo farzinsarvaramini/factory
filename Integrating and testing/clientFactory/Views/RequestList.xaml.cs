@@ -10,19 +10,23 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace clientFactory
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for RequestList.xaml
     /// </summary>
-    public partial class VSendRequest : Window
+    public partial class RequestList : Window
     {
-        public VSendRequest()
+        public RequestList()
         {
             InitializeComponent();
+        }
+
+        private void MakeRequestEvent_Click(object sender, RoutedEventArgs e)
+        {
+
         }
 
         private void BackEvent_Click(object sender, RoutedEventArgs e)
@@ -30,10 +34,14 @@ namespace clientFactory
 
         }
 
-        private void Send_Click(object sender, RoutedEventArgs e)
+        private void FollowEvent_Click(object sender, RoutedEventArgs e)
         {
-            
+
         }
 
+        private void ShowEvent_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

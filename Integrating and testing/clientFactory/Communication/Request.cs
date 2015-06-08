@@ -9,12 +9,12 @@ namespace clientFactory
 {
     enum RequestType
     {
-        Get,
-        New_Report,
-        Delete_Report,
-        Mark_Report,
-        Read_Report,
-        Download
+        GET,                 // content : <UserId>
+        NEW_REPORT,          // content : <Report, ReportCategory, Attachment>
+        DOWNLOAD,            // content : <AttachmentId>
+        NEW_REQUESTMODEL,    // content : <Request>
+        FOLLOW,              // content : <RequestId>
+        INIT                 // content : <UserName>
     }
 
     class Request
@@ -25,6 +25,12 @@ namespace clientFactory
 
         public Request()
         {
+
+        }
+
+        public Request(RequestType type)
+        {
+            this.Type = type;
         }
 
         public Request(RequestType type, object[] content)

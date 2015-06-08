@@ -10,17 +10,16 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace clientFactory
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for RecievedRequest.xaml
     /// </summary>
-    public partial class VSendRequest : Window
+    public partial class RecievedRequest : Window
     {
-        public VSendRequest()
+        public RecievedRequest()
         {
             InitializeComponent();
         }
@@ -30,10 +29,14 @@ namespace clientFactory
 
         }
 
-        private void Send_Click(object sender, RoutedEventArgs e)
+        private void AcceptEvent_Click(object sender, RoutedEventArgs e)
         {
-            
+
         }
 
+        private void RejectEvent_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

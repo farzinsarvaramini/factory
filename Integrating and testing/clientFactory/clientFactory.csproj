@@ -64,39 +64,15 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Controllers\CRequestController.cs" />
-    <Compile Include="Controllers\CViewReportController.cs" />
     <Compile Include="Models\Attachments.cs">
       <DependentUpon>clientModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Controllers\CUserController.cs" />
     <Compile Include="Communication\RequestManager.cs" />
     <Compile Include="Communication\ServerCommunication.cs" />
-<<<<<<< HEAD
-    <Compile Include="Models\clientModel.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>clientModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\DbRequestCenter.cs" />
-=======
->>>>>>> 1aea9565d657a28e8cda3a8b9905685c2c36d4f7
-    <Compile Include="Models\DbUserCenter.cs" />
-    <Compile Include="Models\RequestModel.cs">
-      <DependentUpon>clientModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Home.xaml.cs">
-      <DependentUpon>Home.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Views\Initialize form.xaml.cs" />
     <Compile Include="Views\LoginForm.xaml.cs" />
-<<<<<<< HEAD
-    <Compile Include="Views\VRecievedRequest.xaml.cs" />
-=======
-    <Compile Include="Views\MainWindow.xaml.cs">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Views\RecievedRequest.xaml.cs" />
->>>>>>> 1aea9565d657a28e8cda3a8b9905685c2c36d4f7
     <Compile Include="Models\Report.cs">
       <DependentUpon>clientModel.tt</DependentUpon>
     </Compile>
@@ -104,28 +80,14 @@
       <DependentUpon>clientModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Communication\Request.cs" />
-<<<<<<< HEAD
-    <Compile Include="Views\VRequestList.xaml.cs" />
-=======
-    <Compile Include="Views\ReportListView.xaml.cs">
-      <DependentUpon>ReportListView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\ReportView.xaml.cs">
-      <DependentUpon>ReportView.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Views\RequestList.xaml.cs" />
->>>>>>> 1aea9565d657a28e8cda3a8b9905685c2c36d4f7
     <Compile Include="Views\SendReportView.xaml.cs" />
     <Compile Include="Views\VSendRequest.xaml.cs" />
-    <Compile Include="Views\VSentRequest.xaml.cs" />
+    <Compile Include="Views\SentRequest.xaml.cs" />
     <Compile Include="Other\SessionInfos.cs" />
     <Compile Include="Models\User.cs">
       <DependentUpon>clientModel.tt</DependentUpon>
     </Compile>
-    <Page Include="Views\Home.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Page Include="Views\Initialize form.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -144,6 +106,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>clientModel.Context.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\clientModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>clientModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\clientModel.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -152,31 +119,11 @@
     <Compile Include="Controllers\CSendReportController.cs" />
     <Compile Include="Models\DbCenter.cs" />
     <Compile Include="Models\DbReportCenter.cs" />
-<<<<<<< HEAD
-    <Page Include="Views\VRecievedRequest.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Views\VRequestList.xaml">
-=======
-    <Page Include="Views\MainWindow.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Page Include="Views\RecievedRequest.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Views\ReportListView.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Views\ReportView.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Page Include="Views\RequestList.xaml">
->>>>>>> 1aea9565d657a28e8cda3a8b9905685c2c36d4f7
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -188,7 +135,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Views\VSentRequest.xaml">
+    <Page Include="Views\SentRequest.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -240,13 +187,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Models\clientModel.edmx.sql" />
-    <Resource Include="Resource\calendar_icon.png" />
-    <Resource Include="Resource\delete_icon.png" />
-    <Resource Include="Resource\mark_icon.png" />
-    <Resource Include="Resource\print_icon.png" />
-    <Resource Include="Resource\receive_icon.png" />
-    <Resource Include="Resource\search_icon.png" />
-    <Resource Include="Resource\send_icon.png" />
     <Resource Include="Resource\forbiden.png" />
     <Resource Include="Resource\tick.png" />
     <Resource Include="Views\go-factory-logo-stacked.png" />
