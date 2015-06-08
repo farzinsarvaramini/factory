@@ -61,6 +61,7 @@
     <Compile Include="Request.cs" />
     <Compile Include="RequestManager.cs" />
     <Compile Include="ServerCommunication.cs" />
+    <Compile Include="SessionInfos.cs" />
     <Page Include="LoginForm.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

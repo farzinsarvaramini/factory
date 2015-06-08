@@ -69,6 +69,7 @@ namespace login
         {
             if (_defaultUser.username == _loginView.GetUsername() && _defaultUser.password == _loginView.GetPassword())
             {
+                SessionInfos.login_user = _defaultUser;
                 // create and show home
             }
             else if (_defaultUser.password != _loginView.GetPassword())
