@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace clientFactory.Models
+namespace clientFactory
 {
     using System;
     using System.Data.Entity;
