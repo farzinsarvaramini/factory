@@ -1,17 +1,47 @@
-﻿<Window x:Class="clientFactory.VReportListView"
+﻿<Window x:Class="clientFactory.ReportListView"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="VReportListView" Height="413.434" Width="746.268">
     <Grid>
-        <TabControl HorizontalAlignment="Left" Height="232" Margin="126,149,0,0" VerticalAlignment="Top" Width="612">
+        <TabControl x:Name="reports_tc" HorizontalAlignment="Left" Height="232" Margin="126,149,0,0" VerticalAlignment="Top" Width="612">
             <TabItem Header="همه گزارشات" Margin="0,0,0,0">
-                <Grid Background="#FFE5E5E5"/>
+                <Grid Background="#FFE5E5E5">
+                    <DataGrid x:Name="allReports_dg" AutoGenerateColumns="False" HorizontalAlignment="Left" VerticalAlignment="Top" Height="204" Width="606">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="شناسه گزارش" Binding="{Binding Id}" />
+                            <DataGridTextColumn Header="عنوان" Binding="{Binding Title}" />
+                            <DataGridTextColumn Header="فرستنده" Binding="{Binding Sender}" />
+                            <DataGridTextColumn Header="دریافت کننده" Binding="{Binding Recipient}" />
+                            <DataGridTextColumn Header="تاریخ ارسال" Binding="{Binding SendDate}" />
+
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </Grid>
             </TabItem>
             <TabItem Header="گزارشات ارسال شده" Margin="0,0,0,0">
-                <Grid Background="#FFE5E5E5"/>
+                <Grid Background="#FFE5E5E5">
+                    <DataGrid x:Name="sentReports_dg" AutoGenerateColumns="False" HorizontalAlignment="Left" VerticalAlignment="Top" Height="204" Width="606">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="شناسه گزارش" Binding="{Binding Id}" />
+                            <DataGridTextColumn Header="عنوان" Binding="{Binding Title}" />
+                            <DataGridTextColumn Header="دریافت کننده" Binding="{Binding Recipient}" />
+                            <DataGridTextColumn Header="تاریخ ارسال" Binding="{Binding SendDate}" />
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </Grid>
             </TabItem>
             <TabItem Header="گزارشات دریافت شده" HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Width="123" Margin="0">
-                <Grid Background="#FFE5E5E5"/>
+                <Grid Background="#FFE5E5E5">
+                    <DataGrid x:Name="recievedReports_dg" AutoGenerateColumns="False" HorizontalAlignment="Left" VerticalAlignment="Top" Height="204" Width="606">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="شناسه گزارش" Binding="{Binding Id}" />
+                            <DataGridTextColumn Header="عنوان" Binding="{Binding Title}" />
+                            <DataGridTextColumn Header="فرستنده" Binding="{Binding Sender}" />
+                            <DataGridTextColumn Header="تاریخ ارسال" Binding="{Binding SendDate}" />
+
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </Grid>
             </TabItem>
         </TabControl>
         <Button x:Name="returnBack_b" Content="بازگشت" HorizontalAlignment="Left" Margin="10,329,0,0" VerticalAlignment="Top" Width="105" Height="30" Click="returnBack_b_Click"/>
@@ -19,7 +49,7 @@
         <Button x:Name="deleteReport_b" Content="حذف گزارش" HorizontalAlignment="Left" Margin="10,215,0,0" VerticalAlignment="Top" Width="105" Height="30" Click="deleteReport_b_Click"/>
         <Button x:Name="showReport_b" Content="مشاهده گزارش" HorizontalAlignment="Left" Margin="10,180,0,0" VerticalAlignment="Top" Width="105" Height="30" Click="showReport_b_Click"/>
         <GroupBox Header="جستجو" HorizontalAlignment="Left" VerticalAlignment="Top" Height="113" Width="738" Margin="1,38,-1,0">
-            <Image HorizontalAlignment="Left" Height="37" Margin="10,27,0,0" VerticalAlignment="Top" Width="39" Source="C:\Users\ehsan\Documents\Visual Studio 2013\Projects\WPF_test\search_icon.png"/>
+            <Image HorizontalAlignment="Left" Height="37" Margin="10,27,0,0" VerticalAlignment="Top" Width="39" Source="icons\search_icon.png"/>
 
         </GroupBox>
         <Button x:Name="search_b" Content="جستجو" HorizontalAlignment="Left" VerticalAlignment="Top"  Height="33" Width="83" Margin="65,86,0,0" Click="search_b_Click"/>

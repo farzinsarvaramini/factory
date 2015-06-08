@@ -14,19 +14,18 @@
         <Label Content="تاریخ ارسال" HorizontalAlignment="Left" Margin="422,120,0,0" VerticalAlignment="Top"/>
         <Label Content="توضیحات" HorizontalAlignment="Left" Margin="429,151,0,0" VerticalAlignment="Top"/>
         <Label Content="فایل های ضمیمه" HorizontalAlignment="Left" Margin="392,239,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="title_tb" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="196,32,0,0" Width="234"/>
-        <Label x:Name="sender_tb" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="196,58,0,0" Width="211"/>
-        <Label x:Name="reportCategory_tb" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="196,89,0,0" Width="193"/>
-        <Label x:Name="reportDate_tb" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="196,120,0,0" Width="193"/>
+        <Label x:Name="title_l" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="196,32,0,0" Width="234"/>
+        <Label x:Name="sender_l" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="196,58,0,0" Width="211"/>
+        <Label x:Name="reportCategory_l" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="196,89,0,0" Width="193"/>
         <Label Content="مشاهده گزارش" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-        <TextBlock x:Name="description_tbl" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Margin="196,161,0,0" Height="73" Width="228"><Run/><LineBreak/><Run/></TextBlock>
-        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Margin="196,249,0,0" Height="44" Width="167"><InlineUIContainer>
-        		<TextBlock x:Name="attachments_tbl" TextWrapping="Wrap"/>
-        	</InlineUIContainer></TextBlock>
-        <Image HorizontalAlignment="Left" Height="30" Width="30" VerticalAlignment="Top"  Margin="146,52,0,0" Source="C:\Users\ehsan\Documents\Visual Studio 2013\Projects\WPF_test\print_icon.png"/>
-        <Image HorizontalAlignment="Left" Height="30" Width="30" VerticalAlignment="Top" Margin="146,92,0,0" Source="C:\Users\ehsan\Documents\Visual Studio 2013\Projects\WPF_test\mark_icon.png"/>
-        <Image HorizontalAlignment="Left" Height="30" Width="30" VerticalAlignment="Top"  Margin="146,131,0,0" Source="C:\Users\ehsan\Documents\Visual Studio 2013\Projects\WPF_test\delete_icon.png"/>
-        <Button x:Name="getAttachedFiles_b" Content="دریافت فایل های ضمیمه شده" Height="25" Width="250" HorizontalAlignment="Left" VerticalAlignment="Top"  Margin="236,310,0,0"/>
+        <TextBlock x:Name="description_tbl" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Margin="196,161,0,0" Height="73" Width="228"/>
+        <Image HorizontalAlignment="Left" Height="30" Width="30" VerticalAlignment="Top"  Margin="146,52,0,0" Source="icons\print_icon.png"/>
+        <Image HorizontalAlignment="Left" Height="30" Width="30" VerticalAlignment="Top" Margin="146,92,0,0" Source="icons\mark_icon.png"/>
+        <Image HorizontalAlignment="Left" Height="30" Width="30" VerticalAlignment="Top"  Margin="146,131,0,0" Source="icons\delete_icon.png"/>
+        <Button x:Name="getAttachedFiles_b" Content="دریافت فایل های ضمیمه شده" Height="25" Width="250" HorizontalAlignment="Left" VerticalAlignment="Top"  Margin="236,310,0,0" Click="getAttachedFiles_b_Click"/>
+        <Label x:Name="reportDate_l" Content="" HorizontalAlignment="Left" Margin="196,120,0,0" VerticalAlignment="Top" Width="193"/>
+        <ScrollBar HorizontalAlignment="Left" Margin="-399,83,0,0" VerticalAlignment="Top"/>
+        <TextBlock x:Name="attachments_tbl" HorizontalAlignment="Left" Margin="196,250,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="52" Width="178"/>
 
 
     </Grid>
