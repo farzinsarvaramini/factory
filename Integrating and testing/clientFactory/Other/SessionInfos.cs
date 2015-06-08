@@ -7,13 +7,8 @@ using clientFactory.Models;
 
 namespace clientFactory
 {
-   public class DbCenter
+    public static class SessionInfos
     {
-        protected clientContainer clientDb;
-        public DbCenter()
-        {
-            clientDb = new clientContainer();
-
-        }
+        public static User login_user;
     }
 }

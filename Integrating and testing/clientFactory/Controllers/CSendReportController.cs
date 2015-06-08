@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using clientFactory.Models;
 
 
 namespace clientFactory
@@ -46,7 +47,7 @@ namespace clientFactory
             _communication.Connect();
            
             
-             _report = new Report(_view.getRecipientID(),_view.getRecipient(),_view.getTDescription(),_view.getTitle());
+             //_report = new Report(_view.getRecipientID(),_view.getRecipient(),_view.getTDescription(),_view.getTitle());
             Attachments attach;
             if(!String.IsNullOrEmpty(_view.getAttachments())){
                 attach = new Attachments();

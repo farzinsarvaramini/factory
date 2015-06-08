@@ -6,8 +6,7 @@ using System.Threading.Tasks;
 
 namespace clientFactory
 {
-    public static class SessionInfos
+    class CRequestController
     {
-        public static User login_user;
     }
 }

@@ -63,33 +63,39 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Attachments.cs">
+    <Compile Include="Controllers\CRequestController.cs" />
+    <Compile Include="Models\Attachments.cs">
       <DependentUpon>clientModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="CUserController.cs" />
-    <Compile Include="Initialize form.xaml.cs" />
-    <Compile Include="LoginForm.xaml.cs" />
-    <Compile Include="RecievedRequest.xaml.cs" />
-    <Compile Include="Report.cs">
+    <Compile Include="Controllers\CUserController.cs" />
+    <Compile Include="Communication\RequestManager.cs" />
+    <Compile Include="Communication\ServerCommunication.cs" />
+    <Compile Include="Models\RequestModel.cs">
       <DependentUpon>clientModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="ReportCategory.cs">
+    <Compile Include="Views\Initialize form.xaml.cs" />
+    <Compile Include="Views\LoginForm.xaml.cs" />
+    <Compile Include="Views\RecievedRequest.xaml.cs" />
+    <Compile Include="Models\Report.cs">
       <DependentUpon>clientModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Request.cs" />
-    <Compile Include="RequestList.xaml.cs" />
-    <Compile Include="SendReportView.xaml.cs" />
-    <Compile Include="VSendRequest.xaml.cs" />
-    <Compile Include="SentRequest.xaml.cs" />
-    <Compile Include="SessionInfos.cs" />
-    <Compile Include="User.cs">
+    <Compile Include="Models\ReportCategory.cs">
       <DependentUpon>clientModel.tt</DependentUpon>
     </Compile>
-    <Page Include="Initialize form.xaml">
+    <Compile Include="Communication\Request.cs" />
+    <Compile Include="Views\RequestList.xaml.cs" />
+    <Compile Include="Views\SendReportView.xaml.cs" />
+    <Compile Include="Views\VSendRequest.xaml.cs" />
+    <Compile Include="Views\SentRequest.xaml.cs" />
+    <Compile Include="Other\SessionInfos.cs" />
+    <Compile Include="Models\User.cs">
+      <DependentUpon>clientModel.tt</DependentUpon>
+    </Compile>
+    <Page Include="Views\Initialize form.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="LoginForm.xaml">
+    <Page Include="Views\LoginForm.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -97,42 +103,42 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="ClientCommunication.cs" />
-    <Compile Include="clientModel.Context.cs">
+    <Compile Include="Communication\ClientCommunication.cs" />
+    <Compile Include="Models\clientModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>clientModel.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="clientModel.cs">
+    <Compile Include="Models\clientModel.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>clientModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="clientModel.Designer.cs">
+    <Compile Include="Models\clientModel.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>clientModel.edmx</DependentUpon>
     </Compile>
-    <Compile Include="CSendReportController.cs" />
+    <Compile Include="Controllers\CSendReportController.cs" />
     <Compile Include="Models\DbCenter.cs" />
     <Compile Include="Models\DbReportCenter.cs" />
-    <Page Include="RecievedRequest.xaml">
+    <Page Include="Views\RecievedRequest.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="RequestList.xaml">
+    <Page Include="Views\RequestList.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="SendReportView.xaml">
+    <Page Include="Views\SendReportView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="VSendRequest.xaml">
+    <Page Include="Views\VSendRequest.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="SentRequest.xaml">
+    <Page Include="Views\SentRequest.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -155,19 +161,19 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EntityDeploy Include="clientModel.edmx">
+    <EntityDeploy Include="Models\clientModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>clientModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="clientModel.Context.tt">
+    <None Include="Models\clientModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>clientModel.Context.cs</LastGenOutput>
       <DependentUpon>clientModel.edmx</DependentUpon>
     </None>
-    <None Include="clientModel.edmx.diagram">
+    <None Include="Models\clientModel.edmx.diagram">
       <DependentUpon>clientModel.edmx</DependentUpon>
     </None>
-    <None Include="clientModel.tt">
+    <None Include="Models\clientModel.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>clientModel.cs</LastGenOutput>
       <DependentUpon>clientModel.edmx</DependentUpon>
@@ -183,20 +189,15 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="clientModel.edmx.sql" />
-    <Resource Include="forbiden.png" />
-    <Resource Include="tick.png" />
-    <Resource Include="go-factory-logo-stacked.png" />
+    <Content Include="Models\clientModel.edmx.sql" />
+    <Resource Include="Resource\forbiden.png" />
+    <Resource Include="Resource\tick.png" />
+    <Resource Include="Views\go-factory-logo-stacked.png" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Communication\" />
-    <Folder Include="Controllers\" />
-    <Folder Include="Resource\" />
-    <Folder Include="Views\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

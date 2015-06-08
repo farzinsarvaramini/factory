@@ -99,7 +99,7 @@
     <Property Name="Answer" Type="nvarchar(max)" Nullable="true" />
     <Property Name="Status" Type="bit" Nullable="true" />
     <Property Name="IsNew" Type="nvarchar(max)" Nullable="true" />
-    <Property Name="IsFollowNew" Type="bit" Nullable="false" />
+    <Property Name="IsFollowNew" Type="bit" Nullable="true" />
   </EntityType>
   <EntityType Name="UserUser">
     <Key>

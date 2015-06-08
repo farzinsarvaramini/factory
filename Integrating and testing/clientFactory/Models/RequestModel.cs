@@ -7,21 +7,25 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace clientFactory
+namespace clientFactory.Models
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class ReportCategory
+    public partial class RequestModel
     {
-        public ReportCategory()
-        {
-            this.Reports = new HashSet<Report>();
-        }
-    
         public int Id { get; set; }
+        public string Sender { get; set; }
+        public string Recipient { get; set; }
+        public System.DateTime SendDate { get; set; }
         public string Title { get; set; }
-    
-        public virtual ICollection<Report> Reports { get; set; }
+        public string Context { get; set; }
+        public int SenderId { get; set; }
+        public int RecipientId { get; set; }
+        public bool follow { get; set; }
+        public string Answer { get; set; }
+        public Nullable<bool> Status { get; set; }
+        public string IsNew { get; set; }
+        public Nullable<bool> IsFollowNew { get; set; }
     }
 }
