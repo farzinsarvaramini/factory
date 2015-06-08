@@ -10,6 +10,7 @@
     <EntitySet Name="Reports" EntityType="clientModel.Store.Reports" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="Attachments" EntityType="clientModel.Store.Attachments" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="ReportCategories" EntityType="clientModel.Store.ReportCategories" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="RequestModels" EntityType="clientModel.Store.RequestModels" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="UserUser" EntityType="clientModel.Store.UserUser" store:Type="Tables" Schema="dbo" />
     <AssociationSet Name="FK_UserUser_User" Association="clientModel.Store.FK_UserUser_User">
       <End Role="User" EntitySet="Users" />
@@ -81,6 +82,24 @@
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Title" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="RequestModels">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Sender" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Recipient" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="SendDate" Type="datetime" Nullable="false" />
+    <Property Name="Title" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Context" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="SenderId" Type="int" Nullable="false" />
+    <Property Name="RecipientId" Type="int" Nullable="false" />
+    <Property Name="follow" Type="bit" Nullable="false" />
+    <Property Name="Answer" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Status" Type="bit" Nullable="true" />
+    <Property Name="IsNew" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="IsFollowNew" Type="bit" Nullable="false" />
   </EntityType>
   <EntityType Name="UserUser">
     <Key>
@@ -159,6 +178,7 @@
             <End Role="Report" EntitySet="Reports" />
             <End Role="ReportCategory" EntitySet="ReportCategories" />
           </AssociationSet>
+          <EntitySet Name="RequestModels" EntityType="clientModel.RequestModel" />
         </EntityContainer>
         <EntityType Name="User">
           <Key>
@@ -230,6 +250,24 @@
           <End Type="clientModel.Report" Role="Report" Multiplicity="*" />
           <End Type="clientModel.ReportCategory" Role="ReportCategory" Multiplicity="1" />
         </Association>
+        <EntityType Name="RequestModel">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Sender" Type="String" Nullable="false" />
+          <Property Name="Recipient" Type="String" Nullable="false" />
+          <Property Name="SendDate" Type="DateTime" Nullable="false" />
+          <Property Name="Title" Type="String" Nullable="false" />
+          <Property Name="Context" Type="String" Nullable="false" />
+          <Property Name="SenderId" Type="Int32" Nullable="false" />
+          <Property Name="RecipientId" Type="Int32" Nullable="false" />
+          <Property Name="follow" Type="Boolean" Nullable="false" />
+          <Property Name="Answer" Type="String" Nullable="true" />
+          <Property Name="Status" Type="Boolean" Nullable="true" />
+          <Property Name="IsNew" Type="String" Nullable="true" />
+          <Property Name="IsFollowNew" Type="Boolean" Nullable="true" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -289,6 +327,25 @@
         <MappingFragment StoreEntitySet="ReportCategories">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Title" ColumnName="Title" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RequestModels">
+      <EntityTypeMapping TypeName="IsTypeOf(clientModel.RequestModel)">
+        <MappingFragment StoreEntitySet="RequestModels">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Sender" ColumnName="Sender" />
+          <ScalarProperty Name="Recipient" ColumnName="Recipient" />
+          <ScalarProperty Name="SendDate" ColumnName="SendDate" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Context" ColumnName="Context" />
+          <ScalarProperty Name="SenderId" ColumnName="SenderId" />
+          <ScalarProperty Name="RecipientId" ColumnName="RecipientId" />
+          <ScalarProperty Name="follow" ColumnName="follow" />
+          <ScalarProperty Name="Answer" ColumnName="Answer" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="IsNew" ColumnName="IsNew" />
+          <ScalarProperty Name="IsFollowNew" ColumnName="IsFollowNew" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

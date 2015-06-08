@@ -2,8 +2,8 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 06/08/2015 16:04:55
--- Generated from EDMX file: C:\Users\farzin\Desktop\clientFactory\clientFactory\clientModel.edmx
+-- Date Created: 06/08/2015 18:10:09
+-- Generated from EDMX file: C:\Users\farzin\Documents\GitHub\factory\Integrating and testing\clientFactory\clientModel.edmx
 -- --------------------------------------------------
 
 SET QUOTED_IDENTIFIER OFF;
@@ -45,6 +45,9 @@ IF OBJECT_ID(N'[dbo].[Attachments]', 'U') IS NOT NULL
 GO
 IF OBJECT_ID(N'[dbo].[ReportCategories]', 'U') IS NOT NULL
     DROP TABLE [dbo].[ReportCategories];
+GO
+IF OBJECT_ID(N'[dbo].[RequestModels]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[RequestModels];
 GO
 IF OBJECT_ID(N'[dbo].[UserUser]', 'U') IS NOT NULL
     DROP TABLE [dbo].[UserUser];
@@ -108,6 +111,24 @@ CREATE TABLE [dbo].[ReportCategories] (
 );
 GO
 
+-- Creating table 'RequestModels'
+CREATE TABLE [dbo].[RequestModels] (
+    [Id] int IDENTITY(1,1) NOT NULL,
+    [Sender] nvarchar(max)  NOT NULL,
+    [Recipient] nvarchar(max)  NOT NULL,
+    [SendDate] datetime  NOT NULL,
+    [Title] nvarchar(max)  NOT NULL,
+    [Context] nvarchar(max)  NOT NULL,
+    [SenderId] int  NOT NULL,
+    [RecipientId] int  NOT NULL,
+    [follow] bit  NOT NULL,
+    [Answer] nvarchar(max)  NULL,
+    [Status] bit  NULL,
+    [IsNew] nvarchar(max)  NULL,
+    [IsFollowNew] bit  NULL
+);
+GO
+
 -- Creating table 'UserUser'
 CREATE TABLE [dbo].[UserUser] (
     [Users1_Id] int  NOT NULL,
@@ -140,6 +161,12 @@ GO
 -- Creating primary key on [Id] in table 'ReportCategories'
 ALTER TABLE [dbo].[ReportCategories]
 ADD CONSTRAINT [PK_ReportCategories]
+    PRIMARY KEY CLUSTERED ([Id] ASC);
+GO
+
+-- Creating primary key on [Id] in table 'RequestModels'
+ALTER TABLE [dbo].[RequestModels]
+ADD CONSTRAINT [PK_RequestModels]
     PRIMARY KEY CLUSTERED ([Id] ASC);
 GO
 

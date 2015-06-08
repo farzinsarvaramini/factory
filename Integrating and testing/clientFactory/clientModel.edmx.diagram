@@ -12,6 +12,7 @@
         <AssociationConnector Association="clientModel.UserUser" />
         <AssociationConnector Association="clientModel.ReportAttachments" />
         <AssociationConnector Association="clientModel.ReportReportCategory" />
+        <EntityTypeShape EntityType="clientModel.RequestModel" Width="1.5" PointX="8.25" PointY="1.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

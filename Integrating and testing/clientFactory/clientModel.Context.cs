@@ -29,5 +29,6 @@ namespace clientFactory
         public virtual DbSet<Report> Reports { get; set; }
         public virtual DbSet<Attachments> Attachments { get; set; }
         public virtual DbSet<ReportCategory> ReportCategories { get; set; }
+        public virtual DbSet<RequestModel> RequestModels { get; set; }
     }
 }

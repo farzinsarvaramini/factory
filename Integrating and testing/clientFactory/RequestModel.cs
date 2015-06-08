@@ -12,21 +12,20 @@ namespace clientFactory
     using System;
     using System.Collections.Generic;
     
-    public partial class Report
+    public partial class RequestModel
     {
         public int Id { get; set; }
-        public Nullable<int> Sender_ID { get; set; }
         public string Sender { get; set; }
-        public int Recipient_ID { get; set; }
         public string Recipient { get; set; }
         public System.DateTime SendDate { get; set; }
-        public bool isRead { get; set; }
-        public bool isMark { get; set; }
-        public string Description { get; set; }
         public string Title { get; set; }
-        public Nullable<int> ServerId { get; set; }
-    
-        public virtual Attachments Attachment { get; set; }
-        public virtual ReportCategory ReportCategory { get; set; }
+        public string Context { get; set; }
+        public int SenderId { get; set; }
+        public int RecipientId { get; set; }
+        public bool follow { get; set; }
+        public string Answer { get; set; }
+        public Nullable<bool> Status { get; set; }
+        public string IsNew { get; set; }
+        public Nullable<bool> IsFollowNew { get; set; }
     }
 }
