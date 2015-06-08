@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
-using clientFactory.Models;
+
 
 
 namespace clientFactory
@@ -63,7 +63,7 @@ namespace clientFactory
 
             saveNewReport(_report,repCat,attach);
             
-            Request reportRequest = new Request(RequestType.New_Report,new object[]{_report,repCat,attach});
+            Request reportRequest = new Request(RequestType.NEW_REPORT,new object[]{_report,repCat,attach});
             _communication.SendRequest(reportRequest);
             if(attach!=null){
                 this.uploadFile();

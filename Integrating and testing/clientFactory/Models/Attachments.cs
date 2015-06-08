@@ -9,7 +9,7 @@
 //------------------------------------------------------------------------------
 
 
-namespace clientFactory.Models
+namespace clientFactory
 {
 
 using System;
