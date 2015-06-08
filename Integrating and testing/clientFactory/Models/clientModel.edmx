@@ -202,6 +202,7 @@
           <NavigationProperty Name="Users" Relationship="clientModel.UserUser" FromRole="User" ToRole="User1" />
           <NavigationProperty Name="Users1" Relationship="clientModel.UserUser" FromRole="User1" ToRole="User" />
           <Property Name="Username" Type="String" Nullable="false" />
+          <Property Name="DefaultUser" Type="Boolean" Nullable="false" DefaultValue="False" />
         </EntityType>
         <EntityType Name="Report">
           <Key>
