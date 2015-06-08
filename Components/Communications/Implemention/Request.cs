@@ -9,12 +9,12 @@ namespace factory_communication
 {
     enum RequestType
     {
-        Get,
-        New_Report,
-        Delete_Report,
-        Mark_Report,
-        Read_Report,
-        Download
+        GET,
+        NEW_REPORT,
+        DELETE_REPORT,
+        MARK_REPORT,
+        READ_REPORT,
+        DOWNLOAD
     }
 
     class Request
