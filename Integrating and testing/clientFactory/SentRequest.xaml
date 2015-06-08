@@ -1,7 +1,7 @@
 ﻿<Window x:Class="clientFactory.SentRequest"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="SentRequest" Height="350" Width="525">
+        Title="درخواست فرستاده شده" Height="350" Width="525">
     <Grid>
        <Button Content="بازگشت" HorizontalAlignment="Left" Margin="10,268,0,0" VerticalAlignment="Top" Width="75" Click="BackEvent_Click"/>
         <Label Content="موضوع" HorizontalAlignment="Left" Margin="463,31,0,0" VerticalAlignment="Top"/>

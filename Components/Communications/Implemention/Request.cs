@@ -9,12 +9,10 @@ namespace factory_communication
 {
     enum RequestType
     {
-        GET,
-        NEW_REPORT,
-        DELETE_REPORT,
-        MARK_REPORT,
-        READ_REPORT,
-        DOWNLOAD
+        GET, //0
+        NEW_REPORT, // 1
+        DOWNLOAD,  // 2
+		NEW_REQUEST // 3
     }
 
     class Request
@@ -32,7 +30,12 @@ namespace factory_communication
             this.Type = type;
             this.Content = content;
         }
-
+		
+		public Request(RequestType type)
+		{
+			this.Type = type;
+		}
+		
         public string ToJson()
         {
             int len = Content.Length;
