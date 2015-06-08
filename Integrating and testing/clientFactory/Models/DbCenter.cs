@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using clientFactory.Models;
 
 namespace clientFactory
 {
@@ -11,7 +12,7 @@ namespace clientFactory
        protected clientContainer clientDb;
 
        public DbReportCenter ReportCenter;
-       public DbUserCenter UserCenter;
+   //    public DbUserCenter UserCenter;
 
        private static DbCenter _instance;
        public static DbCenter Instance
@@ -29,7 +30,7 @@ namespace clientFactory
            _instance = this;
            clientDb = new clientContainer();
            ReportCenter = new DbReportCenter(clientDb);
-           UserCenter = new DbUserCenter(clientDb);
+           //UserCenter = new DbUserCenter(clientDb);
        }
    }
 }

@@ -70,6 +70,7 @@
     <Compile Include="Controllers\CUserController.cs" />
     <Compile Include="Communication\RequestManager.cs" />
     <Compile Include="Communication\ServerCommunication.cs" />
+    <Compile Include="Models\DbUserCenter.cs" />
     <Compile Include="Models\RequestModel.cs">
       <DependentUpon>clientModel.tt</DependentUpon>
     </Compile>

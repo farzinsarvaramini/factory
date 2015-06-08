@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace clientFactory
+namespace clientFactory.Models
 {
     using System;
     using System.Collections.Generic;
@@ -17,8 +17,7 @@ namespace clientFactory
         public User()
         {
             this.DefaultUser = false;
-            this.Users = new HashSet<User>();
-            this.Users1 = new HashSet<User>();
+            this.isNew = false;
         }
     
         public int Id { get; set; }
@@ -38,8 +37,7 @@ namespace clientFactory
         public bool Gender { get; set; }
         public string Username { get; set; }
         public bool DefaultUser { get; set; }
-    
-        public virtual ICollection<User> Users { get; set; }
-        public virtual ICollection<User> Users1 { get; set; }
+        public int UserId { get; set; }
+        public bool isNew { get; set; }
     }
 }
