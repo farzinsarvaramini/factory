@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace clientFactory
 {
-    class DbUserCenter
+    public class DbUserCenter
     {
         private clientContainer _container;
         public DbUserCenter(clientContainer con)
@@ -27,16 +27,20 @@ namespace clientFactory
         public User GetUserDetails(int user_id)
         {
 
+            return null;
         }
 
         public User GetDefaultUser()
         {
 
+
+
+            return null;
         }
 
         public List<User> GetNewUsers()
         {
-
+            return null;
         }
 
 

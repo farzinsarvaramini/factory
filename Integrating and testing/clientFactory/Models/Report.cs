@@ -14,6 +14,28 @@ namespace clientFactory
     
     public partial class Report
     {
+
+        public Report(int recipientId, string recipient,
+  string description, string title, Attachments attach = null, ReportCategory repCat = null,
+          int senderId = 0, string sender = null)
+        {
+            Sender_ID = senderId;
+            Sender = sender;
+            Recipient_ID = recipientId;
+            Recipient = recipient;
+            Description = description;
+            Title = title;
+            Attachment = attach;
+            SendDate = DateTime.Now;
+            ReportCategory = repCat;
+            isRead = false;
+            isMark = false;
+        }
+        public Report()
+        {
+
+        }
+
         public int Id { get; set; }
         public Nullable<int> Sender_ID { get; set; }
         public string Sender { get; set; }

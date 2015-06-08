@@ -18,8 +18,8 @@ namespace clientFactory
 
     public partial class MainWindow : Window
     {
-        private CSendReportController _sCon = new CSendReportController(new DbReportCenter());
-        private CViewReportController _vCon = new CViewReportController(new DbReportCenter());
+        private CSendReportController _sCon = new CSendReportController(new DbReportCenter(new clientContainer()));
+        private CViewReportController _vCon = new CViewReportController(new DbReportCenter(new clientContainer()));
         
        // ReportView r = new ReportView();
        // ReportListView rl = new ReportListView();

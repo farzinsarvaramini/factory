@@ -84,11 +84,13 @@ namespace clientFactory
         public void showReportListView()
         {
             //get needed stuff from db and fill view and then show the view
+            
             _listView = new ReportListView();
             _listView._controller = this;
-
+            //we have delay here
             allReportsList = _db.getAllReportList();
             _listView.setAllReportList(allReportsList);
+            
 
             //sentReportsList = _db.getSentReportList();
             //_listView.setAllReportList(sentReportsList);
