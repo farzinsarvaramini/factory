@@ -16,6 +16,7 @@ namespace clientFactory
     {
         public User()
         {
+            this.DefaultUser = false;
             this.Users = new HashSet<User>();
             this.Users1 = new HashSet<User>();
         }
@@ -36,6 +37,7 @@ namespace clientFactory
         public string Address { get; set; }
         public bool Gender { get; set; }
         public string Username { get; set; }
+        public bool DefaultUser { get; set; }
     
         public virtual ICollection<User> Users { get; set; }
         public virtual ICollection<User> Users1 { get; set; }
