@@ -91,6 +91,36 @@ namespace clientFactory
             return RepCat;
         }
 
+
+        public List<Report> getAllReportList()
+        {
+            try
+            {
+                var s = from s1 in clientDb.Reports select s1;
+                var s2 = s.ToList();
+                return s2;
+            }
+            catch (Exception e)
+            {
+                ///
+                Console.WriteLine("exception 3 is this : \n" + e.Message + "\n" + e.StackTrace);
+                return null;
+            }
+        }
+
+        public List<Report> getSentReportList()
+        {
+
+
+            return null;
+        }
+        public List<Report> getRecievedList()
+        {
+
+
+            return null;
+        }
+
         public Attachments newAttachment(Report r, string fileLoc)
         {
 
