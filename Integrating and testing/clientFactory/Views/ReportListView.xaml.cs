@@ -51,21 +51,25 @@ namespace clientFactory
         {
             //
             List<Report> reps = new List<Report>();
-            reps.Add(new Report(2,"فرزین","بیا بگیر گزارشتو بابا","گزارش اول"));
-            reps.Add(new Report(4, "فرزینdd", "بیا بگیر گزارشتddو بابا", "گزارش ddاول"));
+            Report r1 = new Report();
+            r1.Description = "بیا بگیر گزارشتو بابا";
+            reps.Add(r1);
             allReports_dg.ItemsSource = reps;
+            //
+            //allReports_dg.ItemsSource = r;
+
+
 
         }
         
         public void setSentReportList(List<Report> r)
         {
-
-
+            //sentReports_dg.ItemsSource = r;
 
         }
         public void setRecievedReportList(List<Report> r)
         {
-
+            //recievedReports_dg.ItemsSource = r;
 
 
         }

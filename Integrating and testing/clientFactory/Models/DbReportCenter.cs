@@ -6,20 +6,17 @@ using System.Threading.Tasks;
 
 namespace clientFactory
 {
-   public class DbReportCenter:DbCenter
+    public class DbReportCenter
     {
-        
-        public DbReportCenter instance;
-
-        public DbReportCenter()
+        private clientContainer clientDb;
+        public DbReportCenter(clientContainer con)
         {
-            instance = this; // singleton patern
+            clientDb = con;
         }
 
+        public bool newReport(Report r, ReportCategory rc, Attachments atach = null)
+        {
 
-
-        public bool newReport(Report r,ReportCategory rc,Attachments atach=null){
-              
             Report newReport = clientDb.Reports.Create();
             ReportCategory newRc = clientDb.ReportCategories.Create();
             Attachments newAtach = clientDb.Attachments.Create();
@@ -44,20 +41,23 @@ namespace clientFactory
             newAtach.FileLocation = atach.FileLocation;
             newAtach.Report = newReport;
             newAtach.uploadTime = atach.uploadTime;
-      
+
             clientDb.Reports.Add(newReport);
-            try{
+            try
+            {
                 clientDb.SaveChanges();
                 Console.WriteLine("000000000000\n");
                 return true;
             }
-            catch(Exception e){
-                Console.WriteLine("goh \n"+e.StackTrace+"    ljkkjhghj    "+e.Message);
+            catch (Exception e)
+            {
+                Console.WriteLine("goh \n" + e.StackTrace + "    ljkkjhghj    " + e.Message);
                 return false;
             }
         }
 
-        public bool setServerId(int id){
+        public bool setServerId(int id)
+        {
             clientDb.Reports.Where(s => s.Id == id).First().ServerId = id;
             try
             {
@@ -70,19 +70,20 @@ namespace clientFactory
             }
         }
 
-       public List<ReportCategory> getCategoryList(){
-           var s1 = from s in clientDb.ReportCategories select s;
-           var s2 = s1.ToList();
-           return s2;
-       }
+        public List<ReportCategory> getCategoryList()
+        {
+            var s1 = from s in clientDb.ReportCategories select s;
+            var s2 = s1.ToList();
+            return s2;
+        }
 
-       public List<User> getAllowedRecipientsList()
-       {
-           var s = from s1 in clientDb.Users select s1;
-           var s2 = s.ToList();
-           return s2;
-       }
-       
+        public List<User> getAllowedRecipientsList()
+        {
+            var s = from s1 in clientDb.Users select s1;
+            var s2 = s.ToList();
+            return s2;
+        }
+
 
 
         public ReportCategory getReportCategory(Int32 Id)
@@ -91,30 +92,9 @@ namespace clientFactory
             return RepCat;
         }
 
-        public List<Report> getAllReportList()
+        public Attachments newAttachment(Report r, string fileLoc)
         {
 
-                var s = from s1 in clientDb.Reports select s1;
-                var s2 = s.ToList();
-                return s2;
-           
-        }
-
-        public List<Report> getSentReportList()
-        {
-            
-
-            return null;
-        }
-        public List<Report> getRecievedList()
-        {
-
-
-            return null;
-        }
-
-        public Attachments newAttachment(Report r,string fileLoc){
-            
             Attachments newAtach = clientDb.Attachments.Create();
             newAtach.FileLocation = fileLoc;
             newAtach.Report = r;
@@ -132,6 +112,27 @@ namespace clientFactory
 
         }
 
+        public List<Report> getAllReportList()
+        {
+
+            var s = from s1 in clientDb.Reports select s1;
+            var s2 = s.ToList();
+            return s2;
+
+        }
+
+        public List<Report> getSentReportList()
+        {
+
+
+            return null;
+        }
+        public List<Report> getRecievedList()
+        {
+
+
+            return null;
+        }
 
         public bool deleteReport(Int32 ID)
         {
@@ -140,7 +141,7 @@ namespace clientFactory
                 Report r = clientDb.Reports.Where(i => i.Id == ID).First();
                 clientDb.Reports.Remove(r);
             }
-            
+
             try
             {
                 clientDb.SaveChanges();
@@ -152,7 +153,8 @@ namespace clientFactory
             }
         }
 
-        public Report getReportDetails(int id){
+        public Report getReportDetails(int id)
+        {
             Report r = clientDb.Reports.Where(iid => iid.Id == id).First();
             return r;
         }
@@ -164,26 +166,26 @@ namespace clientFactory
             return true;
         }
 
-        public bool readReport(int id){
-            clientDb.Reports.Where(iid => iid.Id == id).First().isRead=true;
+        public bool readReport(int id)
+        {
+            clientDb.Reports.Where(iid => iid.Id == id).First().isRead = true;
             return true;
         }
-       
-       public int GetServerReportId(int reportId)
+
+        public int GetServerReportId(int reportId)
         {
             return clientDb.Reports.Where(iid => iid.Id == reportId).First().Id;
         }
 
-       public Tuple<Report, ReportCategory, Attachments> GetReportDetails(int reportId)
-       {
-           Report r = clientDb.Reports.Where(s => s.Id == reportId).First();
-           Tuple<Report, ReportCategory, Attachments> t = new Tuple<Report,ReportCategory,Attachments> (r,r.ReportCategory,r.Attachment);
-           return t;
-       }
-
-       public List<Tuple<Report, ReportCategory, Attachments>> GetNewReports(int userId)
-       {
-           return null;
-       }
+        public Tuple<Report, ReportCategory, Attachments> GetReportDetails(int reportId)
+        {
+            Report r = clientDb.Reports.Where(s => s.Id == reportId).First();
+            Tuple<Report, ReportCategory, Attachments> t = new Tuple<Report, ReportCategory, Attachments>(r, r.ReportCategory, r.Attachment);
+            return t;
+        }
     }
 }
+
+
+
+
