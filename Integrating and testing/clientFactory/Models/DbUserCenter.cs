@@ -7,11 +7,11 @@ using clientFactory.Models;
 
 namespace clientFactory
 {
-<<<<<<< HEAD
+
     class DbUserCenter      
-=======
+
     public class DbUserCenter
->>>>>>> 6e0be4c96c80c04b031fab2cb88446f3e67a4780
+
     {
         private clientContainer _container;
         public DbUserCenter(clientContainer con)
@@ -71,13 +71,13 @@ namespace clientFactory
 
         public User GetUserDetails(int user_id)
         {
-<<<<<<< HEAD
+
             var user = _container.Users.Where(u => u.Id == user_id).First();
             return user;
-=======
+
 
             return null;
->>>>>>> 6e0be4c96c80c04b031fab2cb88446f3e67a4780
+
         }
 
         public User GetDefaultUser()
@@ -92,12 +92,12 @@ namespace clientFactory
 
         public List<User> GetNewUsers()
         {
-<<<<<<< HEAD
+
             var user = _container.Users.Where(u => u.isNew == true).ToList();
             return user;
-=======
+
             return null;
->>>>>>> 6e0be4c96c80c04b031fab2cb88446f3e67a4780
+
         }
 
 
