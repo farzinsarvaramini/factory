@@ -15,16 +15,31 @@ using System.Windows.Shapes;
 namespace clientFactory
 {
     /// <summary>
-    /// Interaction logic for SentRequest.xaml
+    /// Interaction logic for RequestList.xaml
     /// </summary>
-    public partial class SentRequest : Window
+    public partial class VRequestList : Window
     {
-        public SentRequest()
+        public VRequestList()
         {
             InitializeComponent();
         }
 
+        private void MakeRequestEvent_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
         private void BackEvent_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void FollowEvent_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void ShowEvent_Click(object sender, RoutedEventArgs e)
         {
 
         }

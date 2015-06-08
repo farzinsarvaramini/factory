@@ -20,7 +20,7 @@ namespace clientFactory
             _loginView = new VLoginForm();
             _initForm = new VInitializeForm();
             _db = db;
-          //  _defaultUser = _db.UserCenter.GetDefaultUser();
+            _defaultUser = _db.UserCenter.GetDefaultUser();
             _cc = c;
         }
 

@@ -20,6 +20,7 @@ namespace clientFactory
     /// </summary>
     public partial class VSendRequest : Window
     {
+        private CRequestController _controller { set; }
         public VSendRequest()
         {
             InitializeComponent();
@@ -27,12 +28,12 @@ namespace clientFactory
 
         private void BackEvent_Click(object sender, RoutedEventArgs e)
         {
-
+            Close();
         }
 
         private void Send_Click(object sender, RoutedEventArgs e)
         {
-            
+            _controller.SendRequestEvent();
         }
 
     }

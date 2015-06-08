@@ -70,12 +70,19 @@
     <Compile Include="Controllers\CUserController.cs" />
     <Compile Include="Communication\RequestManager.cs" />
     <Compile Include="Communication\ServerCommunication.cs" />
+    <Compile Include="Models\clientModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>clientModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DbRequestCenter.cs" />
+    <Compile Include="Models\DbUserCenter.cs" />
     <Compile Include="Models\RequestModel.cs">
       <DependentUpon>clientModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Views\Initialize form.xaml.cs" />
     <Compile Include="Views\LoginForm.xaml.cs" />
-    <Compile Include="Views\RecievedRequest.xaml.cs" />
+    <Compile Include="Views\VRecievedRequest.xaml.cs" />
     <Compile Include="Models\Report.cs">
       <DependentUpon>clientModel.tt</DependentUpon>
     </Compile>
@@ -83,10 +90,10 @@
       <DependentUpon>clientModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Communication\Request.cs" />
-    <Compile Include="Views\RequestList.xaml.cs" />
+    <Compile Include="Views\VRequestList.xaml.cs" />
     <Compile Include="Views\SendReportView.xaml.cs" />
     <Compile Include="Views\VSendRequest.xaml.cs" />
-    <Compile Include="Views\SentRequest.xaml.cs" />
+    <Compile Include="Views\VSentRequest.xaml.cs" />
     <Compile Include="Other\SessionInfos.cs" />
     <Compile Include="Models\User.cs">
       <DependentUpon>clientModel.tt</DependentUpon>
@@ -109,11 +116,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>clientModel.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\clientModel.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>clientModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\clientModel.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -122,11 +124,11 @@
     <Compile Include="Controllers\CSendReportController.cs" />
     <Compile Include="Models\DbCenter.cs" />
     <Compile Include="Models\DbReportCenter.cs" />
-    <Page Include="Views\RecievedRequest.xaml">
+    <Page Include="Views\VRecievedRequest.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Views\RequestList.xaml">
+    <Page Include="Views\VRequestList.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -138,7 +140,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Views\SentRequest.xaml">
+    <Page Include="Views\VSentRequest.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

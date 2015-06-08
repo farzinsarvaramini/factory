@@ -1,4 +1,4 @@
-﻿<Window x:Class="clientFactory.RequestList"
+﻿<Window x:Class="clientFactory.VRequestList"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="RequestList" Height="350" Width="525">

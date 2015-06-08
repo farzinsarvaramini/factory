@@ -13,6 +13,7 @@ namespace clientFactory
         {
             clientDb = con;
         }
+
         public bool newReport(Report r, ReportCategory rc, Attachments atach = null)
         {
 

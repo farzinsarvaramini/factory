@@ -15,26 +15,16 @@ using System.Windows.Shapes;
 namespace clientFactory
 {
     /// <summary>
-    /// Interaction logic for RecievedRequest.xaml
+    /// Interaction logic for SentRequest.xaml
     /// </summary>
-    public partial class RecievedRequest : Window
+    public partial class VSentRequest : Window
     {
-        public RecievedRequest()
+        public VSentRequest()
         {
             InitializeComponent();
         }
 
         private void BackEvent_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void AcceptEvent_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void RejectEvent_Click(object sender, RoutedEventArgs e)
         {
 
         }

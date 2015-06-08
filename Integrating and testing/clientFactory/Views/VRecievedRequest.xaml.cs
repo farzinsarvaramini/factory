@@ -15,18 +15,13 @@ using System.Windows.Shapes;
 namespace clientFactory
 {
     /// <summary>
-    /// Interaction logic for RequestList.xaml
+    /// Interaction logic for RecievedRequest.xaml
     /// </summary>
-    public partial class RequestList : Window
+    public partial class VRecievedRequest : Window
     {
-        public RequestList()
+        public VRecievedRequest()
         {
             InitializeComponent();
-        }
-
-        private void MakeRequestEvent_Click(object sender, RoutedEventArgs e)
-        {
-
         }
 
         private void BackEvent_Click(object sender, RoutedEventArgs e)
@@ -34,12 +29,12 @@ namespace clientFactory
 
         }
 
-        private void FollowEvent_Click(object sender, RoutedEventArgs e)
+        private void AcceptEvent_Click(object sender, RoutedEventArgs e)
         {
 
         }
 
-        private void ShowEvent_Click(object sender, RoutedEventArgs e)
+        private void RejectEvent_Click(object sender, RoutedEventArgs e)
         {
 
         }
