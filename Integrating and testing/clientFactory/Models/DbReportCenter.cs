@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using clientFactory.Models;
 
 namespace clientFactory
 {
@@ -90,6 +91,36 @@ namespace clientFactory
         {
             var RepCat = clientDb.ReportCategories.Where(s => s.Id == Id).First();
             return RepCat;
+        }
+
+
+        public List<Report> getAllReportList()
+        {
+            try
+            {
+                var s = from s1 in clientDb.Reports select s1;
+                var s2 = s.ToList();
+                return s2;
+            }
+            catch (Exception e)
+            {
+                ///
+                Console.WriteLine("exception 3 is this : \n" + e.Message + "\n" + e.StackTrace);
+                return null;
+            }
+        }
+
+        public List<Report> getSentReportList()
+        {
+
+
+            return null;
+        }
+        public List<Report> getRecievedList()
+        {
+
+
+            return null;
         }
 
         public Attachments newAttachment(Report r, string fileLoc)

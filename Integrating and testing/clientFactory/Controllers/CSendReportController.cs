@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using clientFactory.Models;
 
 
 namespace clientFactory
@@ -89,11 +90,11 @@ namespace clientFactory
             _view._controller = this;
 
 
-            _categories = _db.getCategoryList();
-            _view.setCategoriesList(_categories);
+           // _categories = _db.getCategoryList();
+            //_view.setCategoriesList(_categories);
 
-            _allowedRecipients = _db.getAllowedRecipientsList();
-            _view.setRecipientList(_allowedRecipients);
+            //_allowedRecipients = _db.getAllowedRecipientsList();
+           // _view.setRecipientList(_allowedRecipients);
 
             _view.show();
         }
