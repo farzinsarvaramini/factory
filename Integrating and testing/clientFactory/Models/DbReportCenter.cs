@@ -181,6 +181,11 @@ namespace clientFactory
             Tuple<Report, ReportCategory, Attachments> t = new Tuple<Report, ReportCategory, Attachments>(r, r.ReportCategory, r.Attachment);
             return t;
         }
+
+        public List<Tuple<Report, ReportCategory, Attachments>> GetNewReport(int userId)
+        {
+            return null;
+        }
     }
 }
 
