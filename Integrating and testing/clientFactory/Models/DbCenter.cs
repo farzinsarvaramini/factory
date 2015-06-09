@@ -12,6 +12,7 @@ namespace clientFactory
 
         public DbReportCenter ReportCenter;
         public DbUserCenter UserCenter;
+        public DbRequestCenter RequestCenter;
 
         private static DbCenter _instance;
         public static DbCenter Instance
