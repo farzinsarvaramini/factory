@@ -47,7 +47,20 @@ namespace clientFactory
             _communication.Connect();
            
             
-             //_report = new Report(_view.getRecipientID(),_view.getRecipient(),_view.getTDescription(),_view.getTitle());
+            _report = new Report();
+            _report.Sender_ID = SessionInfos.login_user.Id;
+            _report.Sender = SessionInfos.login_user.FirstName+" "
+                +SessionInfos.login_user.LastName+" - "
+                +SessionInfos.login_user.RoleName;
+            _report.Recipient_ID = _view.getRecipientID();
+            _report.Recipient = _view.getRecipient();
+            _report.Description = _view.getTDescription();
+            _report.Title = _view.getTitle();
+            _report.SendDate = DateTime.Now;
+            _report.isMark = false;
+            _report.isRead = false;
+            
+            
             Attachments attach;
             if(!String.IsNullOrEmpty(_view.getAttachments())){
                 attach = new Attachments();
@@ -88,11 +101,11 @@ namespace clientFactory
             _view._controller = this;
 
 
-            _categories = _db.getCategoryList();
-            _view.setCategoriesList(_categories);
+            //_categories = _db.getCategoryList();
+            //_view.setCategoriesList(_categories);
 
-            _allowedRecipients = _db.getAllowedRecipientsList();
-            _view.setRecipientList(_allowedRecipients);
+            //_allowedRecipients = _db.getAllowedRecipientsList();
+            //_view.setRecipientList(_allowedRecipients);
 
             _view.show();
         }
