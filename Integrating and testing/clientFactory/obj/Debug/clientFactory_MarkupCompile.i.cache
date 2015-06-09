@@ -12,8 +12,13 @@ DEBUG;TRACE
 E:\SAproject\factory\Integrating and testing\clientFactory\App.xaml
 10990663694
 11981813301
+<<<<<<< HEAD
+40-1028903527
+18109014029
+=======
 40-1787182574
 181902476602
+>>>>>>> ed30712d598a481f59282423cb5848fa9ac2c63f
 Views\Initialize form.xaml;Views\LoginForm.xaml;Views\MainWindow.xaml;Views\ReportListView.xaml;Views\ReportView.xaml;Views\SendReportView.xaml;Views\VRecievedRequest.xaml;Views\VRequestList.xaml;Views\VSendRequest.xaml;Views\VSentRequest.xaml;
 
 False

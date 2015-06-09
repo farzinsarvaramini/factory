@@ -97,6 +97,7 @@
     <Property Name="Answer" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Status" Type="real" Nullable="false" />
     <Property Name="IsNew" Type="bit" Nullable="false" DefaultValue="false" />
+    <Property Name="IsAnswered" Type="bit" Nullable="false" DefaultValue="false" />
   </EntityType>
   <Association Name="ReportAttachments">
     <End Role="Report" Type="clientModel.Store.Reports" Multiplicity="1" />
@@ -252,6 +253,7 @@
           <Property Name="Answer" Type="String" Nullable="false" />
           <Property Name="Status" Type="Single" Nullable="false" />
           <Property Name="IsNew" Type="Boolean" Nullable="false" DefaultValue="False" />
+          <Property Name="IsAnswered" Type="Boolean" Nullable="false" DefaultValue="False" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -333,6 +335,7 @@
           <ScalarProperty Name="Answer" ColumnName="Answer" />
           <ScalarProperty Name="Status" ColumnName="Status" />
           <ScalarProperty Name="IsNew" ColumnName="IsNew" />
+          <ScalarProperty Name="IsAnswered" ColumnName="IsAnswered" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

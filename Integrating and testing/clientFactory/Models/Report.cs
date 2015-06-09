@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace clientFactory
+namespace clientFactory.Models
 {
     using System;
     using System.Collections.Generic;
