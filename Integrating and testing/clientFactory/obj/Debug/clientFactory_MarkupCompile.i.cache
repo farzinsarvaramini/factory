@@ -4,16 +4,16 @@
 winexe
 C#
 .cs
-\\psf\Projects\Factory\factory\Integrating and testing\clientFactory\obj\Debug\
+E:\SAproject\factory\Integrating and testing\clientFactory\obj\Debug\
 clientFactory
 none
 false
 DEBUG;TRACE
-\\psf\Projects\Factory\factory\Integrating and testing\clientFactory\App.xaml
+E:\SAproject\factory\Integrating and testing\clientFactory\App.xaml
 10990663694
 11981813301
-39904795072
-18267844129
+40-1787182574
+181902476602
 Views\Initialize form.xaml;Views\LoginForm.xaml;Views\MainWindow.xaml;Views\ReportListView.xaml;Views\ReportView.xaml;Views\SendReportView.xaml;Views\VRecievedRequest.xaml;Views\VRequestList.xaml;Views\VSendRequest.xaml;Views\VSentRequest.xaml;
 
 False

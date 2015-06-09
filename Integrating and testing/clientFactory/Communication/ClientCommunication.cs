@@ -91,6 +91,14 @@ namespace clientFactory
             }
         }
 
+        public Request ReciveRequest()
+        {
+            byte[] recieved = new byte[1024 * 8];
+            _clientSocket.Receive(recieved, 0, recieved.Length, 0);
+            string js = System.Text.Encoding.Default.GetString(recieved);
+            return Request.ToRequest(js);
+        }
+
         public void SendFile(string fileName)
         {
             try

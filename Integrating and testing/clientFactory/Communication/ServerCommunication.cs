@@ -59,8 +59,8 @@ namespace clientFactory
                 string recievedJson = Encoding.ASCII.GetString(requestByte).Replace("\0", "");;
                 Request request = Request.ToRequest(recievedJson);
                 // Execute request.
-                RequestManager reqMan = RequestManager.Instance;
-                response = reqMan.ExeRequest(request);
+                ServerRequestManager reqMan = ServerRequestManager.Instance;
+                response = reqMan.ExeRequest(request, sck);
                 // Recieve file if they exist.
                 SendResponse(response, sck);
                 if(reqMan.HasFile(request))
@@ -82,6 +82,20 @@ namespace clientFactory
             serverSocket.BeginAccept(new AsyncCallback(RecieveRequestCallBack), 0);
         }
 
+        public void SendRequest(Request request, Socket sck)
+        {
+            try
+            {
+                string json = request.ToJson();
+                byte[] sendData = Encoding.ASCII.GetBytes(json);
+                sck.Send(sendData);
+            }
+            catch (Exception ex)
+            {
+
+            }
+        }
+
 		private void SendResponse(string response, Socket socket)
         {
             byte[] res = Encoding.ASCII.GetBytes(response.ToString());
@@ -90,7 +104,7 @@ namespace clientFactory
 		
         private string RecieveFile(Socket clientSocket)
         {
-            string response = "WAITING";
+            string response = "Code #5.0"; 
             try
             {
                 Stream clientStream = new NetworkStream(clientSocket);
@@ -115,7 +129,7 @@ namespace clientFactory
                         fileData.Write(buffer, 0, count);
                         bytesReceived += count;
                     }
-                response = "SUCCSESS";
+                response = "Code #5.1";  
             }
             catch (Exception ex)
             {
@@ -126,7 +140,7 @@ namespace clientFactory
 
         private string SendFile(string fileName, Socket clientSocket)
         {
-            string response = "WAITING";
+            string response = "Code #6.0";
             try
             {
                 string filePath = "";
@@ -157,7 +171,7 @@ namespace clientFactory
                     }
                     // File transferred.
                 }
-                response = "SUCCESS";
+                response = "Code #6.1";
             }
             catch (Exception ex)
             {

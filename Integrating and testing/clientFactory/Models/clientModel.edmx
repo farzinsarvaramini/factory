@@ -10,15 +10,7 @@
     <EntitySet Name="Reports" EntityType="clientModel.Store.Reports" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="Attachments" EntityType="clientModel.Store.Attachments" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="ReportCategories" EntityType="clientModel.Store.ReportCategories" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="UserUser" EntityType="clientModel.Store.UserUser" store:Type="Tables" Schema="dbo" />
-    <AssociationSet Name="FK_UserUser_User" Association="clientModel.Store.FK_UserUser_User">
-      <End Role="User" EntitySet="Users" />
-      <End Role="UserUser" EntitySet="UserUser" />
-    </AssociationSet>
-    <AssociationSet Name="FK_UserUser_User1" Association="clientModel.Store.FK_UserUser_User1">
-      <End Role="User1" EntitySet="Users" />
-      <End Role="UserUser" EntitySet="UserUser" />
-    </AssociationSet>
+    <EntitySet Name="RequestModels1" EntityType="clientModel.Store.RequestModels1" store:Type="Tables" Schema="dbo" />
     <AssociationSet Name="ReportAttachments" Association="clientModel.Store.ReportAttachments">
       <End Role="Report" EntitySet="Reports" />
       <End Role="Attachments" EntitySet="Attachments" />
@@ -26,6 +18,10 @@
     <AssociationSet Name="ReportReportCategory" Association="clientModel.Store.ReportReportCategory">
       <End Role="Report" EntitySet="Reports" />
       <End Role="ReportCategory" EntitySet="ReportCategories" />
+    </AssociationSet>
+    <AssociationSet Name="UserUser" Association="clientModel.Store.UserUser">
+      <End Role="User" EntitySet="Users" />
+      <End Role="User1" EntitySet="Users" />
     </AssociationSet>
   </EntityContainer>
   <EntityType Name="Users">
@@ -48,6 +44,9 @@
     <Property Name="Address" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Gender" Type="bit" Nullable="false" />
     <Property Name="Username" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="UserId" Type="int" Nullable="false" />
+    <Property Name="DefaultUser" Type="bit" Nullable="false" DefaultValue="false" />
+    <Property Name="IsNew" Type="bit" Nullable="false" DefaultValue="false" />
   </EntityType>
   <EntityType Name="Reports">
     <Key>
@@ -82,13 +81,22 @@
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Title" Type="nvarchar(max)" Nullable="false" />
   </EntityType>
-  <EntityType Name="UserUser">
+  <EntityType Name="RequestModels1">
     <Key>
-      <PropertyRef Name="Users1_Id" />
-      <PropertyRef Name="Users_Id" />
+      <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Users1_Id" Type="int" Nullable="false" />
-    <Property Name="Users_Id" Type="int" Nullable="false" />
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Sender" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Recipient" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="SendDate" Type="datetime" Nullable="false" />
+    <Property Name="Title" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Context" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="SenderId" Type="int" Nullable="false" />
+    <Property Name="RecipientId" Type="int" Nullable="false" />
+    <Property Name="Follow" Type="bit" Nullable="false" DefaultValue="false" />
+    <Property Name="Answer" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Status" Type="real" Nullable="false" />
+    <Property Name="IsNew" Type="bit" Nullable="false" DefaultValue="false" />
   </EntityType>
   <Association Name="ReportAttachments">
     <End Role="Report" Type="clientModel.Store.Reports" Multiplicity="1" />
@@ -114,27 +122,15 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_UserUser_User">
+  <Association Name="UserUser">
     <End Role="User" Type="clientModel.Store.Users" Multiplicity="1" />
-    <End Role="UserUser" Type="clientModel.Store.UserUser" Multiplicity="*" />
+    <End Role="User1" Type="clientModel.Store.Users" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="User">
         <PropertyRef Name="Id" />
       </Principal>
-      <Dependent Role="UserUser">
-        <PropertyRef Name="Users1_Id" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_UserUser_User1">
-    <End Role="UserUser" Type="clientModel.Store.UserUser" Multiplicity="*" />
-    <End Role="User1" Type="clientModel.Store.Users" Multiplicity="1" />
-    <ReferentialConstraint>
-      <Principal Role="User1">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="UserUser">
-        <PropertyRef Name="Users_Id" />
+      <Dependent Role="User1">
+        <PropertyRef Name="UserId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -147,10 +143,6 @@
           <EntitySet Name="Reports" EntityType="clientModel.Report" />
           <EntitySet Name="Attachments" EntityType="clientModel.Attachments" />
           <EntitySet Name="ReportCategories" EntityType="clientModel.ReportCategory" />
-          <AssociationSet Name="UserUser" Association="clientModel.UserUser">
-            <End Role="User" EntitySet="Users" />
-            <End Role="User1" EntitySet="Users" />
-          </AssociationSet>
           <AssociationSet Name="ReportAttachments" Association="clientModel.ReportAttachments">
             <End Role="Report" EntitySet="Reports" />
             <End Role="Attachments" EntitySet="Attachments" />
@@ -159,6 +151,11 @@
             <End Role="Report" EntitySet="Reports" />
             <End Role="ReportCategory" EntitySet="ReportCategories" />
           </AssociationSet>
+          <AssociationSet Name="UserUser" Association="clientModel.UserUser">
+            <End Role="User" EntitySet="Users" />
+            <End Role="User1" EntitySet="Users" />
+          </AssociationSet>
+          <EntitySet Name="RequestModels1" EntityType="clientModel.RequestModel" />
         </EntityContainer>
         <EntityType Name="User">
           <Key>
@@ -179,9 +176,10 @@
           <Property Name="PhoneNumber" Type="String" Nullable="false" />
           <Property Name="Address" Type="String" Nullable="false" />
           <Property Name="Gender" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="Users" Relationship="clientModel.UserUser" FromRole="User" ToRole="User1" />
-          <NavigationProperty Name="Users1" Relationship="clientModel.UserUser" FromRole="User1" ToRole="User" />
           <Property Name="Username" Type="String" Nullable="false" />
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <Property Name="DefaultUser" Type="Boolean" Nullable="false" DefaultValue="False" />
+          <Property Name="IsNew" Type="Boolean" Nullable="false" DefaultValue="False" />
         </EntityType>
         <EntityType Name="Report">
           <Key>
@@ -218,10 +216,6 @@
           <Property Name="Title" Type="String" Nullable="false" />
           <NavigationProperty Name="Reports" Relationship="clientModel.ReportReportCategory" FromRole="ReportCategory" ToRole="Report" />
         </EntityType>
-        <Association Name="UserUser">
-          <End Type="clientModel.User" Role="User" Multiplicity="*" />
-          <End Type="clientModel.User" Role="User1" Multiplicity="*" />
-        </Association>
         <Association Name="ReportAttachments">
           <End Type="clientModel.Report" Role="Report" Multiplicity="1" />
           <End Type="clientModel.Attachments" Role="Attachments" Multiplicity="0..1" />
@@ -230,6 +224,35 @@
           <End Type="clientModel.Report" Role="Report" Multiplicity="*" />
           <End Type="clientModel.ReportCategory" Role="ReportCategory" Multiplicity="1" />
         </Association>
+        <Association Name="UserUser">
+          <End Type="clientModel.User" Role="User" Multiplicity="1" />
+          <End Type="clientModel.User" Role="User1" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="User1">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="RequestModel">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Sender" Type="String" Nullable="false" />
+          <Property Name="Recipient" Type="String" Nullable="false" />
+          <Property Name="SendDate" Type="DateTime" Nullable="false" />
+          <Property Name="Title" Type="String" Nullable="false" />
+          <Property Name="Context" Type="String" Nullable="false" />
+          <Property Name="SenderId" Type="Int32" Nullable="false" />
+          <Property Name="RecipientId" Type="Int32" Nullable="false" />
+          <Property Name="Follow" Type="Boolean" Nullable="false" DefaultValue="False" />
+          <Property Name="Answer" Type="String" Nullable="false" />
+          <Property Name="Status" Type="Single" Nullable="false" />
+          <Property Name="IsNew" Type="Boolean" Nullable="false" DefaultValue="False" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -255,6 +278,9 @@
           <ScalarProperty Name="Address" ColumnName="Address" />
           <ScalarProperty Name="Gender" ColumnName="Gender" />
           <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="DefaultUser" ColumnName="DefaultUser" />
+          <ScalarProperty Name="IsNew" ColumnName="IsNew" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -292,14 +318,24 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <AssociationSetMapping Name="UserUser" TypeName="clientModel.UserUser" StoreEntitySet="UserUser">
-      <EndProperty Name="User">
-        <ScalarProperty Name="Id" ColumnName="Users1_Id" />
-      </EndProperty>
-      <EndProperty Name="User1">
-        <ScalarProperty Name="Id" ColumnName="Users_Id" />
-      </EndProperty>
-    </AssociationSetMapping>
+    <EntitySetMapping Name="RequestModels1">
+      <EntityTypeMapping TypeName="IsTypeOf(clientModel.RequestModel)">
+        <MappingFragment StoreEntitySet="RequestModels1">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Sender" ColumnName="Sender" />
+          <ScalarProperty Name="Recipient" ColumnName="Recipient" />
+          <ScalarProperty Name="SendDate" ColumnName="SendDate" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Context" ColumnName="Context" />
+          <ScalarProperty Name="SenderId" ColumnName="SenderId" />
+          <ScalarProperty Name="RecipientId" ColumnName="RecipientId" />
+          <ScalarProperty Name="Follow" ColumnName="Follow" />
+          <ScalarProperty Name="Answer" ColumnName="Answer" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="IsNew" ColumnName="IsNew" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <AssociationSetMapping Name="ReportAttachments" TypeName="clientModel.ReportAttachments" StoreEntitySet="Attachments">
       <EndProperty Name="Report">
         <ScalarProperty Name="Id" ColumnName="Report_Id" />

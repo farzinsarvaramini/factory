@@ -123,15 +123,13 @@ namespace clientFactory
 
         public List<Report> getSentReportList()
         {
-
-
-            return null;
+            var rep = clientDb.Reports.Where(r => r.Sender_ID == SessionInfos.login_user.Id).ToList();
+            return rep;
         }
         public List<Report> getRecievedList()
         {
-
-
-            return null;
+            var rep = clientDb.Reports.Where(r => r.Recipient_ID == SessionInfos.login_user.Id).ToList();
+            return rep;
         }
 
         public bool deleteReport(Int32 ID)
@@ -182,6 +180,11 @@ namespace clientFactory
             Report r = clientDb.Reports.Where(s => s.Id == reportId).First();
             Tuple<Report, ReportCategory, Attachments> t = new Tuple<Report, ReportCategory, Attachments>(r, r.ReportCategory, r.Attachment);
             return t;
+        }
+
+        public List<Tuple<Report, ReportCategory, Attachments>> GetNewReport(int userId)
+        {
+            return null;
         }
     }
 }

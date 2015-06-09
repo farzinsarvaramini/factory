@@ -7,6 +7,7 @@ using System.Windows;
 
 
 
+
 namespace clientFactory
 {
    public class CSendReportController

@@ -73,7 +73,9 @@
     <Compile Include="Communication\ServerCommunication.cs" />
     <Compile Include="Models\DbRequestCenter.cs" />
     <Compile Include="Models\DbUserCenter.cs" />
-    <Compile Include="Models\RequestModel.cs" />
+    <Compile Include="Models\RequestModel.cs">
+      <DependentUpon>clientModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Views\Initialize form.xaml.cs" />
     <Compile Include="Views\LoginForm.xaml.cs" />
     <Compile Include="Views\MainWindow.xaml.cs">
@@ -195,7 +197,6 @@
     </EntityDeploy>
     <None Include="Models\clientModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>clientModel.Context.cs</LastGenOutput>
       <DependentUpon>clientModel.edmx</DependentUpon>
     </None>
     <None Include="Models\clientModel.edmx.diagram">
