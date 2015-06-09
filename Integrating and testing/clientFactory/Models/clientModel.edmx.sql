@@ -2,8 +2,8 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 06/08/2015 16:04:55
--- Generated from EDMX file: C:\Users\farzin\Desktop\clientFactory\clientFactory\clientModel.edmx
+-- Date Created: 06/09/2015 15:50:29
+-- Generated from EDMX file: C:\Users\farzin\Documents\GitHub\factory\Integrating and testing\clientFactory\Models\clientModel.edmx
 -- --------------------------------------------------
 
 SET QUOTED_IDENTIFIER OFF;
@@ -17,17 +17,14 @@ GO
 -- Dropping existing FOREIGN KEY constraints
 -- --------------------------------------------------
 
-IF OBJECT_ID(N'[dbo].[FK_UserUser_User]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[UserUser] DROP CONSTRAINT [FK_UserUser_User];
-GO
-IF OBJECT_ID(N'[dbo].[FK_UserUser_User1]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[UserUser] DROP CONSTRAINT [FK_UserUser_User1];
-GO
 IF OBJECT_ID(N'[dbo].[FK_ReportAttachments]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[Attachments] DROP CONSTRAINT [FK_ReportAttachments];
 GO
 IF OBJECT_ID(N'[dbo].[FK_ReportReportCategory]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[Reports] DROP CONSTRAINT [FK_ReportReportCategory];
+GO
+IF OBJECT_ID(N'[dbo].[FK_UserUser]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Users] DROP CONSTRAINT [FK_UserUser];
 GO
 
 -- --------------------------------------------------
@@ -46,8 +43,8 @@ GO
 IF OBJECT_ID(N'[dbo].[ReportCategories]', 'U') IS NOT NULL
     DROP TABLE [dbo].[ReportCategories];
 GO
-IF OBJECT_ID(N'[dbo].[UserUser]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[UserUser];
+IF OBJECT_ID(N'[dbo].[RequestModels1]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[RequestModels1];
 GO
 
 -- --------------------------------------------------
@@ -71,7 +68,10 @@ CREATE TABLE [dbo].[Users] (
     [PhoneNumber] nvarchar(max)  NOT NULL,
     [Address] nvarchar(max)  NOT NULL,
     [Gender] bit  NOT NULL,
-    [Username] nvarchar(max)  NOT NULL
+    [Username] nvarchar(max)  NOT NULL,
+    [UserId] int  NOT NULL,
+    [DefaultUser] bit  NOT NULL,
+    [IsNew] bit  NOT NULL
 );
 GO
 
@@ -108,10 +108,20 @@ CREATE TABLE [dbo].[ReportCategories] (
 );
 GO
 
--- Creating table 'UserUser'
-CREATE TABLE [dbo].[UserUser] (
-    [Users1_Id] int  NOT NULL,
-    [Users_Id] int  NOT NULL
+-- Creating table 'RequestModels1'
+CREATE TABLE [dbo].[RequestModels1] (
+    [Id] int IDENTITY(1,1) NOT NULL,
+    [Sender] nvarchar(max)  NOT NULL,
+    [Recipient] nvarchar(max)  NOT NULL,
+    [SendDate] datetime  NOT NULL,
+    [Title] nvarchar(max)  NOT NULL,
+    [Context] nvarchar(max)  NOT NULL,
+    [SenderId] int  NOT NULL,
+    [RecipientId] int  NOT NULL,
+    [Follow] bit  NOT NULL,
+    [Answer] nvarchar(max)  NOT NULL,
+    [Status] real  NOT NULL,
+    [IsNew] bit  NOT NULL
 );
 GO
 
@@ -143,38 +153,15 @@ ADD CONSTRAINT [PK_ReportCategories]
     PRIMARY KEY CLUSTERED ([Id] ASC);
 GO
 
--- Creating primary key on [Users1_Id], [Users_Id] in table 'UserUser'
-ALTER TABLE [dbo].[UserUser]
-ADD CONSTRAINT [PK_UserUser]
-    PRIMARY KEY CLUSTERED ([Users1_Id], [Users_Id] ASC);
+-- Creating primary key on [Id] in table 'RequestModels1'
+ALTER TABLE [dbo].[RequestModels1]
+ADD CONSTRAINT [PK_RequestModels1]
+    PRIMARY KEY CLUSTERED ([Id] ASC);
 GO
 
 -- --------------------------------------------------
 -- Creating all FOREIGN KEY constraints
 -- --------------------------------------------------
-
--- Creating foreign key on [Users1_Id] in table 'UserUser'
-ALTER TABLE [dbo].[UserUser]
-ADD CONSTRAINT [FK_UserUser_User]
-    FOREIGN KEY ([Users1_Id])
-    REFERENCES [dbo].[Users]
-        ([Id])
-    ON DELETE NO ACTION ON UPDATE NO ACTION;
-GO
-
--- Creating foreign key on [Users_Id] in table 'UserUser'
-ALTER TABLE [dbo].[UserUser]
-ADD CONSTRAINT [FK_UserUser_User1]
-    FOREIGN KEY ([Users_Id])
-    REFERENCES [dbo].[Users]
-        ([Id])
-    ON DELETE NO ACTION ON UPDATE NO ACTION;
-
--- Creating non-clustered index for FOREIGN KEY 'FK_UserUser_User1'
-CREATE INDEX [IX_FK_UserUser_User1]
-ON [dbo].[UserUser]
-    ([Users_Id]);
-GO
 
 -- Creating foreign key on [Report_Id] in table 'Attachments'
 ALTER TABLE [dbo].[Attachments]
@@ -202,6 +189,20 @@ ADD CONSTRAINT [FK_ReportReportCategory]
 CREATE INDEX [IX_FK_ReportReportCategory]
 ON [dbo].[Reports]
     ([ReportCategory_Id]);
+GO
+
+-- Creating foreign key on [UserId] in table 'Users'
+ALTER TABLE [dbo].[Users]
+ADD CONSTRAINT [FK_UserUser]
+    FOREIGN KEY ([UserId])
+    REFERENCES [dbo].[Users]
+        ([Id])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_UserUser'
+CREATE INDEX [IX_FK_UserUser]
+ON [dbo].[Users]
+    ([UserId]);
 GO
 
 -- --------------------------------------------------
