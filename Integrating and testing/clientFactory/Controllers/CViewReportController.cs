@@ -13,11 +13,14 @@ namespace clientFactory
         private ReportListView _listView;
         private ReportView _view;
         private DbReportCenter _db;
+        private List<User> _allowedSenders;
         private ClientCommunication _communication;
         private List<Report> allReportsList;
         private List<Report> sentReportsList;
         private List<Report> recievedReportsList;
-
+        private List<Report> allFoundReportsList;
+        private List<Report> sentFoundReportsList;
+        private List<Report> recievedFoundReportsList;
 
         public CViewReportController(DbReportCenter db)
         {
@@ -78,7 +81,6 @@ namespace clientFactory
             if(r.ReportCategory!=null) rV.reportCategory_l.Content = r.ReportCategory.Title;
             rV.description_tbl.Text = r.Description;
             if(r.Attachment!=null) rV.attachments_tbl.Text = r.Attachment.FileLocation;
-
         }
 
         public void showReportListView()
@@ -91,16 +93,51 @@ namespace clientFactory
             //allReportsList = _db.getAllReportList();
             _listView.setAllReportList(allReportsList);
             
-
             //sentReportsList = _db.getSentReportList();
-            //_listView.setAllReportList(sentReportsList);
+            //_listView.setSentReportList(sentReportsList);
 
             //recievedReportsList = _db.getRecievedList();
-            //_listView.setAllReportList(recievedReportsList);
+            //_listView.setRecievedReportList(recievedReportsList);
+
+            //_allowedSenders = _db.getAllowedSendersList();
+            //_listView.setSenderList(_allowedSenders);
+
 
             _listView.show();
 
         }
+
+        public void updateReportListView(string title,string category,string sender
+            , DateTime from, DateTime to)
+        {
+            foreach(Report r in allReportsList){
+                if(r.Title == title &&
+                r.ReportCategory.Title == category && r.Sender == sender &&
+                r.SendDate.CompareTo(from) > 0 && r.SendDate.CompareTo(to) < 0)
+                {
+                    allFoundReportsList.Add(r);
+                    if (r.Sender_ID == SessionInfos.login_user.Id) sentFoundReportsList.Add(r);
+                    if (r.Recipient_ID == SessionInfos.login_user.Id) recievedFoundReportsList.Add(r);
+                }
+                _listView.setAllReportList(allFoundReportsList);
+                _listView.setSentReportList(sentFoundReportsList);
+                _listView.setRecievedReportList(recievedFoundReportsList);
+            }
+        }
+
+
+            public void renewReportListView()
+            {
+
+                _listView.setAllReportList(allReportsList);
+                //_listView.setSentReportList(sentReportsList);
+                //_listView.setRecievedReportList(recievedReportsList);
+
+                //allFoundReportsList.Clear();
+                //sentFoundReportsList.Clear();
+                //recievedFoundReportsList.Clear();
+            }
+
 
         public void closeReportListView()
         {
