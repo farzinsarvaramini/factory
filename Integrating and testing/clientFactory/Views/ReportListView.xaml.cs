@@ -57,24 +57,26 @@ namespace clientFactory
             allReports_dg.ItemsSource = reps;
             //
             //allReports_dg.ItemsSource = r;
-
-
-
         }
         
         public void setSentReportList(List<Report> r)
         {
-            //sentReports_dg.ItemsSource = r;
-
+            sentReports_dg.ItemsSource = r;
         }
         public void setRecievedReportList(List<Report> r)
         {
-            //recievedReports_dg.ItemsSource = r;
-
-
+            recievedReports_dg.ItemsSource = r;
         }
 
-
+        public void setSenderList(List<User> r)
+        {
+            foreach (User item in r)
+            {
+                this.sender_cb.Items.Add(item);
+                this.sender_cb.DisplayMemberPath = "LastName";
+                this.sender_cb.SelectedValuePath = "Id";
+            }
+        }
 
     //    public VReporListView (CViewReportController c)
     //    {
@@ -159,14 +161,58 @@ namespace clientFactory
 
         private void deleteReport_b_Click(object sender, RoutedEventArgs e)
         {
-            //if a report is selected
-            //_controller.DeleteReport(selected report)
+
+            try
+            {
+                if (allReports_dg.SelectedItems.Count == 1)
+                {
+                    _controller.DeleteReport((Report)allReports_dg.SelectedItem);
+                }
+                else if (sentReports_dg.SelectedItems.Count == 1)
+                {
+                    _controller.DeleteReport((Report)sentReports_dg.SelectedItem);
+                }
+                else if (sentReports_dg.SelectedItems.Count == 1)
+                {
+                    _controller.DeleteReport((Report)recievedReports_dg.SelectedItem);
+                }
+                else
+                {
+                    MessageBox.Show("لطفا یکی از گزارش ها را برای نمایش انتخاب نمایید !!!", "خطا");
+                }
+            }
+            catch
+            {
+                MessageBox.Show("لطفا گزارش معتبر انتخاب کنید !!!", "خطا");
+            }
+
         }
 
         private void markReport_b_Click(object sender, RoutedEventArgs e)
         {
-            //if a report is selected
-            //_controller.MarkReport(selected report)
+            try
+            {
+                if (allReports_dg.SelectedItems.Count == 1)
+                {
+                    _controller.MarkReport((Report)allReports_dg.SelectedItem);
+                }
+                else if (sentReports_dg.SelectedItems.Count == 1)
+                {
+                    _controller.MarkReport((Report)sentReports_dg.SelectedItem);
+                }
+                else if (sentReports_dg.SelectedItems.Count == 1)
+                {
+                    _controller.MarkReport((Report)recievedReports_dg.SelectedItem);
+                }
+                else
+                {
+                    MessageBox.Show("لطفا یکی از گزارش ها را برای نمایش انتخاب نمایید !!!", "خطا");
+                }
+            }
+            catch
+            {
+                MessageBox.Show("لطفا گزارش معتبر انتخاب کنید !!!", "خطا");
+            }
         }
 
         private void returnBack_b_Click(object sender, RoutedEventArgs e)
@@ -176,7 +222,21 @@ namespace clientFactory
 
         private void search_b_Click(object sender, RoutedEventArgs e)
         {
+            //check to be correct
+            //MessageBox.Show(string.IsNullOrEmpty(sender_cb.Text).ToString());
+            if (reportTitle_tb.Text != null && reportCategory_tb.SelectedText != null && !string.IsNullOrEmpty(sender_cb.Text) &&
+                from_dp.SelectedDate != null && to_dp.SelectedDate != null)
+            {
+            _controller.updateReportListView(reportTitle_tb.Text,reportCategory_tb.Text,sender_cb.Text
+            ,from_dp.SelectedDate.Value,to_dp.SelectedDate.Value);
+            }else{
+                MessageBox.Show("لطفا برای جستجو تمام موارد را وارد نمایید");
+            }
+        }
 
+        private void cancelSearch_b_Click(object sender, RoutedEventArgs e)
+        {
+            _controller.renewReportListView();
         }
     }
 }

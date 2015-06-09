@@ -56,21 +56,8 @@ namespace clientFactory
             }
         }
 
-        public bool setServerId(int id)
-        {
-            clientDb.Reports.Where(s => s.Id == id).First().ServerId = id;
-            try
-            {
-                clientDb.SaveChanges();
-                return true;
-            }
-            catch
-            {
-                return false;
-            }
-        }
 
-        public int newReportWithId(Report r, ReportCategory rc, Attachments atach = null)
+           public int newReportWithId(Report r, ReportCategory rc, Attachments atach = null)
         {
 
             Report newReport = clientDb.Reports.Create();
@@ -140,6 +127,12 @@ namespace clientFactory
             return s2;
         }
 
+        public List<User> getAllowedSendersList()
+        {
+            var s = from s1 in clientDb.Users select s1;
+            var s2 = s.ToList();
+            return s2;
+        }
 
 
         public ReportCategory getReportCategory(Int32 Id)
@@ -226,11 +219,13 @@ namespace clientFactory
             return true;
         }
 
+
         public string getLocation(int atachId)
         {
             var location = clientDb.Attachments.Where(a => a.Id == atachId).First().FileLocation;
             return location;
         }
+
 
         public int GetServerReportId(int reportId)
         {
