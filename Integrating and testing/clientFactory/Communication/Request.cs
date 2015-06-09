@@ -12,9 +12,11 @@ namespace clientFactory
         GET,                 // content : <UserId>
         NEW_REPORT,          // content : <Report, ReportCategory, Attachment>
         DOWNLOAD,            // content : <AttachmentId>
-        NEW_REQUESTMODEL,    // content : <Request>
+        NEW_REQUESTMODEL,    // content : <RequestModel>
         FOLLOW,              // content : <RequestId>
-        INIT                 // content : <UserName>
+        INIT,                // content : <UserName>
+        GET_ANS,             // content : <Request(s)>
+        INIT_ANS             // content : <User>   
     }
 
     class Request
