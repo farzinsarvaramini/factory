@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model '\\psf\Home\Documents\Factory\Integrating and testing\clientFactory\Models\clientModel.edmx'. 
+﻿// T4 code generation is enabled for model 'C:\Users\farzin\Documents\GitHub\factory\Integrating and testing\clientFactory\Models\clientModel.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.

@@ -3,15 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using clientFactory.Models;
+
 
 namespace clientFactory
 {
-<<<<<<< HEAD
-    class DbUserCenter      
-=======
     public class DbUserCenter
->>>>>>> 6e0be4c96c80c04b031fab2cb88446f3e67a4780
     {
         private clientContainer _container;
         public DbUserCenter(clientContainer con)
@@ -19,7 +15,7 @@ namespace clientFactory
             _container = con;
         }
 
-        public bool AddUser(User usr,int masterId)
+        public bool AddUser(User usr, int masterId)
         {
             User user = _container.Users.Create();
             user.FirstName = usr.FirstName;
@@ -51,6 +47,7 @@ namespace clientFactory
             {
                 return false;
             }
+
         }
 
         public void SetDefaultUser(int user_id)
@@ -71,36 +68,20 @@ namespace clientFactory
 
         public User GetUserDetails(int user_id)
         {
-<<<<<<< HEAD
             var user = _container.Users.Where(u => u.Id == user_id).First();
             return user;
-=======
-
-            return null;
->>>>>>> 6e0be4c96c80c04b031fab2cb88446f3e67a4780
         }
 
         public User GetDefaultUser()
         {
             var user = _container.Users.Where(u => u.DefaultUser == true).First();
             return user;
-
-
-
-            return null;
         }
 
         public List<User> GetNewUsers()
         {
-<<<<<<< HEAD
-            var user = _container.Users.Where(u => u.isNew == true).ToList();
+            var user = _container.Users.Where(u => u.IsNew == true).ToList();
             return user;
-=======
-            return null;
->>>>>>> 6e0be4c96c80c04b031fab2cb88446f3e67a4780
         }
-
-
-
     }
 }

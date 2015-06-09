@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\Armin\Downloads\Programs\factory\Integrating and testing\clientFactory\obj\Debug\
+C:\Users\farzin\Documents\GitHub\factory\Integrating and testing\clientFactory\obj\Debug\
 clientFactory
 none
 false
 DEBUG;TRACE
-C:\Users\Armin\Downloads\Programs\factory\Integrating and testing\clientFactory\App.xaml
-7-1941527226
+C:\Users\farzin\Documents\GitHub\factory\Integrating and testing\clientFactory\App.xaml
+10990663694
 11981813301
-32874861784
-181724471753
-Views\Initialize form.xaml;Views\LoginForm.xaml;Views\RecievedRequest.xaml;Views\RequestList.xaml;Views\SendReportView.xaml;Views\VSendRequest.xaml;Views\SentRequest.xaml;
+391829535914
+18109014029
+Views\Initialize form.xaml;Views\LoginForm.xaml;Views\MainWindow.xaml;Views\ReportListView.xaml;Views\ReportView.xaml;Views\SendReportView.xaml;Views\VRecievedRequest.xaml;Views\VRequestList.xaml;Views\VSendRequest.xaml;Views\VSentRequest.xaml;
 
 False
 

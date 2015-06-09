@@ -7,13 +7,19 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace clientFactory.Models
+namespace clientFactory
 {
     using System;
     using System.Collections.Generic;
     
     public partial class RequestModel
     {
+        public RequestModel()
+        {
+            this.Follow = false;
+            this.IsNew = false;
+        }
+    
         public int Id { get; set; }
         public string Sender { get; set; }
         public string Recipient { get; set; }
@@ -22,10 +28,9 @@ namespace clientFactory.Models
         public string Context { get; set; }
         public int SenderId { get; set; }
         public int RecipientId { get; set; }
-        public bool follow { get; set; }
+        public bool Follow { get; set; }
         public string Answer { get; set; }
-        public Nullable<bool> Status { get; set; }
-        public string IsNew { get; set; }
-        public Nullable<bool> IsFollowNew { get; set; }
+        public float Status { get; set; }
+        public bool IsNew { get; set; }
     }
 }

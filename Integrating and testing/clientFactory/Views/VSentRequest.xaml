@@ -28,7 +28,7 @@
         <Label Content="وضعیت" HorizontalAlignment="Left" Margin="368,176,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.408,1.385"/>
         <Label x:Name="State" Content="" HorizontalAlignment="Left" Margin="155,176,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.408,1.385" Width="208" FlowDirection="RightToLeft"/>
         <Label Content="متن پاسخ" HorizontalAlignment="Left" Margin="362,207,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.408,1.385"/>
-        <Button x:Name="Follow_Btn" Content="پیگری" HorizontalAlignment="Left" Height="20" Margin="105,279,0,0" VerticalAlignment="Top" Width="71"/>
+        <Button x:Name="Follow_Btn" Content="پیگری" HorizontalAlignment="Left" Margin="105,279,0,5.084" Width="71"/>
 
     </Grid>
 </Window>

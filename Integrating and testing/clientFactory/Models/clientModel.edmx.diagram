@@ -9,9 +9,10 @@
         <EntityTypeShape EntityType="clientModel.Report" Width="1.5" PointX="0.75" PointY="1.375" />
         <EntityTypeShape EntityType="clientModel.Attachments" Width="1.5" PointX="3" PointY="1" />
         <EntityTypeShape EntityType="clientModel.ReportCategory" Width="1.5" PointX="3" PointY="3.625" />
-        <AssociationConnector Association="clientModel.UserUser" />
         <AssociationConnector Association="clientModel.ReportAttachments" />
         <AssociationConnector Association="clientModel.ReportReportCategory" />
+        <AssociationConnector Association="clientModel.UserUser" />
+        <EntityTypeShape EntityType="clientModel.RequestModel" Width="1.5" PointX="7.75" PointY="1.5" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
