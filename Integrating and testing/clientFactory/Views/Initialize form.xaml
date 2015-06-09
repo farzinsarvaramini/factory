@@ -18,7 +18,7 @@
         <Label Content="نام کاربری:" HorizontalAlignment="Left" Height="32" Margin="452,295,0,0" VerticalAlignment="Top" Width="80" FlowDirection="RightToLeft"/>
         <Button x:Name="Start" Content="شروع شخصی سازی" HorizontalAlignment="Left" Height="47" Margin="15,301,0,0" VerticalAlignment="Top" Width="108" Click="Button_Click" Background="#FFDDDDDD" FlowDirection="RightToLeft" FontWeight="Bold"/>
         <TextBox x:Name="user_name" HorizontalAlignment="Left" Height="32" Margin="312,295,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="156" FontSize="20"/>
-        <Image HorizontalAlignment="Left" Height="163" Margin="10,22,0,0" VerticalAlignment="Top" Width="127" Source="go-factory-logo-stacked.png"/>
+        <Image HorizontalAlignment="Left" Height="161" Margin="10,22,0,0" VerticalAlignment="Top" Width="127" Source="../Resource/go-factory-logo-stacked.png"/>
 
     </Grid>
 </Window>
