@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 06/09/2015 15:50:29
+-- Date Created: 06/09/2015 18:03:33
 -- Generated from EDMX file: C:\Users\farzin\Documents\GitHub\factory\Integrating and testing\clientFactory\Models\clientModel.edmx
 -- --------------------------------------------------
 
@@ -121,7 +121,8 @@ CREATE TABLE [dbo].[RequestModels1] (
     [Follow] bit  NOT NULL,
     [Answer] nvarchar(max)  NOT NULL,
     [Status] real  NOT NULL,
-    [IsNew] bit  NOT NULL
+    [IsNew] bit  NOT NULL,
+    [IsAnswered] bit  NOT NULL
 );
 GO
 
