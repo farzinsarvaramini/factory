@@ -17,7 +17,37 @@ namespace clientFactory
             _container = con;
         }
 
-        public int AddRequest(RequestModel req)
+        public bool AddRequest(RequestModel req)
+        {
+            RequestModel newReq = _container.RequestModels1.Create();
+            newReq.Answer = req.Answer;
+            newReq.Context = req.Context;
+            newReq.Follow = req.Follow;
+            newReq.IsAnswered = req.IsAnswered;
+            newReq.IsNew = req.IsNew;
+            newReq.Recipient = req.Recipient;
+            newReq.RecipientId = req.RecipientId;
+            newReq.SendDate = req.SendDate;
+            newReq.Sender = req.Sender;
+            newReq.SenderId = req.SenderId;
+            newReq.Status = req.Status;
+            newReq.Title = req.Title;
+
+            _container.RequestModels1.Add(newReq);
+
+            try
+            {
+                _container.SaveChanges();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+
+        }
+
+        public int AddRequestWithId(RequestModel req)
         {
             RequestModel newReq = _container.RequestModels1.Create();
             newReq.Answer = req.Answer;
