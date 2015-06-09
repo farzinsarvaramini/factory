@@ -17,7 +17,7 @@ namespace clientFactory
             _container = con;
         }
 
-        public bool AddRequest(RequestModel req)
+        public int AddRequest(RequestModel req)
         {
             RequestModel newReq = _container.RequestModels1.Create();
             newReq.Answer = req.Answer;
@@ -38,10 +38,10 @@ namespace clientFactory
             try
             {
                 _container.SaveChanges();
-                return true;
+                return newReq.Id;
             }
             catch{
-                return false;
+                return 0;
             }
 
         }

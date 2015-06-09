@@ -83,5 +83,12 @@ namespace clientFactory
             var user = _container.Users.Where(u => u.IsNew == true).ToList();
             return user;
         }
+
+        public User Getuser(string userName)
+        {
+            var user = _container.Users.Where(u => u.Username == userName).First();
+            return user;
+        }
+
     }
 }
