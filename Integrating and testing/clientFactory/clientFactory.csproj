@@ -79,7 +79,6 @@
     <Compile Include="Views\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\RecievedRequest.xaml.cs" />
     <Compile Include="Models\Report.cs">
       <DependentUpon>clientModel.tt</DependentUpon>
     </Compile>
@@ -93,7 +92,6 @@
     <Compile Include="Views\ReportView.xaml.cs">
       <DependentUpon>ReportView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\RequestList.xaml.cs" />
     <Compile Include="Views\SendReportView.xaml.cs" />
     <Compile Include="Views\VRecievedRequest.xaml.cs">
       <DependentUpon>VRecievedRequest.xaml</DependentUpon>
@@ -101,12 +99,11 @@
     <Compile Include="Views\VRequestList.xaml.cs">
       <DependentUpon>VRequestList.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\VSendRequest.xaml.cs" />
-    <Compile Include="Views\SentRequest.xaml.cs" />
     <Compile Include="Other\SessionInfos.cs" />
     <Compile Include="Models\User.cs">
       <DependentUpon>clientModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Views\VSendRequest.xaml.cs" />
     <Compile Include="Views\VSentRequest.xaml.cs">
       <DependentUpon>VSentRequest.xaml</DependentUpon>
     </Compile>
@@ -145,19 +142,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Views\RecievedRequest.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Page Include="Views\ReportListView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\ReportView.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Views\RequestList.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -174,10 +163,6 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\VSendRequest.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Views\SentRequest.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -242,7 +227,7 @@
     <Resource Include="Resource\send_icon.png" />
     <Resource Include="Resource\forbiden.png" />
     <Resource Include="Resource\tick.png" />
-    <Resource Include="Views\go-factory-logo-stacked.png" />
+    <Resource Include="Resource\go-factory-logo-stacked.png" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
