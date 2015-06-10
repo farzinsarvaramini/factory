@@ -112,10 +112,41 @@ namespace clientFactory
             Request req = new Request(RequestType.REQ_ANS, req_con);
             string result = _cc.ProcessRequest(req);
 
-            if (result.Substring(0, 7) == "Code #")
+            if (result.Substring(0, 7) == "Code #7")
             {
                 _db.RequestCenter.AnswerToRequest(request_record.Id, isAcceptRequest, Answer);
                 _recivedRequestView.SuccessMessage("پاسخ شما با موفقیت ارسال شد");
+            }
+            else
+                _recivedRequestView.ErrorMessage("متاسفانه پاسخ دریافتی از مرکز معتبر نیست. کمی صبر کنید و دوباره تلاش کنید");
+        }
+
+        public void ShowSentRequestForm()
+        {
+            if (_sentRequestView == null)
+                _sentRequestView = new VSentRequest();
+
+            _sentRequestView.controller = this;
+            _sentRequestView.current_request = null; // set current request
+            _sentRequestView.ShowForm();
+        }
+
+        public void CloseSentRequestForm()
+        {
+            _sentRequestView.Close();
+        }
+
+        public void FollowRequest()
+        {
+            object[] req_con = { _sentRequestView.current_request.Id };
+            Request req = new Request(RequestType.FOLLOW, req_con);
+
+            string result = _cc.ProcessRequest(req);
+
+            if (result.Substring(0, 7) == "Code #2")
+            {
+                _db.RequestCenter.FollowRequest(_sentRequestView.current_request.Id);
+                _recivedRequestView.SuccessMessage("پیگیری شما با موفقیت اعلام شد");
             }
             else
                 _recivedRequestView.ErrorMessage("متاسفانه پاسخ دریافتی از مرکز معتبر نیست. کمی صبر کنید و دوباره تلاش کنید");
