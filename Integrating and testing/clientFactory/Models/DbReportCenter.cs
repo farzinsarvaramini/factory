@@ -238,6 +238,19 @@ namespace clientFactory
             Tuple<Report, ReportCategory, Attachments> t = new Tuple<Report, ReportCategory, Attachments>(r, r.ReportCategory, r.Attachment);
             return t;
         }
+        public List<Tuple<Report, ReportCategory, Attachments>> getNewReport(int recipientId){
+            var repo = clientDb.Reports.Where(r => r.Recipient_ID == recipientId).ToList();
+
+            Tuple<Report, ReportCategory, Attachments> t;
+            List<Tuple<Report, ReportCategory, Attachments>> l = new List<Tuple<Report,ReportCategory,Attachments>>();
+            foreach (Report r in repo)
+            {
+                t = new Tuple<Report, ReportCategory, Attachments>(r,r.ReportCategory,r.Attachment);
+                l.Add(t);
+                
+            }
+            return l;
+        }
     }
 }
 

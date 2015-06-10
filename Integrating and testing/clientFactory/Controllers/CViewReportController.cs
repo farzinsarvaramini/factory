@@ -99,8 +99,8 @@ namespace clientFactory
             //recievedReportsList = _db.getRecievedList();
             //_listView.setRecievedReportList(recievedReportsList);
 
-            //_allowedSenders = _db.getAllowedSendersList();
-            //_listView.setSenderList(_allowedSenders);
+            _allowedSenders = _db.getAllowedSendersList();
+            _listView.setSenderList(_allowedSenders);
 
 
             _listView.show();

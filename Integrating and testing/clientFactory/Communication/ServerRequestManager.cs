@@ -118,7 +118,7 @@ namespace clientFactory
                     try
                     {
                         int userId = req.ToModel<int>(0);
-                        List<Tuple<Report, ReportCategory, Attachments>> reports = _dbCenter.ReportCenter.GetNewReport(userId);
+                        List<Tuple<Report, ReportCategory, Attachments>> reports = _dbCenter.ReportCenter.getNewReport(userId);
                         List<RequestModel> requestModels = _dbCenter.RequestCenter.GetNewRequest(userId);
                         List<Request>  requests = new List<Request>();
                         for (int i = 0; i < reports.Count; ++i)

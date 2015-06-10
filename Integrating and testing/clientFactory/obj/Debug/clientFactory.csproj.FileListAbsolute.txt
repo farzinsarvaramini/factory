@@ -125,7 +125,6 @@ C:\Users\farzin\Documents\GitHub\factory\Integrating and testing\clientFactory\b
 C:\Users\farzin\Documents\GitHub\factory\Integrating and testing\clientFactory\bin\Debug\EntityFramework.SqlServer.dll
 C:\Users\farzin\Documents\GitHub\factory\Integrating and testing\clientFactory\bin\Debug\EntityFramework.xml
 C:\Users\farzin\Documents\GitHub\factory\Integrating and testing\clientFactory\bin\Debug\EntityFramework.SqlServer.xml
-C:\Users\farzin\Documents\GitHub\factory\Integrating and testing\clientFactory\obj\Debug\clientFactory.csprojResolveAssemblyReference.cache
 C:\Users\farzin\Documents\GitHub\factory\Integrating and testing\clientFactory\obj\Debug\Views\Initialize form.baml
 C:\Users\farzin\Documents\GitHub\factory\Integrating and testing\clientFactory\obj\Debug\Views\LoginForm.baml
 C:\Users\farzin\Documents\GitHub\factory\Integrating and testing\clientFactory\obj\Debug\Views\MainWindow.baml

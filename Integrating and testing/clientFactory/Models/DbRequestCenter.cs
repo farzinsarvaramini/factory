@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace clientFactory
 {
-    class DbRequestCenter
+    public class DbRequestCenter
     {
         // IsAnswer Flag
         // change status to shortint

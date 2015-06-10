@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 06/10/2015 00:09:07
+-- Date Created: 06/10/2015 11:14:17
 -- Generated from EDMX file: C:\Users\farzin\Documents\GitHub\factory\Integrating and testing\clientFactory\Models\clientModel.edmx
 -- --------------------------------------------------
 
@@ -22,9 +22,6 @@ IF OBJECT_ID(N'[dbo].[FK_ReportAttachments]', 'F') IS NOT NULL
 GO
 IF OBJECT_ID(N'[dbo].[FK_ReportReportCategory]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[Reports] DROP CONSTRAINT [FK_ReportReportCategory];
-GO
-IF OBJECT_ID(N'[dbo].[FK_UserUser]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[Users] DROP CONSTRAINT [FK_UserUser];
 GO
 
 -- --------------------------------------------------
@@ -69,7 +66,6 @@ CREATE TABLE [dbo].[Users] (
     [Address] nvarchar(max)  NOT NULL,
     [Gender] bit  NOT NULL,
     [Username] nvarchar(max)  NOT NULL,
-    [UserId] int  NOT NULL,
     [DefaultUser] bit  NOT NULL,
     [IsNew] bit  NOT NULL
 );
@@ -190,20 +186,6 @@ ADD CONSTRAINT [FK_ReportReportCategory]
 CREATE INDEX [IX_FK_ReportReportCategory]
 ON [dbo].[Reports]
     ([ReportCategory_Id]);
-GO
-
--- Creating foreign key on [UserId] in table 'Users'
-ALTER TABLE [dbo].[Users]
-ADD CONSTRAINT [FK_UserUser]
-    FOREIGN KEY ([UserId])
-    REFERENCES [dbo].[Users]
-        ([Id])
-    ON DELETE NO ACTION ON UPDATE NO ACTION;
-
--- Creating non-clustered index for FOREIGN KEY 'FK_UserUser'
-CREATE INDEX [IX_FK_UserUser]
-ON [dbo].[Users]
-    ([UserId]);
 GO
 
 -- --------------------------------------------------

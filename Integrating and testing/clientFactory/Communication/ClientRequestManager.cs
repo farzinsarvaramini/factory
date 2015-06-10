@@ -125,7 +125,7 @@ namespace clientFactory.Communication
 
         private void InitUser(User user)
         {
-            _dbCenter.UserCenter.AddUser(user, user.UserId);
+            _dbCenter.UserCenter.AddUser(user);
         }
 
     }
