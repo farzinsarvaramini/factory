@@ -12,7 +12,7 @@ using System.IO;
 namespace clientFactory
 {
 
-    class ClientCommunication
+    public class ClientCommunication
     {
 
         private Socket _clientSocket = new Socket
