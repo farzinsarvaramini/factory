@@ -4,17 +4,30 @@
 winexe
 C#
 .cs
+<<<<<<< HEAD
 C:\Users\ehsan\Documents\GitHub\factory\Integrating and testing\clientFactory\obj\Debug\
+=======
+\\psf\Projects\Factory\factory\Integrating and testing\clientFactory\obj\Debug\
+>>>>>>> 56e737218ca872346d2cb689c6d34928594f6c5d
 clientFactory
 none
 false
 DEBUG;TRACE
+<<<<<<< HEAD
 C:\Users\ehsan\Documents\GitHub\factory\Integrating and testing\clientFactory\App.xaml
 11-963023641
 11981813301
 44-1713512376
 181906351611
 Views\HomePage.xaml;Views\Initialize form.xaml;Views\LoginForm.xaml;Views\ReportListView.xaml;Views\ReportView.xaml;Views\SendReportView.xaml;Views\start.xaml;Views\VRecievedRequest.xaml;Views\VRequestList.xaml;Views\VSendRequest.xaml;Views\VSentRequest.xaml;
+=======
+\\psf\Projects\Factory\factory\Integrating and testing\clientFactory\App.xaml
+10990663694
+11981813301
+391386723774
+18267844129
+Views\Initialize form.xaml;Views\LoginForm.xaml;Views\MainWindow.xaml;Views\ReportListView.xaml;Views\ReportView.xaml;Views\SendReportView.xaml;Views\VRecievedRequest.xaml;Views\VRequestList.xaml;Views\VSendRequest.xaml;Views\VSentRequest.xaml;
+>>>>>>> 56e737218ca872346d2cb689c6d34928594f6c5d
 
 False
 

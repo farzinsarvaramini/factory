@@ -20,10 +20,16 @@ namespace clientFactory
     /// </summary>
     public partial class VSendRequest : Window
     {
-        private CRequestController _controller { get; set; }
+        private CRequestController _controller;
+
         public VSendRequest()
         {
             InitializeComponent();
+        }
+
+        public void SetController(CRequestController con)
+        {
+            _controller = con;
         }
 
         private void BackEvent_Click(object sender, RoutedEventArgs e)
@@ -34,6 +40,22 @@ namespace clientFactory
         private void Send_Click(object sender, RoutedEventArgs e)
         {
             _controller.SendRequestEvent();
+        }
+
+        public void ErrorMessage(string message)
+        {
+            MessageBox.Show(message,
+                "خطا",
+                MessageBoxButton.OK,
+                MessageBoxImage.Exclamation);
+        }
+
+        public void SuccessMessage(string message)
+        {
+            MessageBox.Show(message,
+                "نتیجه",
+                MessageBoxButton.OK,
+                MessageBoxImage.Information);
         }
 
     }

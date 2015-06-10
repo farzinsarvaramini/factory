@@ -64,16 +64,18 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Communication\ClientRequestManager.cs" />
+<<<<<<< HEAD
     <Compile Include="Communication\RequestManager.cs" />
     <Compile Include="Communication\ServerRequestManager.cs" />
     <Compile Include="Controllers\CHomePageController.cs" />
+=======
+>>>>>>> 56e737218ca872346d2cb689c6d34928594f6c5d
     <Compile Include="Controllers\CRequestController.cs" />
     <Compile Include="Controllers\CViewReportController.cs" />
     <Compile Include="Models\Attachments.cs">
       <DependentUpon>clientModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Controllers\CUserController.cs" />
-    <Compile Include="Communication\ServerCommunication.cs" />
     <Compile Include="Models\clientModel.Context2.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

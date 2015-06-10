@@ -20,12 +20,17 @@ namespace clientFactory
     /// </summary>
     public partial class VLoginForm : Window
     {
-        private CUserController controller { set; get; }
+        private CUserController _controller;
 
         public VLoginForm()
         {
             InitializeComponent();
            // ErrorMessage("vdnd");
+        }
+
+        public void SetController(CUserController con)
+        {
+            _controller = con;
         }
 
         public void SetUsername(string un)
@@ -53,7 +58,7 @@ namespace clientFactory
 
         private void LoginClicked(object sender, RoutedEventArgs e)
         {
-            controller.Login();
+            _controller.Login();
         }
     }
 }
