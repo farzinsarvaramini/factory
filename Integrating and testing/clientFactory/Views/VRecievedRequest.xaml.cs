@@ -19,12 +19,19 @@ namespace clientFactory
     /// </summary>
     public partial class VRecievedRequest : Window
     {
+        public RequestModel current_request;
+
         public VRecievedRequest()
         {
             InitializeComponent();
         }
 
         private void BackEvent_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        public void ShowForm()
         {
 
         }

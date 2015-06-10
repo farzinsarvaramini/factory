@@ -20,7 +20,7 @@ namespace clientFactory
             _loginView = new VLoginForm();
             _initForm = new VInitializeForm();
             _db = db;
-          //  _defaultUser = _db.UserCenter.GetDefaultUser();
+            _defaultUser = _db.UserCenter.GetDefaultUser();
             _cc = c;
         }
 
@@ -49,20 +49,21 @@ namespace clientFactory
             _initForm.Close();
         }
 
-        public bool SetDefaultUser(string un)
+        private bool SetDefaultUser(string un)
         {
-            //object[] req_content = {un};
-            //Request userDetailrequest = new Request(RequestType.Get_User, req_content);
-            //object[] result = _cc.SendRequest(userDetailrequest);
+            object[] req_content = {un};
+            Request userDetailrequest = new Request(RequestType.INIT, req_content);
+            string result = _cc.ProcessRequest(userDetailrequest);
+            if (result == "Code #3")
+            {
+                _defaultUser = _db.UserCenter.GetDefaultUser();
+                return true;
+            }
+            else
+            {
+                return false;
+            }
             
-            //if ( result.Length > 0 )
-            //{
-            //    User usr = (User)result[0];
-            //    _db.UserCenter.AddUser(usr);
-            //    _db.UserCenter.SetDefaultUser(usr.id);
-            //    return true;
-            //}
-            return false;
         }
 
         public void Login()
@@ -71,6 +72,7 @@ namespace clientFactory
             {
                 SessionInfos.login_user = _defaultUser;
                 // create and show home
+                _loginView.ErrorMessage("User login user_name: " + _defaultUser.Username + " \nPass: " + _defaultUser.Password);
             }
             else if (_defaultUser.Password != _loginView.GetPassword())
             {
@@ -95,8 +97,9 @@ namespace clientFactory
         
         private void GetDataFromServer()
         {
-            //Request getReq = new Request(RequestType.Get);
-           // _cc.SendRequest(getReq);
+            object[] req_content = { _defaultUser.Id };
+            Request getReq = new Request(RequestType.GET, req_content);
+            _cc.SendRequest(getReq);
         }
     }
 }

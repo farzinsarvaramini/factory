@@ -36,5 +36,21 @@ namespace clientFactory
             _controller.SendRequestEvent();
         }
 
+        public void ErrorMessage(string message)
+        {
+            MessageBox.Show(message,
+                "خطا",
+                MessageBoxButton.OK,
+                MessageBoxImage.Exclamation);
+        }
+
+        public void SuccessMessage(string message)
+        {
+            MessageBox.Show(message,
+                "نتیجه",
+                MessageBoxButton.OK,
+                MessageBoxImage.Information);
+        }
+
     }
 }
