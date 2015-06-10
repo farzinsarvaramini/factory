@@ -48,7 +48,7 @@ namespace clientFactory
             foreach (User usr in _allowedRecipients)
             {
                 ComboboxItem item = new ComboboxItem();
-                item.Text = usr.FirstName + usr.LastName + " - " + usr.RoleName;
+                item.Text = usr.FirstName + " " + usr.LastName + " - " + usr.RoleName;
                 item.Value = usr.Id;
                 _sendRequestView.Recipients.Items.Add(item);
             }
@@ -60,11 +60,29 @@ namespace clientFactory
             RequestModel req = new RequestModel();
             req.Title = _sendRequestView.Title;
             req.SenderId = SessionInfos.login_user.Id;
-            req.Sender = SessionInfos.login_user.FirstName + SessionInfos.login_user.LastName + " - " + SessionInfos.login_user.RoleName;
+            req.Sender = SessionInfos.login_user.FirstName + " " + SessionInfos.login_user.LastName + " - " + SessionInfos.login_user.RoleName;
             req.SendDate = DateTime.Now;
             ComboboxItem selectedItem = _sendRequestView.Recipients.SelectedItem as ComboboxItem;
             req.RecipientId = (int)(selectedItem).Value;
             req.Recipient = selectedItem.Text;
+            req.Context = _sendRequestView.Description.Text;
+
+            object[] server_request_content = { req };
+            Request new_reqest = new Request(RequestType.NEW_REQUESTMODEL, server_request_content);
+            string result = _cc.ProcessRequest(new_reqest);
+
+            if ( result.Substring(0, 7) == "Code #1")
+            {
+                int req_id = _db.RequestCenter.AddRequestWithId(req);
+                int server_id = Int32.Parse(result.Substring(7));
+                _db.RequestCenter.SetServerId(server_id);
+                _sendRequestView.SuccessMessage("درخواست شما با موفقیت ثیت شد");
+                _sendRequestView.Close();
+            }
+            else
+            {
+                _sendRequestView.ErrorMessage("متاسفانه پاسخ دریافتی از مرکز معتبر نیست. کمی صبر کنید و دوباره تلاش کنید");
+            }
         }
     }
 }

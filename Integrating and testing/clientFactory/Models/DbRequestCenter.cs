@@ -143,5 +143,10 @@ namespace clientFactory
             return req;
         }
 
+        public bool SetServerId(int request_id)
+        {
+            return true;
+        }
+
     }
 }
