@@ -91,7 +91,7 @@ namespace clientFactory
                 string json = request.ToJson();
                 byte[] sendData = Encoding.ASCII.GetBytes(json);
                 _clientSocket.Send(sendData);
-                RecieveResponse(_clientSocket);
+                RecieveResponse();
             }
             catch (Exception ex)
             {
@@ -139,7 +139,7 @@ namespace clientFactory
                     }
                     // File transferred.
                 }
-                RecieveResponse(_clientSocket);
+                RecieveResponse();
             }
             catch (Exception ex)
             {
@@ -174,7 +174,7 @@ namespace clientFactory
                         fileData.Write(buffer, 0, count);
                         bytesReceived += count;
                     }
-                RecieveResponse(_clientSocket);
+                RecieveResponse();
             }
             catch (Exception ex)
             {

@@ -36,7 +36,6 @@ namespace clientFactory
         public string Address { get; set; }
         public bool Gender { get; set; }
         public string Username { get; set; }
-        public int UserId { get; set; }
         public bool DefaultUser { get; set; }
         public bool IsNew { get; set; }
     }

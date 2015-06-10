@@ -19,10 +19,6 @@
       <End Role="Report" EntitySet="Reports" />
       <End Role="ReportCategory" EntitySet="ReportCategories" />
     </AssociationSet>
-    <AssociationSet Name="UserUser" Association="clientModel.Store.UserUser">
-      <End Role="User" EntitySet="Users" />
-      <End Role="User1" EntitySet="Users" />
-    </AssociationSet>
   </EntityContainer>
   <EntityType Name="Users">
     <Key>
@@ -44,7 +40,6 @@
     <Property Name="Address" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Gender" Type="bit" Nullable="false" />
     <Property Name="Username" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="UserId" Type="int" Nullable="false" />
     <Property Name="DefaultUser" Type="bit" Nullable="false" DefaultValue="false" />
     <Property Name="IsNew" Type="bit" Nullable="false" DefaultValue="false" />
   </EntityType>
@@ -123,18 +118,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="UserUser">
-    <End Role="User" Type="clientModel.Store.Users" Multiplicity="1" />
-    <End Role="User1" Type="clientModel.Store.Users" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="User">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="User1">
-        <PropertyRef Name="UserId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
 </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
@@ -151,10 +134,6 @@
           <AssociationSet Name="ReportReportCategory" Association="clientModel.ReportReportCategory">
             <End Role="Report" EntitySet="Reports" />
             <End Role="ReportCategory" EntitySet="ReportCategories" />
-          </AssociationSet>
-          <AssociationSet Name="UserUser" Association="clientModel.UserUser">
-            <End Role="User" EntitySet="Users" />
-            <End Role="User1" EntitySet="Users" />
           </AssociationSet>
           <EntitySet Name="RequestModels1" EntityType="clientModel.RequestModel" />
         </EntityContainer>
@@ -178,7 +157,6 @@
           <Property Name="Address" Type="String" Nullable="false" />
           <Property Name="Gender" Type="Boolean" Nullable="false" />
           <Property Name="Username" Type="String" Nullable="false" />
-          <Property Name="UserId" Type="Int32" Nullable="false" />
           <Property Name="DefaultUser" Type="Boolean" Nullable="false" DefaultValue="False" />
           <Property Name="IsNew" Type="Boolean" Nullable="false" DefaultValue="False" />
         </EntityType>
@@ -225,18 +203,6 @@
           <End Type="clientModel.Report" Role="Report" Multiplicity="*" />
           <End Type="clientModel.ReportCategory" Role="ReportCategory" Multiplicity="1" />
         </Association>
-        <Association Name="UserUser">
-          <End Type="clientModel.User" Role="User" Multiplicity="1" />
-          <End Type="clientModel.User" Role="User1" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="User">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="User1">
-              <PropertyRef Name="UserId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityType Name="RequestModel">
           <Key>
             <PropertyRef Name="Id" />
@@ -280,7 +246,6 @@
           <ScalarProperty Name="Address" ColumnName="Address" />
           <ScalarProperty Name="Gender" ColumnName="Gender" />
           <ScalarProperty Name="Username" ColumnName="Username" />
-          <ScalarProperty Name="UserId" ColumnName="UserId" />
           <ScalarProperty Name="DefaultUser" ColumnName="DefaultUser" />
           <ScalarProperty Name="IsNew" ColumnName="IsNew" />
         </MappingFragment>
