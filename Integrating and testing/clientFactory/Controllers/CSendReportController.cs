@@ -26,10 +26,10 @@ namespace clientFactory
         public DbReportCenter _db;
 		private ClientCommunication _communication;
         
-        public CSendReportController(DbReportCenter db)
+        public CSendReportController(DbCenter db,ClientCommunication cC)
         {
-            _db = db;
-            _communication = new ClientCommunication();
+            _db = db.ReportCenter;
+            _communication = cC;
         }
 
         public bool uploadFile()
@@ -102,11 +102,11 @@ namespace clientFactory
             _view._controller = this;
 
 
-            _categories = _db.getCategoryList();
-            _view.setCategoriesList(_categories);
+            //_categories = _db.getCategoryList();
+            //_view.setCategoriesList(_categories);
 
-            _allowedRecipients = _db.getAllowedRecipientsList();
-            _view.setRecipientList(_allowedRecipients);
+            //_allowedRecipients = _db.getAllowedRecipientsList();
+            //_view.setRecipientList(_allowedRecipients);
 
             _view.show();
         }

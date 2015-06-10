@@ -17,7 +17,7 @@ namespace clientFactory
         }
     }
 
-    class CRequestController
+    public class CRequestController
     {
         private VSendRequest _sendRequestView;
         private VRecievedRequest _recivedRequestView;

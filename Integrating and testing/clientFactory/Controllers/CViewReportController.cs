@@ -22,9 +22,10 @@ namespace clientFactory
         private List<Report> sentFoundReportsList;
         private List<Report> recievedFoundReportsList;
 
-        public CViewReportController(DbReportCenter db)
+        public CViewReportController(DbCenter db,ClientCommunication cC)
         {
-            _db = db;
+            _communication = cC;
+            _db = db.ReportCenter;
         }
 
         private void ChangeReport()
@@ -99,8 +100,8 @@ namespace clientFactory
             //recievedReportsList = _db.getRecievedList();
             //_listView.setRecievedReportList(recievedReportsList);
 
-            _allowedSenders = _db.getAllowedSendersList();
-            _listView.setSenderList(_allowedSenders);
+            //_allowedSenders = _db.getAllowedSendersList();
+            //_listView.setSenderList(_allowedSenders);
 
 
             _listView.show();

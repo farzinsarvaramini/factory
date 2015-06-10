@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace clientFactory
 {
-    class CUserController
+    public class CUserController
     {
         private VLoginForm _loginView;
         private VInitializeForm _initForm;
