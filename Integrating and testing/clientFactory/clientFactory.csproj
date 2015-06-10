@@ -64,6 +64,12 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Communication\ClientRequestManager.cs" />
+<<<<<<< HEAD
+    <Compile Include="Communication\RequestManager.cs" />
+    <Compile Include="Communication\ServerRequestManager.cs" />
+    <Compile Include="Controllers\CHomePageController.cs" />
+=======
+>>>>>>> 56e737218ca872346d2cb689c6d34928594f6c5d
     <Compile Include="Controllers\CRequestController.cs" />
     <Compile Include="Controllers\CViewReportController.cs" />
     <Compile Include="Models\Attachments.cs">
@@ -80,11 +86,11 @@
     <Compile Include="Models\RequestModel.cs">
       <DependentUpon>clientModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Views\HomePage.xaml.cs">
+      <DependentUpon>HomePage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Initialize form.xaml.cs" />
     <Compile Include="Views\LoginForm.xaml.cs" />
-    <Compile Include="Views\MainWindow.xaml.cs">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Models\Report.cs">
       <DependentUpon>clientModel.tt</DependentUpon>
     </Compile>
@@ -99,6 +105,9 @@
       <DependentUpon>ReportView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\SendReportView.xaml.cs" />
+    <Compile Include="Views\start.xaml.cs">
+      <DependentUpon>start.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\VRecievedRequest.xaml.cs">
       <DependentUpon>VRecievedRequest.xaml</DependentUpon>
     </Compile>
@@ -113,6 +122,10 @@
     <Compile Include="Views\VSentRequest.xaml.cs">
       <DependentUpon>VSentRequest.xaml</DependentUpon>
     </Compile>
+    <Page Include="Views\HomePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\Initialize form.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -144,10 +157,6 @@
     <Compile Include="Controllers\CSendReportController.cs" />
     <Compile Include="Models\DbCenter.cs" />
     <Compile Include="Models\DbReportCenter.cs" />
-    <Page Include="Views\MainWindow.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Page Include="Views\ReportListView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -159,6 +168,10 @@
     <Page Include="Views\SendReportView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\start.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\VRecievedRequest.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -224,14 +237,24 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Models\clientModel.edmx.sql" />
+    <Resource Include="Resource\Economic_investment_256.png" />
+    <Resource Include="Resource\Pie_chart_256.png" />
+    <Resource Include="Resource\Office_worker_outline_128.png" />
+    <Resource Include="Resource\Alarm_Bell_128.png" />
+    <Resource Include="Resource\Bookmark_Tag_128.png" />
+    <Resource Include="Resource\Calendar_128.png" />
     <Resource Include="Resource\calendar_icon.png" />
+    <Resource Include="Resource\Databases_symbol_128.png" />
     <Resource Include="Resource\delete_icon.png" />
     <Resource Include="Resource\mark_icon.png" />
+    <Resource Include="Resource\Newspaper_128.png" />
     <Resource Include="Resource\print_icon.png" />
+    <Resource Include="Resource\Progress_report_128.png" />
     <Resource Include="Resource\receive_icon.png" />
     <Resource Include="Resource\search_icon.png" />
     <Resource Include="Resource\send_icon.png" />
     <Resource Include="Resource\forbiden.png" />
+    <Resource Include="Resource\Tasks_list_128.png" />
     <Resource Include="Resource\tick.png" />
     <Resource Include="Resource\go-factory-logo-stacked.png" />
   </ItemGroup>

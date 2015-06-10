@@ -8,6 +8,7 @@ namespace clientFactory
 {
     public class DbCenter
     {
+
         protected clientContainer clientDb;
 
         public DbReportCenter ReportCenter;

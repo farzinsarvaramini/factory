@@ -15,13 +15,20 @@ using System.Windows.Shapes;
 namespace clientFactory
 {
     /// <summary>
-    /// Interaction logic for Home.xaml
+    /// Interaction logic for start.xaml
     /// </summary>
-    public partial class Home : Window
+    public partial class start : Window
     {
-        public Home()
+        CHomePageController CHPC;
+        public start()
         {
             InitializeComponent();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            CHPC = new CHomePageController(new DbCenter(), new ClientCommunication());
+            CHPC.showHomePage();
         }
     }
 }

@@ -1,0 +1,50 @@
+﻿<Window x:Class="clientFactory.HomePage"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="HomePage" Height="685.385" Width="1143.16">
+    <Grid>
+        <GroupBox Header="&#xD;&#xA;" HorizontalAlignment="Left" Margin="10,69,0,0" VerticalAlignment="Top" Height="511" Width="282"/>
+        <GroupBox Header="" HorizontalAlignment="Left" Margin="858,72,0,0" VerticalAlignment="Top" Height="250" Width="250">
+            <Calendar HorizontalAlignment="Left" Margin="0,60,-2,0" VerticalAlignment="Top" Width="240"/>
+        </GroupBox>
+        <GroupBox Header="" HorizontalAlignment="Left" Margin="586,330,0,0" VerticalAlignment="Top" Height="250" Width="522"/>
+        <GroupBox Header="" HorizontalAlignment="Left" Margin="316,75,0,0" VerticalAlignment="Top" Height="250" Width="250"/>
+        <GroupBox Header="" HorizontalAlignment="Left" Margin="316,330,0,0" VerticalAlignment="Top" Height="250" Width="250"/>
+        <GroupBox Header="" HorizontalAlignment="Left" Margin="586,72,0,0" VerticalAlignment="Top" Height="250" Width="250"/>
+        <Image HorizontalAlignment="Left" Height="59" VerticalAlignment="Top" Width="54" RenderTransformOrigin="3.075,0.633" Margin="316,16,0,0" Source="/clientFactory;component/Resource/Databases_symbol_128.png"/>
+        <Image HorizontalAlignment="Left" Height="59" Margin="124,10,0,0" VerticalAlignment="Top" Width="66" Source="/clientFactory;component/Resource/Alarm_Bell_128.png"/>
+        <Image HorizontalAlignment="Left" Height="62" Margin="1036,10,0,0" VerticalAlignment="Top" Width="72" Source="/clientFactory;component/Resource/Office_worker_outline_128.png"/>
+        <Label Content=":سمت" HorizontalAlignment="Left" Margin="990,46,0,0" VerticalAlignment="Top"/>
+        <Label Content=" :خوش آمدید" HorizontalAlignment="Left" Margin="959,10,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="fullName_l" Content="" HorizontalAlignment="Left" Margin="771,12,0,0" VerticalAlignment="Top" Width="182"/>
+        <Label x:Name="roleName_l" Content="" HorizontalAlignment="Left" Margin="771,46,0,0" VerticalAlignment="Top" Width="213"/>
+        <Image HorizontalAlignment="Left" Height="55" Margin="771,99,0,0" VerticalAlignment="Top" Width="55" Source="/clientFactory;component/Resource/Newspaper_128.png" RenderTransformOrigin="1.032,0.482"/>
+        <Image HorizontalAlignment="Left" Height="69" Margin="1016,352,0,0" VerticalAlignment="Top" Width="80" Source="/clientFactory;component/Resource/Progress_report_128.png"/>
+        <Image HorizontalAlignment="Left" Height="55" Margin="515,358,0,0" VerticalAlignment="Top" Width="51" Source="/clientFactory;component/Resource/Bookmark_Tag_128.png"/>
+        <Image HorizontalAlignment="Left" Height="58" Margin="1044,89,0,0" VerticalAlignment="Top" Width="52" Source="/clientFactory;component/Resource/Calendar_128.png"/>
+        <Image HorizontalAlignment="Left" Height="75" Margin="482,89,0,0" VerticalAlignment="Top" Width="84" Source="/clientFactory;component/Resource/Tasks_list_128.png" RenderTransformOrigin="0.337,0.146"/>
+        <Button Content="ایجاد جلسه" HorizontalAlignment="Left" VerticalAlignment="Top" Width="135" Margin="878,89,0,0" Height="20"/>
+        <Button Content="ایجاد یاداور" HorizontalAlignment="Left" Margin="878,114,0,0" VerticalAlignment="Top" Width="135" Click="Button_Click" Height="20"/>
+        <Button x:Name="sendReport_b" Content="ارسال گزارش" HorizontalAlignment="Left" Margin="606,129,0,0" VerticalAlignment="Top" Width="140" Height="25" Click="sendReport_b_Click"/>
+        <Button x:Name="viewReports_b" Content="صندوق گزارش" HorizontalAlignment="Left" Margin="606,99,0,0" VerticalAlignment="Top" Width="140" Height="25" Click="viewReports_b_Click"/>
+        <Button x:Name="createTask_b" Content="ایجاد وظیفه" HorizontalAlignment="Left" Margin="337,99,0,0" VerticalAlignment="Top" Width="130" Height="25"/>
+        <Button x:Name="viewTasks_b" Content="لیست وظایف" HorizontalAlignment="Left" Margin="337,129,0,0" VerticalAlignment="Top" Width="130" Height="25"/>
+        <Button x:Name="createRequest_b" Content="ایجاد درخواست" HorizontalAlignment="Left" Margin="427,358,0,0" VerticalAlignment="Top" Width="88" Height="25" Click="createRequest_b_Click"/>
+        <Button x:Name="recievedRequestList_b" Content="لیست تقاضاها" HorizontalAlignment="Left" Margin="334,358,0,0" VerticalAlignment="Top" Width="88" Height="25" Click="recievedRequestList_b_Click"/>
+        <Button x:Name="requestResponse_b" Content="پیگیری درخواست" HorizontalAlignment="Left" Margin="427,388,0,0" VerticalAlignment="Top" Width="88" Height="25" Click="requestResponse_b_Click"/>
+        <Button x:Name="answerToRequest_b" Content="پاسخ به تقاضا" HorizontalAlignment="Left" Margin="334,388,0,0" VerticalAlignment="Top" Width="88" Height="25" Click="answerToRequest_b_Click"/>
+        <Button x:Name="exit_b" Content="خروج" HorizontalAlignment="Left" Margin="10,585,0,0" VerticalAlignment="Top" Width="80" Click="Button_Click" Height="50" FontSize="18"/>
+        <Button Content="تعریف پارامتر" HorizontalAlignment="Left" Margin="1016,431,0,0" VerticalAlignment="Top" Width="80" Height="60"/>
+        <Button Content="پرینت نمودار" HorizontalAlignment="Left" Margin="1016,496,0,0" VerticalAlignment="Top" Width="80" Height="60"/>
+        <TabControl HorizontalAlignment="Left" Height="149" Margin="337,431,0,0" VerticalAlignment="Top" Width="209">
+            <TabItem Header="درخواست">
+                <Grid Background="#FFE5E5E5"/>
+            </TabItem>
+            <TabItem Header="تقاضا">
+                <Grid Background="#FFE5E5E5"/>
+            </TabItem>
+        </TabControl>
+        <Image HorizontalAlignment="Left" Height="195" Margin="790,361,0,0" VerticalAlignment="Top" Width="194" Source="/clientFactory;component/Resource/Economic_investment_256.png"/>
+        <Image HorizontalAlignment="Left" Height="168" Margin="606,388,0,0" VerticalAlignment="Top" Width="162" Source="/clientFactory;component/Resource/Pie_chart_256.png"/>
+    </Grid>
+</Window>

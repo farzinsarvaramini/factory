@@ -10,41 +10,48 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace clientFactory
 {
-
-    public partial class MainWindow : Window
+    /// <summary>
+    /// Interaction logic for homePage.xaml
+    /// </summary>
+    public partial class HomePage : Window
     {
-        private CSendReportController _sCon = new CSendReportController(new DbReportCenter(new clientContainer()));
-        private CViewReportController _vCon = new CViewReportController(new DbReportCenter(new clientContainer()));
-        
-        
-       // ReportView r = new ReportView();
-       // ReportListView rl = new ReportListView();
-        
-        public MainWindow()
-        {
-            
-            InitializeComponent();
-       
-            
-            }
 
-        private void report_button_Click(object sender, RoutedEventArgs e)
+        public CHomePageController controller;
+
+        public HomePage()
         {
-            this._sCon.showView();
-            this._vCon.showReportListView();
+            InitializeComponent();
+            
+        }
+
+        public void show()
+        {
+            this.Show();
+        }
+
+
+        private void viewReports_b_Click(object sender, RoutedEventArgs e)
+        {
+            this.controller.vReportC.showReportListView();
+        }
+
+        private void sendReport_b_Click(object sender, RoutedEventArgs e)
+        {
+
+
+            //////////////////////////////////////////////////////////
+            //code by farzin
+            //fill comboboxes
 
             clientContainer clientDb = new clientContainer();
 
             Report re = clientDb.Reports.Create();
             ReportCategory rc = clientDb.ReportCategories.Create();
             Attachments atach = clientDb.Attachments.Create();
-           
-
 
             re.Attachment = atach;
             re.Description = "یییییییی";
@@ -64,10 +71,6 @@ namespace clientFactory
             atach.FileLocation = "fads";
             atach.Report = re;
             atach.uploadTime = DateTime.Now;
-
-
-
-          
 
             clientDb.ReportCategories.Add(rc);
 
@@ -102,7 +105,6 @@ namespace clientFactory
             usr.DefaultUser = false; usr1.DefaultUser = false;
             usr.IsNew = false; usr1.IsNew = false;
 
-
             clientDb.Users.Add(usr);
             clientDb.Users.Add(usr1);
 
@@ -115,8 +117,37 @@ namespace clientFactory
                 Console.WriteLine("Not Addedddddddddddddddddd");
             }
 
-            //r.show();
-            //rl.show();
+            //////////////////////////////////////////////////
+
+
+            this.controller.sReportC.showView();
+
+
+        }
+
+        private void createRequest_b_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void requestResponse_b_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void recievedRequestList_b_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void answerToRequest_b_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
     }
 }

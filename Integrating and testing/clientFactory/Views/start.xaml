@@ -1,0 +1,10 @@
+﻿<Window x:Class="clientFactory.start"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="start" Height="300" Width="300">
+    <Grid>
+        <Button Content="start" HorizontalAlignment="Left" VerticalAlignment="Top" Width="259" Margin="10,196,0,0" Height="63" Click="Button_Click"/>
+        <Label Content="press start to see home page :" HorizontalAlignment="Left" Margin="0,10,0,0" VerticalAlignment="Top" Width="292" FontSize="18"/>
+
+    </Grid>
+</Window>
