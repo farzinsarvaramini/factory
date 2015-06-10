@@ -19,7 +19,7 @@ namespace clientFactory
     /// </summary>
     public partial class VInitializeForm : Window
     {
-        private CUserController controller { get; set; }
+        private CUserController _controller;
 
         public VInitializeForm()
         {
@@ -36,6 +36,11 @@ namespace clientFactory
             return isAgree.IsChecked.Value;
         }
 
+        public void SetController(CUserController con)
+        {
+            _controller = con;
+        }
+
         public void ErrorMessage(string message)
         {
             MessageBox.Show(message,
@@ -49,7 +54,7 @@ namespace clientFactory
             if (!isAgree.IsChecked.Value)
                 ErrorMessage("شما باید موافق شخصی سازی این رایانه باشید");
             else 
-                controller.Personalize();
+                _controller.Personalize();
         }
 
      

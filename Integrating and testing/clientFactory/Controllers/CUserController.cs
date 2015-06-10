@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace clientFactory
 {
-    class CUserController
+    public class CUserController
     {
         private VLoginForm _loginView;
         private VInitializeForm _initForm;
@@ -28,6 +28,7 @@ namespace clientFactory
         {
             if ( _loginView == null )
                 _loginView = new VLoginForm();
+            _loginView.SetController(this);
             _loginView.username.Text = _defaultUser.Username;
             _loginView.Show();
         }
@@ -41,6 +42,7 @@ namespace clientFactory
         {
             if (_initForm == null )
                 _initForm = new VInitializeForm();
+            _initForm.SetController(this);
             _initForm.Show();
         }
 
