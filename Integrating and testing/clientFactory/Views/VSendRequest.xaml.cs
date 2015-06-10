@@ -20,10 +20,16 @@ namespace clientFactory
     /// </summary>
     public partial class VSendRequest : Window
     {
-        private CRequestController _controller { get; set; }
+        private CRequestController _controller;
+
         public VSendRequest()
         {
             InitializeComponent();
+        }
+
+        public void SetController(CRequestController con)
+        {
+            _controller = con;
         }
 
         private void BackEvent_Click(object sender, RoutedEventArgs e)

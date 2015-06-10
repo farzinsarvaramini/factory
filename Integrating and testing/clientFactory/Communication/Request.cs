@@ -7,7 +7,7 @@ using System.Web.Script.Serialization;
 
 namespace clientFactory
 {
-    enum RequestType
+    public enum RequestType
     {
         GET,                 // content : <UserId>
         NEW_REPORT,          // content : <Report, ReportCategory, Attachment>
@@ -20,7 +20,7 @@ namespace clientFactory
         REQ_ANS              // conteny : <RequestModelId, Status, Answer>
     }
 
-    class Request
+    public class Request
     {
         public RequestType Type { get; set; }
         public object[] Content { get; set; }

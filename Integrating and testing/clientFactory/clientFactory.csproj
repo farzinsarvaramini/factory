@@ -64,14 +64,12 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Communication\ClientRequestManager.cs" />
-    <Compile Include="Communication\ServerRequestManager.cs" />
     <Compile Include="Controllers\CRequestController.cs" />
     <Compile Include="Controllers\CViewReportController.cs" />
     <Compile Include="Models\Attachments.cs">
       <DependentUpon>clientModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Controllers\CUserController.cs" />
-    <Compile Include="Communication\ServerCommunication.cs" />
     <Compile Include="Models\clientModel.Context2.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

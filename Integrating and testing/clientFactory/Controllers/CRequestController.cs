@@ -17,7 +17,7 @@ namespace clientFactory
         }
     }
 
-    class CRequestController
+    public class CRequestController
     {
         private VSendRequest _sendRequestView;
         private VRecievedRequest _recivedRequestView;
@@ -43,6 +43,8 @@ namespace clientFactory
         {
             if ( _sendRequestView == null )
                 _sendRequestView = new VSendRequest();
+
+            _sendRequestView.SetController(this);
             _sendRequestView.Date.Content = DateTime.Today;
             _allowedRecipients = _db.ReportCenter.getAllowedRecipientsList();
             foreach (User usr in _allowedRecipients)
@@ -83,6 +85,40 @@ namespace clientFactory
             {
                 _sendRequestView.ErrorMessage("متاسفانه پاسخ دریافتی از مرکز معتبر نیست. کمی صبر کنید و دوباره تلاش کنید");
             }
+        }
+
+        public void ShowReceivedRequestForm()
+        {
+            if (_recivedRequestView == null)
+                _recivedRequestView = new VRecievedRequest();
+
+            _recivedRequestView.SetController(this);
+            _recivedRequestView.current_request = null; // set selected request 
+            _recivedRequestView.Show();
+        }
+
+        public void CloseReceivedRequestForm()
+        {
+            _recivedRequestView.Close();
+        }
+
+        public void SendRequestAnswer()
+        {
+            bool isAcceptRequest = _recivedRequestView.Accept_check.IsChecked.Value;
+            string Answer = _recivedRequestView.Answer.Text;
+            RequestModel request_record = _recivedRequestView.current_request;
+
+            object[] req_con = { };// {_recivedRequestView.current_request.ServerId, isAcceptRequest, Answer};
+            Request req = new Request(RequestType.REQ_ANS, req_con);
+            string result = _cc.ProcessRequest(req);
+
+            if (result.Substring(0, 7) == "Code #")
+            {
+                _db.RequestCenter.AnswerToRequest(request_record.Id, isAcceptRequest, Answer);
+                _recivedRequestView.SuccessMessage("پاسخ شما با موفقیت ارسال شد");
+            }
+            else
+                _recivedRequestView.ErrorMessage("متاسفانه پاسخ دریافتی از مرکز معتبر نیست. کمی صبر کنید و دوباره تلاش کنید");
         }
     }
 }

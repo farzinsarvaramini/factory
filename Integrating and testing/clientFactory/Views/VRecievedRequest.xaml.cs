@@ -19,6 +19,7 @@ namespace clientFactory
     /// </summary>
     public partial class VRecievedRequest : Window
     {
+        private CRequestController _controller;
         public RequestModel current_request;
 
         public VRecievedRequest()
@@ -26,24 +27,61 @@ namespace clientFactory
             InitializeComponent();
         }
 
+        public void SetController(CRequestController con)
+        {
+            _controller = con;
+        }
+
         private void BackEvent_Click(object sender, RoutedEventArgs e)
         {
-
+            Close();
         }
 
         public void ShowForm()
         {
+            Subject.Text = current_request.Title;
+            Sender.Text = current_request.Sender;
+            Send_Date.Text = current_request.SendDate.ToString();
+            Description.Text = current_request.Context;
 
+            float status = current_request.Status;
+            if (status != 0)
+            {
+                Answer.Text = current_request.Answer;
+                Answer.IsEnabled = false;
+                if (status == 1)
+                    Accept_check.IsChecked = true;
+                else if (status == -1)
+                    Reject_check.IsChecked = true;
+                Accept_check.IsEnabled = false;
+                Reject_check.IsEnabled = false;
+
+                Send_AnswerBtn.IsEnabled = false;
+            }
+
+            Show();
         }
 
-        private void AcceptEvent_Click(object sender, RoutedEventArgs e)
+        private void Send_AnswerBtn_Click(object sender, RoutedEventArgs e)
         {
-
+            _controller.SendRequestAnswer();
         }
 
-        private void RejectEvent_Click(object sender, RoutedEventArgs e)
+        public void ErrorMessage(string message)
         {
-
+            MessageBox.Show(message,
+                "خطا",
+                MessageBoxButton.OK,
+                MessageBoxImage.Exclamation);
         }
+
+        public void SuccessMessage(string message)
+        {
+            MessageBox.Show(message,
+                "نتیجه",
+                MessageBoxButton.OK,
+                MessageBoxImage.Information);
+        }
+
     }
 }

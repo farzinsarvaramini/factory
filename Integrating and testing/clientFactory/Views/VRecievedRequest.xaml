@@ -4,23 +4,25 @@
         Title="پاسخ به درخواست" Height="401.77" Width="407.89">
     <Grid Height="387" Margin="0,0,0.209,-0.487" VerticalAlignment="Top">
         <Button x:Name="Close_Btn" Content="بازگشت" HorizontalAlignment="Left" Margin="10,345,0,0" VerticalAlignment="Top" Width="75" Click="BackEvent_Click"/>
-        <Label Content="موضوع" HorizontalAlignment="Left" Margin="326,27,0,0" VerticalAlignment="Top" Width="57"/>
-        <Label Content="فرستنده" HorizontalAlignment="Left" Margin="333,63,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.475,1.038"/>
-        <Label Content="تاریخ ارسال" HorizontalAlignment="Left" Margin="316,91,0,0" VerticalAlignment="Top"/>
-        <Label Content="توضیحات" HorizontalAlignment="Left" Margin="326,121,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.408,1.385"/>
-        <TextBlock x:Name="Subject" HorizontalAlignment="Left" Margin="168,37,0,0" TextWrapping="Wrap" Background="gray" Text="Initial" VerticalAlignment="Top" Width="143" FlowDirection="RightToLeft"/>
-        <TextBlock x:Name="Sender" HorizontalAlignment="Left" Margin="187,68,0,0" TextWrapping="Wrap" Background="gray" Text="Initial" VerticalAlignment="Top" Width="141" FlowDirection="RightToLeft"/>
-        <TextBlock x:Name="Send_Date" HorizontalAlignment="Left" Margin="226,97,0,0" TextWrapping="Wrap" Background="gray"  Text="Initial" VerticalAlignment="Top" Width="85" FlowDirection="RightToLeft"/>
-        <TextBlock x:Name="Description" HorizontalAlignment="Left" Margin="13,127,0,0" TextWrapping="Wrap" Background="gray" Text="Initial" VerticalAlignment="Top" Width="313" Height="57" FlowDirection="RightToLeft" ScrollViewer.CanContentScroll="True"/>
+        <Label Content="موضوع:" HorizontalAlignment="Left" Margin="326,27,0,0" VerticalAlignment="Top" Width="57" FlowDirection="RightToLeft"/>
+        <Label Content="فرستنده:" HorizontalAlignment="Left" Margin="333,63,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.475,1.038" FlowDirection="RightToLeft"/>
+        <Label Content="تاریخ ارسال:" HorizontalAlignment="Left" Margin="316,91,0,0" VerticalAlignment="Top" FlowDirection="RightToLeft"/>
+        <Label Content="توضیحات:" HorizontalAlignment="Left" Margin="326,121,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.408,1.385" FlowDirection="RightToLeft"/>
+        <TextBlock x:Name="Subject" HorizontalAlignment="Left" Margin="168,37,0,0" TextWrapping="Wrap" Background="White" VerticalAlignment="Top" Width="143" FlowDirection="RightToLeft" Height="16"/>
+        <TextBlock x:Name="Sender" HorizontalAlignment="Left" Margin="170,68,0,0" TextWrapping="Wrap" Background="White" VerticalAlignment="Top" Width="141" FlowDirection="RightToLeft"/>
+        <TextBlock x:Name="Send_Date" HorizontalAlignment="Left" Margin="226,97,0,0" TextWrapping="Wrap" Background="White" VerticalAlignment="Top" Width="85" FlowDirection="RightToLeft"/>
+        <TextBlock x:Name="Description" HorizontalAlignment="Left" Margin="13,127,0,0" TextWrapping="Wrap" Background="White" VerticalAlignment="Top" Width="313" Height="57" FlowDirection="RightToLeft" ScrollViewer.CanContentScroll="True"/>
         <Rectangle Fill="#FF0A0A35" HorizontalAlignment="Left" Height="173" Margin="388,11,0,0" Stroke="Black" VerticalAlignment="Top" Width="4" RadiusX="2" RadiusY="5"/>
         <Label Content="متن درخواست" HorizontalAlignment="Left" Margin="277,2,0,0" VerticalAlignment="Top" Width="104" FlowDirection="RightToLeft" FontSize="16" FontWeight="Bold" FontStyle="Italic" FontFamily="Verdana"/>
-        <Label Content="پاسخ به درخواست" HorizontalAlignment="Left" Margin="181,193,0,0" VerticalAlignment="Top" Width="200" FlowDirection="RightToLeft" FontSize="16" FontWeight="Bold" FontStyle="Italic" FontFamily="Verdana" Height="33"/>
-        <RadioButton Content="پذیرش درخواست" HorizontalAlignment="Left" Margin="279,226,0,0" VerticalAlignment="Top" FlowDirection="RightToLeft" IsChecked="True"/>
-        <RadioButton Content="رد درخواست" HorizontalAlignment="Left" Height="15" Margin="148,226,0,0" VerticalAlignment="Top" Width="112" FlowDirection="RightToLeft" IsChecked="True"/>
+        <Label Content="پاسخ به درخواست" HorizontalAlignment="Left" Margin="237,193,0,0" VerticalAlignment="Top" Width="144" FlowDirection="RightToLeft" FontSize="16" FontWeight="Bold" FontStyle="Italic" FontFamily="Verdana" Height="33"/>
+        <StackPanel x:Name="stack" Margin="100,226,20.89,146" Orientation="Horizontal">
+            <RadioButton x:Name="Reject_check" Content="رد درخواست" HorizontalAlignment="Left" Height="15" VerticalAlignment="Top" Width="112" FlowDirection="RightToLeft" IsChecked="True"/>
+            <RadioButton x:Name="Accept_check" Content="پذیرش درخواست" HorizontalAlignment="Left" VerticalAlignment="Top" FlowDirection="RightToLeft" IsChecked="True" Width="147"/>
+        </StackPanel>
         <Rectangle Fill="#FF0A0A35" HorizontalAlignment="Left" Height="143" Margin="388,193,0,0" Stroke="Black" VerticalAlignment="Top" Width="4" RadiusX="2" RadiusY="5"/>
-        <Label Content="پاسخ" HorizontalAlignment="Left" Margin="346,256,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.408,1.385" Width="37"/>
-        <TextBlock x:Name="Answer" HorizontalAlignment="Left" Margin="15,256,0,0" TextWrapping="Wrap" Background="gray" Text="Initial" VerticalAlignment="Top" Width="326" Height="81" FlowDirection="RightToLeft" ScrollViewer.CanContentScroll="True"/>
-        <Button Content="ارسال پاسخ" HorizontalAlignment="Left" Margin="100,345,0,0" VerticalAlignment="Top" Width="75"/>
+        <Label Content="پاسخ:" HorizontalAlignment="Left" Margin="346,256,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.408,1.385" Width="37" FlowDirection="RightToLeft"/>
+        <TextBlock x:Name="Answer" HorizontalAlignment="Left" Margin="15,256,0,0" TextWrapping="Wrap" Background="White" VerticalAlignment="Top" Width="326" Height="81" FlowDirection="RightToLeft" ScrollViewer.CanContentScroll="True"/>
+        <Button x:Name="Send_AnswerBtn" Content="ارسال پاسخ" HorizontalAlignment="Left" Margin="100,345,0,0" VerticalAlignment="Top" Width="75" Click="Send_AnswerBtn_Click"/>
 
     </Grid>
 </Window>
