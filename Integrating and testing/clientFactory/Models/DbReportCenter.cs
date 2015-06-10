@@ -56,6 +56,49 @@ namespace clientFactory
             }
         }
 
+
+           public int newReportWithId(Report r, ReportCategory rc, Attachments atach = null)
+        {
+
+            Report newReport = clientDb.Reports.Create();
+            ReportCategory newRc = clientDb.ReportCategories.Create();
+            Attachments newAtach = clientDb.Attachments.Create();
+
+            newReport.Sender_ID = r.Sender_ID;
+            newReport.Sender = r.Sender;
+            newReport.Recipient = r.Recipient;
+            newReport.Recipient_ID = r.Recipient_ID;
+            newReport.SendDate = r.SendDate;
+            newReport.isRead = r.isRead;
+            newReport.isMark = r.isMark;
+            newReport.Title = r.Title;
+            newReport.Description = r.Description;
+            if (atach != null)
+                newReport.Attachment = newAtach;
+            newReport.ReportCategory = newRc;
+
+
+            newRc.Reports.Add(newReport);
+            newRc.Title = rc.Title;
+
+            newAtach.FileLocation = atach.FileLocation;
+            newAtach.Report = newReport;
+            newAtach.uploadTime = atach.uploadTime;
+
+            clientDb.Reports.Add(newReport);
+            try
+            {
+                clientDb.SaveChanges();
+                Console.WriteLine("000000000000\n");
+                return newReport.Id;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("goh \n" + e.StackTrace + "    ljkkjhghj    " + e.Message);
+                return 0;
+            }
+        }
+
         public bool setServerId(int id)
         {
             clientDb.Reports.Where(s => s.Id == id).First().ServerId = id;
@@ -84,6 +127,12 @@ namespace clientFactory
             return s2;
         }
 
+        public List<User> getAllowedSendersList()
+        {
+            var s = from s1 in clientDb.Users select s1;
+            var s2 = s.ToList();
+            return s2;
+        }
 
 
         public ReportCategory getReportCategory(Int32 Id)
@@ -170,6 +219,14 @@ namespace clientFactory
             return true;
         }
 
+
+        public string getLocation(int atachId)
+        {
+            var location = clientDb.Attachments.Where(a => a.Id == atachId).First().FileLocation;
+            return location;
+        }
+
+
         public int GetServerReportId(int reportId)
         {
             return clientDb.Reports.Where(iid => iid.Id == reportId).First().Id;
@@ -181,10 +238,18 @@ namespace clientFactory
             Tuple<Report, ReportCategory, Attachments> t = new Tuple<Report, ReportCategory, Attachments>(r, r.ReportCategory, r.Attachment);
             return t;
         }
+        public List<Tuple<Report, ReportCategory, Attachments>> getNewReport(int recipientId){
+            var repo = clientDb.Reports.Where(r => r.Recipient_ID == recipientId).ToList();
 
-        public List<Tuple<Report, ReportCategory, Attachments>> GetNewReport(int userId)
-        {
-            return null;
+            Tuple<Report, ReportCategory, Attachments> t;
+            List<Tuple<Report, ReportCategory, Attachments>> l = new List<Tuple<Report,ReportCategory,Attachments>>();
+            foreach (Report r in repo)
+            {
+                t = new Tuple<Report, ReportCategory, Attachments>(r,r.ReportCategory,r.Attachment);
+                l.Add(t);
+                
+            }
+            return l;
         }
     }
 }

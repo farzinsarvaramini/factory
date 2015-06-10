@@ -15,7 +15,7 @@ namespace clientFactory
             _container = con;
         }
 
-        public bool AddUser(User usr, int masterId)
+        public bool AddUser(User usr)
         {
             User user = _container.Users.Create();
             user.FirstName = usr.FirstName;
@@ -34,7 +34,7 @@ namespace clientFactory
             user.Gender = usr.Gender;
             user.Username = usr.Username;
             user.DefaultUser = usr.DefaultUser;
-            user.UserId = masterId;
+            
 
             _container.Users.Add(user);
 
@@ -54,7 +54,7 @@ namespace clientFactory
         {
             var user = _container.Users.Where(u => u.DefaultUser == true).First();
             user.DefaultUser = false;
-            _container.Users.Where(u => u.UserId == user_id).First().DefaultUser = true;
+            _container.Users.Where(u => u.Id == user_id).First().DefaultUser = true;
 
             try
             {
@@ -83,5 +83,12 @@ namespace clientFactory
             var user = _container.Users.Where(u => u.IsNew == true).ToList();
             return user;
         }
+
+        public User Getuser(string userName)
+        {
+            var user = _container.Users.Where(u => u.Username == userName).First();
+            return user;
+        }
+
     }
 }

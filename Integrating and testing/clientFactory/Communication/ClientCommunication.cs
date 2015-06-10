@@ -41,6 +41,14 @@ namespace clientFactory
             _receivedPath = "";
         }
 
+        public string ProcessRequest(Request request)
+        {
+            this.Connect();
+            this.SendRequest(request);
+            this.RecieveResponse();
+            return _response;
+        }
+
         public bool Connect()
         {
             const int maxAttempt = 1000;
@@ -68,10 +76,10 @@ namespace clientFactory
             return false;
         }
 
-        public void RecieveResponse(Socket socket)
+        public void RecieveResponse()
         {
             byte[] recieved = new byte[1024];
-            socket.Receive(recieved, 0, recieved.Length, 0);
+            _clientSocket.Receive(recieved, 0, recieved.Length, 0);
             string res = System.Text.Encoding.Default.GetString(recieved);
             _response = res;
         }
@@ -83,7 +91,7 @@ namespace clientFactory
                 string json = request.ToJson();
                 byte[] sendData = Encoding.ASCII.GetBytes(json);
                 _clientSocket.Send(sendData);
-                RecieveResponse(_clientSocket);
+                RecieveResponse();
             }
             catch (Exception ex)
             {
@@ -131,7 +139,7 @@ namespace clientFactory
                     }
                     // File transferred.
                 }
-                RecieveResponse(_clientSocket);
+                RecieveResponse();
             }
             catch (Exception ex)
             {
@@ -166,7 +174,7 @@ namespace clientFactory
                         fileData.Write(buffer, 0, count);
                         bytesReceived += count;
                     }
-                RecieveResponse(_clientSocket);
+                RecieveResponse();
             }
             catch (Exception ex)
             {

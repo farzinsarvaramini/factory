@@ -63,14 +63,20 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Communication\ClientRequestManager.cs" />
+    <Compile Include="Communication\ServerRequestManager.cs" />
     <Compile Include="Controllers\CRequestController.cs" />
     <Compile Include="Controllers\CViewReportController.cs" />
     <Compile Include="Models\Attachments.cs">
       <DependentUpon>clientModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Controllers\CUserController.cs" />
-    <Compile Include="Communication\RequestManager.cs" />
     <Compile Include="Communication\ServerCommunication.cs" />
+    <Compile Include="Models\clientModel.Context2.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>clientModel.Context.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\DbRequestCenter.cs" />
     <Compile Include="Models\DbUserCenter.cs" />
     <Compile Include="Models\RequestModel.cs">
@@ -198,6 +204,7 @@
     <None Include="Models\clientModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>clientModel.edmx</DependentUpon>
+      <LastGenOutput>clientModel.Context2.cs</LastGenOutput>
     </None>
     <None Include="Models\clientModel.edmx.diagram">
       <DependentUpon>clientModel.edmx</DependentUpon>

@@ -18,6 +18,7 @@ namespace clientFactory
         {
             this.Follow = false;
             this.IsNew = false;
+            this.IsAnswered = false;
         }
     
         public int Id { get; set; }
@@ -32,5 +33,6 @@ namespace clientFactory
         public string Answer { get; set; }
         public float Status { get; set; }
         public bool IsNew { get; set; }
+        public bool IsAnswered { get; set; }
     }
 }

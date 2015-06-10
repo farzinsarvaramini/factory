@@ -44,28 +44,27 @@
                 </Grid>
             </TabItem>
         </TabControl>
-        <Button x:Name="returnBack_b" Content="بازگشت" HorizontalAlignment="Left" Margin="10,329,0,0" VerticalAlignment="Top" Width="105" Height="30" Click="returnBack_b_Click"/>
-        <Button x:Name="markReport_b" Content="مارک کردن گزارش" HorizontalAlignment="Left" Margin="10,250,0,0" VerticalAlignment="Top" Width="105" Height="30" Click="markReport_b_Click"/>
-        <Button x:Name="deleteReport_b" Content="حذف گزارش" HorizontalAlignment="Left" Margin="10,215,0,0" VerticalAlignment="Top" Width="105" Height="30" Click="deleteReport_b_Click"/>
-        <Button x:Name="showReport_b" Content="مشاهده گزارش" HorizontalAlignment="Left" Margin="10,180,0,0" VerticalAlignment="Top" Width="105" Height="30" Click="showReport_b_Click"/>
+        <Button x:Name="returnBack_b" Content="بازگشت" HorizontalAlignment="Left" Margin="10,329,0,0" VerticalAlignment="Top" Width="105" Height="30" Click="returnBack_b_Click" FontSize="14"/>
+        <Button x:Name="markReport_b" Content="مارک کردن گزارش" HorizontalAlignment="Left" Margin="10,250,0,0" VerticalAlignment="Top" Width="105" Height="30" Click="markReport_b_Click" FontSize="14"/>
+        <Button x:Name="deleteReport_b" Content="حذف گزارش" HorizontalAlignment="Left" Margin="10,215,0,0" VerticalAlignment="Top" Width="105" Height="30" Click="deleteReport_b_Click" FontSize="14"/>
+        <Button x:Name="showReport_b" Content="مشاهده گزارش" HorizontalAlignment="Left" Margin="10,180,0,0" VerticalAlignment="Top" Width="105" Height="30" Click="showReport_b_Click" FontSize="14"/>
         <GroupBox Header="جستجو" HorizontalAlignment="Left" VerticalAlignment="Top" Height="113" Width="738" Margin="1,38,-1,0">
-            <Image HorizontalAlignment="Left" Height="37" Margin="10,27,0,0" VerticalAlignment="Top" Width="39" Source="/clientFactory;component/Resource\search_icon.png"/>
+            <Image HorizontalAlignment="Left" Height="37" Margin="10,10,0,0" VerticalAlignment="Top" Width="39" Source="/clientFactory;component/Resource\search_icon.png"/>
 
         </GroupBox>
-        <Button x:Name="search_b" Content="جستجو" HorizontalAlignment="Left" VerticalAlignment="Top"  Height="33" Width="83" Margin="65,86,0,0" Click="search_b_Click"/>
+        <Button x:Name="search_b" Content="جستجو" HorizontalAlignment="Left" VerticalAlignment="Top"  Height="33" Width="83" Margin="65,66,0,0" Click="search_b_Click" FontSize="15"/>
         <Label Content="عنوان گزارش" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="645,69,0,0" RenderTransformOrigin="1.172,3.801"/>
         <TextBox x:Name="reportCategory_tb" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Margin="520,104,0,0"/>
         <Label Content="دسته گزارش" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="645,99,0,0"/>
         <ComboBox x:Name="sender_cb" HorizontalAlignment="Left" VerticalAlignment="Top" Width="171" Margin="257,73,0,0"/>
         <Label Content="فرستنده" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="446,73,0,0" RenderTransformOrigin="1.521,0.468"/>
-        <Label Content="از&#xD;&#xA;" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="497,104,0,0" RenderTransformOrigin="1.824,0.634"/>
-        <Label Content="تا" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="321,104,0,0" RenderTransformOrigin="1.306,0.595"/>
-        <TextBox x:Name="dateFrom_tb" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="100" Margin="343,107,0,0"/>
-        <TextBox x:Name="dateTo_tb" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="100" Margin="169,107,0,0"/>
-        <DatePicker x:Name="to_dp" HorizontalAlignment="Left" Margin="286,107,0,0" VerticalAlignment="Top" Height="25" Width="30"/>
-        <DatePicker x:Name="from_dp" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="462,107,0,0" Width="30" RenderTransformOrigin="0.738,0.624"/>
+        <Label Content="از تاریخ" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="446,104,0,0" RenderTransformOrigin="1.824,0.634"/>
+        <Label Content="تا تاریخ" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="334,104,0,0" RenderTransformOrigin="1.306,0.595"/>
+        <DatePicker x:Name="to_dp" HorizontalAlignment="Left" Margin="286,104,0,0" VerticalAlignment="Top" Height="26" Width="30"/>
+        <DatePicker x:Name="from_dp" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="398,104,0,0" Width="30" RenderTransformOrigin="0.738,0.624" Height="26"/>
         <TextBox x:Name="reportTitle_tb" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Margin="520,72,0,0"/>
         <Label Content="مشاهده گزارشات" HorizontalAlignment="Left" VerticalAlignment="Top" Height="38" Width="148" FontSize="18"/>
+        <Button x:Name="cancelSearch_b" Content="برگشت به حالت اول&#xD;&#xA;" HorizontalAlignment="Left" Margin="10,107,0,0" VerticalAlignment="Top" Width="138" Height="25" FontSize="14" Click="cancelSearch_b_Click"/>
 
     </Grid>
 </Window>
